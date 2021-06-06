@@ -12,7 +12,7 @@
             </v-btn>
         </v-app-bar>
         <v-layout>
-            <v-simple-table style="width:100%;">
+            <v-simple-table style="width:100%;" v-if="show_scoreboard">
                 <template v-slot:default>
                     <thead>
                         <tr>
@@ -28,13 +28,13 @@
                     <tbody>
                         <tr v-for="(rank, index) in rankings" :key="'ranking-' + index">
                             <td>{{ index + 1 }}</td>
-                            <td>{{ rank.user }}</td>
-                            <td>{{ rank.score }}</td>
+                            <td>{{ teams[rank.team_id].name }}</td>
+                            <td>{{ rank.score.num_solved }}</td>
                             <!-- Problems -->
-                            <td v-for="(problem, index) in rank.solutions" :key="'problem-header-' + index">
+                            <td v-for="(problem, index) in rank.problems" :key="'problem-header-' + index">
                                 <template v-if="problem">
                                     <p>
-                                        {{ problem.points }}
+                                        {{ problem.solved ? 100 : 0 }}
                                     </p>
                                     <p>
                                         {{ problem.time }}
@@ -58,6 +58,7 @@
 export default {
     data(){
         return {
+            show_scoreboard : false,
             scoreboard_data : null,
             judge_type : null,
             problems : [],
@@ -93,20 +94,31 @@ export default {
             this.scoreboard_data = data.data.object;
             this.problems = this.scoreboard_data.problems;
             this.rankings = this.scoreboard_data.rankings;
+
+            let teams_new = {};
+            let organizations_new = {};
+
+            this.rankings.forEach((item) => { 
+                teams_new[item.user] = item; 
+                organizations_new[item.organization] = item; 
+            });
+
+            this.show_scoreboard = true;
         },
         populateTableAsDomjudge(data){
             console.log("PopulateTableAsDomjudge");
             this.scoreboard_data = data;
-            let problem = data.rows[0];
-            if (problem){
-                let lis = problem.problems;
+            let row = data.rows[0];
+            if (row){
+                let lis = row.problems;
                 for (let i = 0;i < lis.length;i++){
                     lis.name = lis.problem_id;
                 }
 
                 this.problems = lis;
+                this.rankings = data.rows;
 
-
+                console.log(this.problems);
             }
         },
         retrieveScoreboard(){
@@ -122,8 +134,13 @@ export default {
         retrieveDomjudgeTeams(){
             this.axios.get("http://192.168.43.131:8080/data/domjudge_api_teams_example.json")
             .then((response) => {
+                let teams = response.data;
+                let teams_new = {};
                 
-                console.log(response.data);
+                teams.forEach((item) => { teams_new[item.id] = item; });
+
+                this.teams = teams_new;
+                console.log(this.teams);
             })
             .catch((errors) => {
                 console.log(errors);
@@ -132,8 +149,15 @@ export default {
         retrieveDomjudgeOrganizations(){
             this.axios.get("http://192.168.43.131:8080/data/domjudge_api_organizations_example.json")
             .then((response) => {
+                let organizations = response.data;
+                let organizations_new = {};
                 
-                console.log(response.data);
+                organizations.forEach((item) => { organizations_new[item.id] = item; });
+
+                this.organizations = organizations_new;
+                console.log(this.organizations);
+
+                this.show_scoreboard = true;
             })
             .catch((errors) => {
                 console.log(errors);
