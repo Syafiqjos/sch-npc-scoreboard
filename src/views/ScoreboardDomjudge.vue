@@ -2,7 +2,7 @@
     <v-container fill-height fluid>
         <v-app-bar app color="primary" dark>
             <v-app-bar-nav-icon @click.stop="drawer = true"></v-app-bar-nav-icon>
-            <v-toolbar-title>Schematics NPC - Penyisihan Junior</v-toolbar-title>
+            <v-toolbar-title>Schematics NPC - Penyisihan Senior</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn to="/home/exams" class="mr-2">
                 Junior
@@ -20,13 +20,13 @@
                             <th>Team</th>
                             <th>Score</th>
                             <!-- Problems -->
-                            <th v-for="(problem, index) in problems" :key="'problem-header-' + index" class="text-left">
+                            <th v-for="(problem, index) in scoreboard_data.problems" :key="'problem-header-' + index" class="text-left">
                                 {{ String.fromCharCode(65 + index) }}
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(rank, index) in rankings" :key="'ranking-' + index">
+                        <tr v-for="(rank, index) in scoreboard_data.rankings" :key="'ranking-' + index">
                             <td>{{ index + 1 }}</td>
                             <td>{{ rank.user }}</td>
                             <td>{{ rank.score }}</td>
@@ -59,24 +59,17 @@ export default {
     data(){
         return {
             scoreboard_data : null,
-            problems : [],
-            rankings : []
         }
     },
     mounted(){
-        this.axios.get("http://192.168.43.131:8080/data/dmoj_api_example.json")
+        this.axios.get("http://192.168.43.131:8080/data/domjudge_api_example.json")
         .then((response) => {
             this.scoreboard_data = response.data.data.object;
-            this.problems = this.scoreboard_data.problems;
-            this.rankings = this.scoreboard_data.rankings;
             console.log(this.scoreboard_data);
         })
         .catch((errors) => {
             console.log(errors);
         });
-    },
-    methods : {
-        
     }
 }
 </script>

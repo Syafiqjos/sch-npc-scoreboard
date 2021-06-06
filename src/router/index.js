@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import ScoreboardDMOJ from '../views/ScoreboardDMOJ.vue'
+import ScoreboardDomjudge from '../views/ScoreboardDomjudge.vue'
 
 Vue.use(VueRouter)
 
@@ -24,6 +25,12 @@ const routes = [
     path: '/scoreboard/penyisihan/junior',
     name: 'ScoreboardDMOJ',
     component: ScoreboardDMOJ
+  },
+  {
+    //path: '/event/npc/scoreboard/penyisihan/senior',
+    path: '/scoreboard/penyisihan/senior',
+    name: 'ScoreboardDomjudge',
+    component: ScoreboardDomjudge
   }
 ]
 
