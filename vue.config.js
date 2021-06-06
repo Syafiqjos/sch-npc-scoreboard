@@ -2,5 +2,5 @@ module.exports = {
   transpileDependencies: [
     'vuetify'
   ],
-   publicPath: '/event/npc/'
+   publicPath: process.env.BASE_URL
 }
