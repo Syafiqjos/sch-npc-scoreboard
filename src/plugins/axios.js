@@ -16,6 +16,10 @@ let config = {
 
 const _axios = axios.create(config);
 
+//_axios.defaults.headers.get['Content-Type'] = 'application/json';
+//_axios.defaults.headers.get['Accept'] = 'application/json';
+//_axios.defaults.headers.get['Origin'] = 'http://192.168.43.131:8080';
+
 _axios.interceptors.request.use(
   function(config) {
     // Do something before request is sent
