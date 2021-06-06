@@ -59,24 +59,86 @@ export default {
     data(){
         return {
             scoreboard_data : null,
+            judge_type : null,
             problems : [],
-            rankings : []
+            rankings : [],
+            teams : [],
+            organizations : []
         }
     },
     mounted(){
-        this.axios.get("http://192.168.43.131:8080/data/dmoj_api_example.json")
-        .then((response) => {
-            this.scoreboard_data = response.data.data.object;
-            this.problems = this.scoreboard_data.problems;
-            this.rankings = this.scoreboard_data.rankings;
-            console.log(this.scoreboard_data);
-        })
-        .catch((errors) => {
-            console.log(errors);
-        });
+        this.retrieveScoreboard();
     },
     methods : {
-        
+        checkJudgeType(data){
+            if (data.api_version){
+                return 'dmoj';
+            } else if (data.event_id){
+                return 'domjudge';
+            }
+            return null;
+        },
+        populateTable(data){
+            this.judge_type = this.checkJudgeType(data);
+            if (this.judge_type == 'dmoj'){
+                this.populateTableAsDMOJ(data);
+            } else if (this.judge_type == 'domjudge'){
+                this.populateTableAsDomjudge(data);
+                this.retrieveDomjudgeTeams();
+                this.retrieveDomjudgeOrganizations();
+            }
+        },
+        populateTableAsDMOJ(data){
+            console.log("PopulateTableAsDMOJ");
+            this.scoreboard_data = data.data.object;
+            this.problems = this.scoreboard_data.problems;
+            this.rankings = this.scoreboard_data.rankings;
+        },
+        populateTableAsDomjudge(data){
+            console.log("PopulateTableAsDomjudge");
+            this.scoreboard_data = data;
+            let problem = data.rows[0];
+            if (problem){
+                let lis = problem.problems;
+                for (let i = 0;i < lis.length;i++){
+                    lis.name = lis.problem_id;
+                }
+
+                this.problems = lis;
+
+
+            }
+        },
+        retrieveScoreboard(){
+            this.axios.get("http://192.168.43.131:8080/data/domjudge_api_example.json")
+            .then((response) => {
+                this.populateTable(response.data);
+                console.log(response.data);
+            })
+            .catch((errors) => {
+                console.log(errors);
+            });
+        },
+        retrieveDomjudgeTeams(){
+            this.axios.get("http://192.168.43.131:8080/data/domjudge_api_teams_example.json")
+            .then((response) => {
+                
+                console.log(response.data);
+            })
+            .catch((errors) => {
+                console.log(errors);
+            });
+        },
+        retrieveDomjudgeOrganizations(){
+            this.axios.get("http://192.168.43.131:8080/data/domjudge_api_organizations_example.json")
+            .then((response) => {
+                
+                console.log(response.data);
+            })
+            .catch((errors) => {
+                console.log(errors);
+            });
+        }
     }
 }
 </script>
