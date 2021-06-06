@@ -79,7 +79,7 @@ export default {
             }
         },
         retrieveTeams(){
-            this.axios.get("/data/domjudge_api_teams_example.json")
+            this.axios.get("/scoreboard_data/domjudge_api_teams_example.json")
             .then((response) => {
                 let teams = response.data;
                 let teams_new = {};
@@ -94,7 +94,7 @@ export default {
             });
         },
         retrieveOrganizations(){
-            this.axios.get("/data/domjudge_api_organizations_example.json")
+            this.axios.get("/scoreboard_data/domjudge_api_organizations_example.json")
             .then((response) => {
                 let organizations = response.data;
                 let organizations_new = {};

@@ -60,13 +60,13 @@ export default {
                 this.class_type = 'Junior';
                 if (contest == 'penyisihan'){
                     this.contest_name = 'Penyisihan';
-                    return "/data/dmoj_api_example.json";
+                    return "/scoreboard_data/dmoj_api_example.json";
                 }
             } else if (classs == 'senior'){
                 this.class_type = 'Senior';
                  if (contest == 'penyisihan'){
                      this.contest_name = 'Penyisihan';
-                    return "/data/domjudge_api_example.json";
+                    return "/scoreboard_data/domjudge_api_example.json";
                 }
             }
             return null;
