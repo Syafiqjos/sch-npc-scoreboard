@@ -2,7 +2,7 @@
     <v-container fill-height fluid>
         <v-app-bar app color="primary" dark>
             <v-app-bar-nav-icon @click.stop="drawer = true"></v-app-bar-nav-icon>
-            <v-toolbar-title>Schematics NPC - Penyisihan Junior</v-toolbar-title>
+            <v-toolbar-title>Schematics NPC - {{ contest_name }} {{ class_type }}</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn :to="juniorLink" @click="refreshScoreboard()" class="mr-2">
                 Junior
@@ -30,6 +30,8 @@ export default {
             show_scoreboard : false,
             scoreboard_data : null,
             judge_type : null,
+            class_type : null,
+            contest_name : null,
         }
     },
     components : {
@@ -51,14 +53,19 @@ export default {
         getFetchLinkFromParams(){
             let classs = this.$route.params.class;
             let contest = this.$route.params.contest;
+            
             console.log(classs);
             console.log(contest);
             if (classs == 'junior'){
+                this.class_type = 'Junior';
                 if (contest == 'penyisihan'){
+                    this.contest_name = 'Penyisihan';
                     return "/data/dmoj_api_example.json";
                 }
             } else if (classs == 'senior'){
+                this.class_type = 'Senior';
                  if (contest == 'penyisihan'){
+                     this.contest_name = 'Penyisihan';
                     return "/data/domjudge_api_example.json";
                 }
             }
