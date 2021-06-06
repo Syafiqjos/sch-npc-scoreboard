@@ -4,17 +4,17 @@
             <v-app-bar-nav-icon @click.stop="drawer = true"></v-app-bar-nav-icon>
             <v-toolbar-title>Schematics NPC - Penyisihan Junior</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn to="/home/exams" class="mr-2">
+            <v-btn :to="juniorLink" @click="refreshScoreboard()" class="mr-2">
                 Junior
             </v-btn>
-            <v-btn to="/home/history"  >
+            <v-btn :to="seniorLink" @click="refreshScoreboard()">
                 Senior
             </v-btn>
         </v-app-bar>
         <v-layout>
             <template v-if="show_scoreboard">
-                <ScoreboardDomjudge :scoreboard_data="scoreboard_data" v-if="judge_type == 'domjudge'"></ScoreboardDomjudge>
-                <ScoreboardDMOJ :scoreboard_data="scoreboard_data" v-else-if="judge_type == 'dmoj'"></ScoreboardDMOJ>
+                <ScoreboardDomjudge ref="scoreboardDomjudge" :data="scoreboard_data" v-if="judge_type == 'domjudge'"></ScoreboardDomjudge>
+                <ScoreboardDMOJ ref="scoreboardDMOJ" :data="scoreboard_data" v-else-if="judge_type == 'dmoj'"></ScoreboardDMOJ>
             </template>
         </v-layout>
     </v-container>
@@ -39,7 +39,31 @@ export default {
     mounted(){
         this.retrieveScoreboard();
     },
+    computed : {
+        juniorLink(){
+            return '/scoreboard/' + this.$route.params.contest + '/junior';
+        },
+        seniorLink(){
+            return '/scoreboard/' + this.$route.params.contest + '/senior';
+        }
+    },
     methods : {
+        getFetchLinkFromParams(){
+            let classs = this.$route.params.class;
+            let contest = this.$route.params.contest;
+            console.log(classs);
+            console.log(contest);
+            if (classs == 'junior'){
+                if (contest == 'penyisihan'){
+                    return "/data/dmoj_api_example.json";
+                }
+            } else if (classs == 'senior'){
+                 if (contest == 'penyisihan'){
+                    return "/data/domjudge_api_example.json";
+                }
+            }
+            return null;
+        },
         checkJudgeType(data){
             if (data.api_version){
                 return 'dmoj';
@@ -48,8 +72,14 @@ export default {
             }
             return null;
         },
+        refreshScoreboard(){
+            this.retrieveScoreboard();
+            this.$refs.scoreboardDomjudge?.initialization();
+            this.$refs.scoreboardDMOJ?.initialization();
+        },
         retrieveScoreboard(){
-            this.axios.get("http://192.168.43.131:8080/data/dmoj_api_example.json")
+            let fetch_link = this.getFetchLinkFromParams();
+            this.axios.get(fetch_link)
             .then((response) => {
                 this.scoreboard_data = response.data;
                 this.judge_type = this.checkJudgeType(this.scoreboard_data);

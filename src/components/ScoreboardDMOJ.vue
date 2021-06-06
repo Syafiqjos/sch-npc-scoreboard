@@ -43,20 +43,24 @@
 export default {
     data(){
         return {
-            problems : [],
-            rankings : [],
+            scoreboard_data : null,
+            problems : null,
+            rankings : null,
         }
     },
     props : [
-        'scoreboard_data'
+        'data'
     ],
     mounted(){
-        this.populateTable();
+        this.initialization();
     },
     methods : {
+        initialization(){
+            this.populateTable();
+        },
         populateTable(){
             console.log("PopulateTableAsDMOJ");
-            this.scoreboard_data = this.scoreboard_data.data.object;
+            this.scoreboard_data = this.data.data.object;
             this.problems = this.scoreboard_data.problems;
             this.rankings = this.scoreboard_data.rankings;
         }

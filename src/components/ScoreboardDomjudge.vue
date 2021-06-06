@@ -43,6 +43,7 @@
 export default {
     data(){
         return {
+            scoreboard_data : null,
             problems : null,
             rankings : null,
             teams : null,
@@ -50,16 +51,20 @@ export default {
         }
     },
     props : [
-        'scoreboard_data'
+        'data'
     ],
     mounted(){
-        this.populateTable();
-        this.retrieveTeams();
-        this.retrieveOrganizations();
+        this.initialization();
     },
     methods : {
+        initialization(){
+            this.populateTable();
+            this.retrieveTeams();
+            this.retrieveOrganizations();
+        },
         populateTable(){
             console.log("PopulateTableAsDomjudge");
+            this.scoreboard_data = this.data;
             let row = this.scoreboard_data.rows[0];
             if (row){
                 let lis = row.problems;
@@ -74,7 +79,7 @@ export default {
             }
         },
         retrieveTeams(){
-            this.axios.get("http://192.168.43.131:8080/data/domjudge_api_teams_example.json")
+            this.axios.get("/data/domjudge_api_teams_example.json")
             .then((response) => {
                 let teams = response.data;
                 let teams_new = {};
@@ -89,7 +94,7 @@ export default {
             });
         },
         retrieveOrganizations(){
-            this.axios.get("http://192.168.43.131:8080/data/domjudge_api_organizations_example.json")
+            this.axios.get("/data/domjudge_api_organizations_example.json")
             .then((response) => {
                 let organizations = response.data;
                 let organizations_new = {};

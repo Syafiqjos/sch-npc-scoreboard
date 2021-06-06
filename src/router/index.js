@@ -21,7 +21,8 @@ const routes = [
   },
   {
     //path: '/event/npc/scoreboard/penyisihan/junior',
-    path: '/scoreboard/penyisihan/junior',
+    //path: '/scoreboard/penyisihan/junior',
+    path: '/scoreboard/:contest/:class',
     name: 'Scoreboard',
     component: Scoreboard
   }
