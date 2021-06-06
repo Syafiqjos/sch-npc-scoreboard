@@ -1,5 +1,5 @@
 <template>
-    <v-simple-table v-if="scoreboard_data && teams && organizations" style="width:100%;">
+    <v-simple-table v-if="scoreboard_data && problems && rankings && teams && organizations" style="width:100%;">
         <template v-slot:default>
             <thead>
                 <tr>
@@ -58,14 +58,6 @@ export default {
         this.retrieveOrganizations();
     },
     methods : {
-        checkJudgeType(data){
-            if (data.api_version){
-                return 'dmoj';
-            } else if (data.event_id){
-                return 'domjudge';
-            }
-            return null;
-        },
         populateTable(){
             console.log("PopulateTableAsDomjudge");
             let row = this.scoreboard_data.rows[0];

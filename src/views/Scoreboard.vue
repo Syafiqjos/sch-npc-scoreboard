@@ -49,7 +49,7 @@ export default {
             return null;
         },
         retrieveScoreboard(){
-            this.axios.get("http://192.168.43.131:8080/data/domjudge_api_example.json")
+            this.axios.get("http://192.168.43.131:8080/data/dmoj_api_example.json")
             .then((response) => {
                 this.scoreboard_data = response.data;
                 this.judge_type = this.checkJudgeType(this.scoreboard_data);
