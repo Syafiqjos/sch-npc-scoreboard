@@ -11,12 +11,13 @@
                 Senior
             </v-btn>
         </v-app-bar>
-        <v-layout>
-            <template v-if="show_scoreboard">
-                <ScoreboardDomjudge ref="scoreboardDomjudge" :data="scoreboard_data" v-if="judge_type == 'domjudge'"></ScoreboardDomjudge>
-                <ScoreboardDMOJ ref="scoreboardDMOJ" :data="scoreboard_data" v-else-if="judge_type == 'dmoj'"></ScoreboardDMOJ>
-            </template>
-        </v-layout>
+        <template v-if="show_scoreboard">
+            <ScoreboardDomjudge ref="scoreboardDomjudge" :data="scoreboard_data" v-if="judge_type == 'domjudge'"></ScoreboardDomjudge>
+            <ScoreboardDMOJ ref="scoreboardDMOJ" :data="scoreboard_data" v-else-if="judge_type == 'dmoj'"></ScoreboardDMOJ>
+        </template>
+        <div class="countdown">
+            <h2>00:00:00</h2>
+        </div>
     </v-container>
 </template>
 
@@ -100,3 +101,25 @@ export default {
     }
 }
 </script>
+
+<style>
+    .countdown {
+        position : sticky;
+        bottom : 10px;
+
+        padding: 20px;
+        margin: auto;
+        margin-bottom: 20px;
+
+        width : 200px;
+
+        border-radius: 5px;
+
+        text-align: center;
+
+        background-color: rgb(18, 18, 18, 0.8);
+    }
+    .wide {
+        width : 100%;
+    }
+</style>
