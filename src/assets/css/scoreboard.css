@@ -37,12 +37,15 @@
     color : #121212;
     text-align : center;
     
-    padding : 5px;
+    padding : 10px;
     border-radius: 4px;
-    transform : translate(-50%, -40%);
+
+    margin-left: -80px;
 
     position : absolute;
-    z-index : 9;
+    z-index : 1;
+
+    /* transform: translate(-50%, -50%); */
 }
 
 .tooltip:hover .tooltip-text{

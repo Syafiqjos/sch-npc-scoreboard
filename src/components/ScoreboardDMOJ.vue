@@ -3,13 +3,13 @@
         <template v-slot:default>
             <thead>
                 <tr>
-                    <th class="text-center">Rank</th>
-                    <th class="text-center">Team</th>
-                    <th class="text-center">Score</th>
+                    <th>Rank</th>
+                    <th>Team</th>
+                    <th>Score</th>
                     <!-- Problems -->
                     <th v-for="(problem, index) in problems" :key="'problem-header-' + index" class="text-center tooltip">
                         {{ String.fromCharCode(65 + index) }}
-                        <span class="tooltip-text">{{ problem.name }}</span>
+                        <span class="tooltip-text" style="display:block;">{{ problem.name }}</span>
                     </th>
                 </tr>
             </thead>
