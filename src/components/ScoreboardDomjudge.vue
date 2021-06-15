@@ -75,6 +75,9 @@ export default {
                 this.problems = lis;
                 this.rankings = this.scoreboard_data.rows;
 
+                this.$parent.start_time = new Date(this.scoreboard_data.state.started);
+                this.$parent.end_time = new Date(this.scoreboard_data.state.ended);
+
                 console.log(this.problems);
             }
         },
