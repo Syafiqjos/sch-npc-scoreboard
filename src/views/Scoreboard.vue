@@ -11,6 +11,8 @@
                 Senior
             </v-btn>
         </v-app-bar>
+        <h1 class="title wide">Schematics NPC</h1>
+        <h2 class="subtitle wide">{{ contest_name }} {{ class_type }}</h2>
         <template v-if="show_scoreboard">
             <ScoreboardDomjudge ref="scoreboardDomjudge" :data="scoreboard_data" v-if="judge_type == 'domjudge'"></ScoreboardDomjudge>
             <ScoreboardDMOJ ref="scoreboardDMOJ" :data="scoreboard_data" v-else-if="judge_type == 'dmoj'"></ScoreboardDMOJ>
@@ -149,5 +151,11 @@ export default {
     }
     .wide {
         width : 100%;
+    }
+    .title {
+        display : block;
+    }
+    .subtitle {
+        display : block;
     }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <v-simple-table v-if="scoreboard_data && problems && rankings" width="100%" fixed-header>
+    <v-simple-table v-if="scoreboard_data && problems && rankings" style="width:100%;" fixed-header>
         <template v-slot:default>
             <thead>
                 <tr>
@@ -26,8 +26,7 @@
                             <p class="solution solution-time">
                                 {{ solution.time }}
                             </p>
-                            <p :class="'solution solution-points '
-                            + solution ? (solution.points >= 100 ? 'verdict-ac' : 'verdict-wa') : 'verdict-neutral'">
+                            <p :class="(solution ? (solution.points >= 100 ? ['solution', 'solution-points','verdict-ac'] : ['solution', 'solution-points','verdict-wa']) : ['solution', 'solution-points','verdict-neutral'])">
                                 {{ solution.points + ".0" }}
                             </p>
                         </template>
@@ -140,7 +139,6 @@ export default {
         font-size : 0.7em;
         padding : 1px;
 
-        background-color : rgb(18, 18, 18, 0.8);
         border-radius : 2px;
     }
 </style>
