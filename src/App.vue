@@ -11,3 +11,9 @@ export default {
   name : 'App'
 }
 </script>
+
+<style>
+    /*
+        figma : https://www.figma.com/file/UgtbqYN1VhFH6ygHMURUAb/schematics?node-id=0%3A1
+    */
+</style>

@@ -11,9 +11,9 @@
                 Senior
             </v-btn>
         </v-app-bar>
-        <h1 class="title wide">Schematics NPC</h1>
-        <h2 class="subtitle wide">{{ contest_name }} {{ class_type }}</h2>
         <template v-if="show_scoreboard">
+            <h1 class="title wide">Schematics NPC</h1>
+            <h2 class="subtitle wide">{{ contest_name }} {{ class_type }}</h2>
             <ScoreboardDomjudge ref="scoreboardDomjudge" :data="scoreboard_data" v-if="judge_type == 'domjudge'"></ScoreboardDomjudge>
             <ScoreboardDMOJ ref="scoreboardDMOJ" :data="scoreboard_data" v-else-if="judge_type == 'dmoj'"></ScoreboardDMOJ>
             <div class="countdown">
@@ -127,35 +127,3 @@ export default {
     }
 }
 </script>
-
-<style>
-    /*
-        figma : https://www.figma.com/file/UgtbqYN1VhFH6ygHMURUAb/schematics?node-id=0%3A1
-    */
-    
-    .countdown {
-        position : sticky;
-        bottom : 10px;
-
-        padding: 20px;
-        margin: auto;
-        margin-bottom: 20px;
-
-        width : 200px;
-
-        border-radius: 5px;
-
-        text-align: center;
-
-        background-color: rgb(18, 18, 18, 0.8);
-    }
-    .wide {
-        width : 100%;
-    }
-    .title {
-        display : block;
-    }
-    .subtitle {
-        display : block;
-    }
-</style>
