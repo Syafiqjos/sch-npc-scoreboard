@@ -7,8 +7,9 @@
                     <th>Team</th>
                     <th>Score</th>
                     <!-- Problems -->
-                    <th v-for="(problem, index) in problems" :key="'problem-header-' + index" class="text-left">
+                    <th v-for="(problem, index) in problems" :key="'problem-header-' + index" class="text-center tooltip">
                         {{ String.fromCharCode(65 + index) }}
+                        <span class="tooltip-text" style="display:block;">{{ problem.problem_id }}</span>
                     </th>
                 </tr>
             </thead>
@@ -16,19 +17,21 @@
                 <tr v-for="(rank, index) in rankings" :key="'ranking-' + index">
                     <td>{{ index + 1 }}</td>
                     <td>{{ teams[rank.team_id].name }}</td>
-                    <td>{{ rank.score.num_solved }}</td>
+                    <td>{{ rank.score.num_solved * 100 }}</td>
                     <!-- Problems -->
-                    <td v-for="(problem, index) in rank.problems" :key="'problem-header-' + index">
-                        <template v-if="problem">
-                            <p>
-                                {{ problem.solved ? 100 : 0 }}
+                    <td v-for="(problem, index) in rank.problems" :key="'problem-header-' + index"
+                        :class="problem.num_judged != 0 ? (problem.solved ? 'verdict-ac-vivid' : 'verdict-wa-vivid') : 'verdict-neutral'"
+                    >
+                        <template v-if="problem.num_judged != 0">
+                            <p class="solution solution-time">
+                                {{ problem.solved ? problem.time : '-' }}
                             </p>
-                            <p>
-                                {{ problem.time }}
+                            <p  :class="(problem.num_judged != 0 ? (problem.solved ? ['solution', 'solution-points','verdict-ac'] : ['solution', 'solution-points','verdict-wa']) : ['solution', 'solution-points','verdict-neutral'])">
+                                {{ problem.solved ? 100 : 0 }}
                             </p>
                         </template>
                         <template v-else>
-                            <p>
+                            <p class="solution">
                                 -
                             </p>
                         </template>
