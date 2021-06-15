@@ -3,11 +3,11 @@
         <template v-slot:default>
             <thead>
                 <tr>
-                    <th>Rank</th>
-                    <th>Team</th>
-                    <th>Score</th>
+                    <th class="text-center">Rank</th>
+                    <th class="text-center">Team</th>
+                    <th class="text-center">Score</th>
                     <!-- Problems -->
-                    <th v-for="(problem, index) in problems" :key="'problem-header-' + index" class="text-left tooltip">
+                    <th v-for="(problem, index) in problems" :key="'problem-header-' + index" class="text-center tooltip">
                         {{ String.fromCharCode(65 + index) }}
                         <span class="tooltip-text">{{ problem.name }}</span>
                     </th>
@@ -19,17 +19,19 @@
                     <td>{{ rank.user }}</td>
                     <td>{{ rank.score }}</td>
                     <!-- Problems -->
-                    <td v-for="(solution, index) in rank.solutions" :key="'problem-header-' + index">
+                    <td v-for="(solution, index) in rank.solutions" :key="'problem-header-' + index"
+                        :class="solution ? (solution.points >= 100 ? 'verdict-ac' : 'verdict-wa') : 'verdict-neutral'"
+                    >
                         <template v-if="solution">
-                            <p>
-                                {{ solution.score }}
-                            </p>
-                            <p>
+                            <p class="solution solution-time">
                                 {{ solution.time }}
+                            </p>
+                            <p class="solution solution-points">
+                                {{ solution.points + ".0" }}
                             </p>
                         </template>
                         <template v-else>
-                            <p>
+                            <p class="solution">
                                 -
                             </p>
                         </template>
@@ -86,7 +88,7 @@ export default {
         
         padding : 5px;
         border-radius: 4px;
-        transform : translate(-50%, -50%);
+        transform : translate(-50%, -40%);
 
         position : absolute;
         z-index : 1;
@@ -94,5 +96,42 @@ export default {
 
     .tooltip:hover .tooltip-text{
         visibility : visible;
+    }
+
+    .verdict-ac {
+        background-color : #18A488;
+    }
+
+    .verdict-wa {
+        background-color : #C93D45;
+    }
+
+    .verdict-neutral {
+        background-color : transparent;
+    }
+
+    .solution {
+        padding : 4px;
+        padding-top : 8px;
+
+        margin: 2px;
+
+        text-align : center;
+    }
+
+    .solution-time {
+        font-size : 1.1em;
+    }
+
+    .solution-points {
+        font-size : 0.7em;
+        padding : 1px;
+
+        background-color : rgb(18, 18, 18, 0.8);
+        border-radius : 2px;
+    }
+
+    thead, tbody, tr, th, td {
+        text-align : center;
     }
 </style>
