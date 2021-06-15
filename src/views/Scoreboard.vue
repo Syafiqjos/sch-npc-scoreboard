@@ -19,6 +19,7 @@
             <div class="countdown">
                 <h2>{{ countdown }}</h2>
             </div>
+            <h3 class="subtitle text-center wide">Contest {{ contest_name }} berakhir pada {{ endTimeFull }}</h3>
         </template>
     </v-container>
 </template>
@@ -61,6 +62,15 @@ export default {
         },
         seniorLink(){
             return '/scoreboard/' + this.$route.params.contest + '/senior';
+        },
+        endTimeFull(){
+            const dayName = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+            const monthName = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+            if (this.end_time){
+                let targetDate = this.end_time;
+                return dayName[targetDate.getDay()] + ", " + targetDate.getDate() + " " + monthName[targetDate.getMonth()] + " " + (1900 + targetDate.getYear()) + " pukul " + targetDate.getHours().toString().padStart(2, "0") + ":" + targetDate.getMinutes().toString().padStart(2, "0") + ":" + targetDate.getSeconds().toString().padStart(2, "0") + " WIB";
+            }
+            return "-";
         }
     },
     methods : {
@@ -113,7 +123,8 @@ export default {
         },
         refreshCountdown(){
             //let time = (this.end_time - this.start_time) / 1000;
-            let time = Math.floor((new Date("2021-06-21") - new Date()) / 1000);
+            this.end_time = new Date("2021-06-21");
+            let time = Math.floor((this.end_time - new Date()) / 1000);
 
             let day = (Math.floor(time / (24 * 60 * 60))).toString().padStart(2, '0');
             let hour = (Math.floor(time / (60 * 60)) % 60).toString().padStart(2, '0');
