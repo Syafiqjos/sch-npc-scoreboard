@@ -123,8 +123,14 @@ export default {
         },
         refreshCountdown(){
             //let time = (this.end_time - this.start_time) / 1000;
-            this.end_time = new Date("2021-06-21");
+            // this.end_time = new Date("2021-06-21");
             let time = Math.floor((this.end_time - new Date()) / 1000);
+
+            if (time < 0){
+                time = 0;
+                this.countdown = "- Contest Over -";
+                return;
+            }
 
             let day = (Math.floor(time / (24 * 60 * 60))).toString().padStart(2, '0');
             let hour = (Math.floor(time / (60 * 60)) % 60).toString().padStart(2, '0');

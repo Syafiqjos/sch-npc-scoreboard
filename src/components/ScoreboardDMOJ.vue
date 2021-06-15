@@ -16,7 +16,7 @@
             <tbody>
                 <tr v-for="(rank, index) in rankings" :key="'ranking-' + index">
                     <td>{{ index + 1 }}</td>
-                    <td>{{ rank.user }}</td>
+                    <td style="width:250px;">{{ rank.user }}</td>
                     <td>{{ rank.score }}</td>
                     <!-- Problems -->
                     <td v-for="(solution, index) in rank.solutions" :key="'problem-header-' + index"
