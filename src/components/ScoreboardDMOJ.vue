@@ -7,8 +7,9 @@
                     <th>Team</th>
                     <th>Score</th>
                     <!-- Problems -->
-                    <th v-for="(problem, index) in problems" :key="'problem-header-' + index" class="text-left">
+                    <th v-for="(problem, index) in problems" :key="'problem-header-' + index" class="text-left tooltip">
                         {{ String.fromCharCode(65 + index) }}
+                        <span class="tooltip-text">{{ problem.name }}</span>
                     </th>
                 </tr>
             </thead>
@@ -70,3 +71,28 @@ export default {
     }
 }
 </script>
+
+<style>
+    .tooltip {
+        visibility : visible;
+    }
+
+    .tooltip .tooltip-text {
+        visibility : hidden;
+        width : 160px;
+        background-color: aliceblue;
+        color : #121212;
+        text-align : center;
+        
+        padding : 5px;
+        border-radius: 4px;
+        transform : translate(-50%, -50%);
+
+        position : absolute;
+        z-index : 1;
+    }
+
+    .tooltip:hover .tooltip-text{
+        visibility : visible;
+    }
+</style>
