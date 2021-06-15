@@ -1,5 +1,5 @@
 <template>
-    <v-simple-table v-if="scoreboard_data && problems && rankings" style="width:100%;">
+    <v-simple-table v-if="scoreboard_data && problems && rankings" width="100%" fixed-header>
         <template v-slot:default>
             <thead>
                 <tr>
@@ -142,9 +142,5 @@ export default {
 
         background-color : rgb(18, 18, 18, 0.8);
         border-radius : 2px;
-    }
-
-    thead, tbody, tr, th, td {
-        text-align : center;
     }
 </style>

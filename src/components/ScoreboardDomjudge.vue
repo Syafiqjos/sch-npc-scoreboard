@@ -1,5 +1,5 @@
 <template>
-    <v-simple-table v-if="scoreboard_data && problems && rankings && teams && organizations" style="width:100%;">
+    <v-simple-table v-if="scoreboard_data && problems && rankings && teams && organizations" width="100%">
         <template v-slot:default>
             <thead>
                 <tr>
