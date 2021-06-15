@@ -63,6 +63,9 @@ export default {
             this.scoreboard_data = this.data.data.object;
             this.problems = this.scoreboard_data.problems;
             this.rankings = this.scoreboard_data.rankings;
+
+            this.$parent.start_time = new Date(this.scoreboard_data.start_time);
+            this.$parent.end_time = new Date(this.scoreboard_data.end_time);
         }
     }
 }

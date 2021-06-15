@@ -14,10 +14,10 @@
         <template v-if="show_scoreboard">
             <ScoreboardDomjudge ref="scoreboardDomjudge" :data="scoreboard_data" v-if="judge_type == 'domjudge'"></ScoreboardDomjudge>
             <ScoreboardDMOJ ref="scoreboardDMOJ" :data="scoreboard_data" v-else-if="judge_type == 'dmoj'"></ScoreboardDMOJ>
+            <div class="countdown">
+                <h2>{{ countdown }}</h2>
+            </div>
         </template>
-        <div class="countdown">
-            <h2>00:00:00</h2>
-        </div>
     </v-container>
 </template>
 
@@ -33,6 +33,10 @@ export default {
             judge_type : null,
             class_type : null,
             contest_name : null,
+            start_time : new Date(),
+            end_time : new Date(),
+            countdown_timer : null,
+            countdown : null
         }
     },
     components : {
@@ -41,6 +45,13 @@ export default {
     },
     mounted(){
         this.retrieveScoreboard();
+
+        this.countdown_timer = setInterval(() => {
+            this.refreshCountdown();
+        }, 1000);
+    },
+    destroyed(){
+        clearInterval(this.countdown_timer);
     },
     computed : {
         juniorLink(){
@@ -98,11 +109,28 @@ export default {
                 console.log(errors);
             });
         },
+        refreshCountdown(){
+            //let time = (this.end_time - this.start_time) / 1000;
+            let time = Math.floor((new Date("2021-06-21") - new Date()) / 1000);
+
+            let day = (Math.floor(time / (24 * 60 * 60))).toString().padStart(2, '0');
+            let hour = (Math.floor(time / (60 * 60)) % 60).toString().padStart(2, '0');
+            let minute = (Math.floor(time / (60)) % 60).toString().padStart(2, '0');
+            let second = Math.floor(time % 60).toString().padStart(2, '0');
+
+            let o = day + ":" + hour + ":" + minute + ":" + second;
+
+            this.countdown = o;
+        }
     }
 }
 </script>
 
 <style>
+    /*
+        figma : https://www.figma.com/file/UgtbqYN1VhFH6ygHMURUAb/schematics?node-id=0%3A1
+    */
+    
     .countdown {
         position : sticky;
         bottom : 10px;
