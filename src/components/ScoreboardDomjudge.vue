@@ -1,5 +1,9 @@
 <template>
+<<<<<<< HEAD
     <v-simple-table v-if="scoreboard_data && problems && rankings && teams && organizations" width="100%" fixed-header>
+=======
+    <v-simple-table v-if="scoreboard_data && problems && rankings && teams && organizations" width="100%">
+>>>>>>> f5fea8a4425fd48db59d84031499a1d1955f380a
         <template v-slot:default>
             <thead>
                 <tr>
