@@ -20,13 +20,14 @@
                     <td>{{ rank.score }}</td>
                     <!-- Problems -->
                     <td v-for="(solution, index) in rank.solutions" :key="'problem-header-' + index"
-                        :class="solution ? (solution.points >= 100 ? 'verdict-ac' : 'verdict-wa') : 'verdict-neutral'"
+                        :class="solution ? (solution.points >= 100 ? 'verdict-ac-vivid' : 'verdict-wa-vivid') : 'verdict-neutral'"
                     >
                         <template v-if="solution">
                             <p class="solution solution-time">
                                 {{ solution.time }}
                             </p>
-                            <p class="solution solution-points">
+                            <p :class="'solution solution-points '
+                            + solution ? (solution.points >= 100 ? 'verdict-ac' : 'verdict-wa') : 'verdict-neutral'">
                                 {{ solution.points + ".0" }}
                             </p>
                         </template>
@@ -98,12 +99,24 @@ export default {
         visibility : visible;
     }
 
-    .verdict-ac {
+    .verdict-ac-vivid {
         background-color : #18A488;
+        background-color : rgb(24, 164, 136, 0.4);
+    }
+
+    .verdict-wa-vivid {
+        background-color : #C93D45;
+        background-color : rgb(201, 61, 69, 0.4);
+    }
+
+    .verdict-ac {
+        background-color : rgb(24, 164, 136, 0.8);
+        border : 2px solid #18A488;
     }
 
     .verdict-wa {
-        background-color : #C93D45;
+        background-color : rgb(201, 61, 69, 0.8);
+        border : 2px solid #C93D45;
     }
 
     .verdict-neutral {
