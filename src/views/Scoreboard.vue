@@ -77,19 +77,21 @@ export default {
         getFetchLinkFromParams(){
             let classs = this.$route.params.class;
             let contest = this.$route.params.contest;
-            
+
             console.log(classs);
             console.log(contest);
             if (classs == 'junior'){
                 this.class_type = 'Junior';
                 if (contest == 'penyisihan'){
                     this.contest_name = 'Penyisihan';
-                    return "/scoreboard_data/dmoj_api_example.json";
+                    // return "/scoreboard_data/dmoj_api_example.json";
+                    // return "https://banksoal.zydhan.xyz/api/v2/contest/testscoreboard";
+                    return "http://23.101.31.143/test.php";
                 }
             } else if (classs == 'senior'){
                 this.class_type = 'Senior';
                  if (contest == 'penyisihan'){
-                     this.contest_name = 'Penyisihan';
+                    this.contest_name = 'Penyisihan';
                     return "/scoreboard_data/domjudge_api_example.json";
                 }
             }
@@ -110,7 +112,7 @@ export default {
         },
         retrieveScoreboard(){
             let fetch_link = this.getFetchLinkFromParams();
-            this.axios.get(fetch_link)
+            this.axios.get(fetch_link, { headers: { 'Content-Type': 'application/json'} })
             .then((response) => {
                 this.scoreboard_data = response.data;
                 this.judge_type = this.checkJudgeType(this.scoreboard_data);
