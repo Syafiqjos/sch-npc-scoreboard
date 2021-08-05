@@ -92,8 +92,8 @@ export default {
                 this.class_type = 'Senior';
                  if (contest == 'penyisihan'){
                     this.contest_name = 'Penyisihan';
-                    // return "/scoreboard_data/domjudge_api_example.json";
-                    return "http://192.168.233.131/domjudge/api/contests/2/scoreboard";
+                    return "/scoreboard_data/domjudge_api_example.json";
+                    // return "http://192.168.233.131/domjudge/api/contests/2/scoreboard";
                 }
             }
             return null;

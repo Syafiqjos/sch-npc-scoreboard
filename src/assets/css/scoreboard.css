@@ -53,6 +53,11 @@
     visibility : visible;
 }
 
+.verdict-ac-first-vivid {
+    background-color : #1865a4;
+    background-color : rgba(24, 113, 164, 0.4);
+}
+
 .verdict-ac-vivid {
     background-color : #18A488;
     background-color : rgb(24, 164, 136, 0.4);
@@ -61,6 +66,11 @@
 .verdict-wa-vivid {
     background-color : #C93D45;
     background-color : rgb(201, 61, 69, 0.4);
+}
+
+.verdict-ac-first {
+    background-color : rgba(24, 113, 164, 0.8);
+    border : 2px solid #1865a4;
 }
 
 .verdict-ac {

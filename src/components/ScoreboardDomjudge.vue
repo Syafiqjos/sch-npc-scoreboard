@@ -20,7 +20,7 @@
                     <td>{{ rank.score.num_solved * 100 }}</td>
                     <!-- Problems -->
                     <td v-for="(problem, index) in rank.problems" :key="'problem-header-' + index"
-                        :class="problem.num_judged != 0 ? (problem.solved ? 'verdict-ac-vivid' : 'verdict-wa-vivid') : 'verdict-neutral'"
+                        :class="problem.num_judged != 0 ? (problem.solved ? (problem.first_to_solve ? 'verdict-ac-first-vivid' : 'verdict-ac-vivid') : 'verdict-wa-vivid') : 'verdict-neutral'"
                     >
                         <template v-if="problem.num_judged != 0">
                             <p class="solution solution-time">
@@ -32,7 +32,7 @@
                             </p>
                             -->
 
-                                <p  :class="(problem.num_judged != 0 ? (problem.solved ? ['solution', 'solution-points','verdict-ac'] : ['solution', 'solution-points','verdict-wa']) : ['solution', 'solution-points','verdict-neutral'])">
+                                <p  :class="(problem.num_judged != 0 ? (problem.solved ? (problem.first_to_solve ? ['solution', 'solution-points','verdict-ac-first'] : ['solution', 'solution-points','verdict-ac']) : ['solution', 'solution-points','verdict-wa']) : ['solution', 'solution-points','verdict-neutral'])">
                                 {{ problem.num_judged + (problem.num_judged == 1 ? " try" : " tries") }}
                             </p>
 
@@ -92,8 +92,8 @@ export default {
             }
         },
         retrieveTeams(){
-            // this.axios.get("/scoreboard_data/domjudge_api_teams_example.json")
-            this.axios.get("http://192.168.233.131/domjudge/api/contests/2/teams")
+            this.axios.get("/scoreboard_data/domjudge_api_teams_example.json")
+            // this.axios.get("http://192.168.233.131/domjudge/api/contests/2/teams")
             .then((response) => {
                 let teams = response.data;
                 let teams_new = {};
@@ -108,8 +108,8 @@ export default {
             });
         },
         retrieveOrganizations(){
-            // this.axios.get("/scoreboard_data/domjudge_api_organizations_example.json")
-            this.axios.get("http://192.168.233.131/domjudge/api/contests/2/organizations")
+            this.axios.get("/scoreboard_data/domjudge_api_organizations_example.json")
+            // this.axios.get("http://192.168.233.131/domjudge/api/contests/2/organizations")
             .then((response) => {
                 let organizations = response.data;
                 let organizations_new = {};
