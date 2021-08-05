@@ -26,9 +26,16 @@
                             <p class="solution solution-time">
                                 {{ problem.solved ? problem.time : '-' }}
                             </p>
+                            <!-- // Default, bagian nilai 0 atau 100 kalo AC
                             <p  :class="(problem.num_judged != 0 ? (problem.solved ? ['solution', 'solution-points','verdict-ac'] : ['solution', 'solution-points','verdict-wa']) : ['solution', 'solution-points','verdict-neutral'])">
                                 {{ problem.solved ? 100 : 0 }}
                             </p>
+                            -->
+
+                                <p  :class="(problem.num_judged != 0 ? (problem.solved ? ['solution', 'solution-points','verdict-ac'] : ['solution', 'solution-points','verdict-wa']) : ['solution', 'solution-points','verdict-neutral'])">
+                                {{ problem.num_judged + (problem.num_judged == 1 ? " try" : " tries") }}
+                            </p>
+
                         </template>
                         <template v-else>
                             <p class="solution">
