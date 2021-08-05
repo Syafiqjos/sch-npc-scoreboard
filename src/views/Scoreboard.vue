@@ -92,7 +92,8 @@ export default {
                 this.class_type = 'Senior';
                  if (contest == 'penyisihan'){
                     this.contest_name = 'Penyisihan';
-                    return "/scoreboard_data/domjudge_api_example.json";
+                    // return "/scoreboard_data/domjudge_api_example.json";
+                    return "http://192.168.233.131/domjudge/api/contests/2/scoreboard";
                 }
             }
             return null;
@@ -112,7 +113,11 @@ export default {
         },
         retrieveScoreboard(){
             let fetch_link = this.getFetchLinkFromParams();
-            this.axios.get(fetch_link, { headers: { 'Content-Type': 'application/json'} })
+            // this.axios.get(fetch_link, { headers: { 'Content-Type': 'application/json'} })
+            this.fetchScoreboard(fetch_link);
+        },
+        fetchScoreboard(fetch_link){
+            this.axios.get(fetch_link)
             .then((response) => {
                 this.scoreboard_data = response.data;
                 this.judge_type = this.checkJudgeType(this.scoreboard_data);
@@ -121,6 +126,9 @@ export default {
             })
             .catch((errors) => {
                 console.log(errors);
+                console.log("Fetch scoreboard failed, retrying..");
+
+                this.fetchScoreboard(fetch_link);
             });
         },
         refreshCountdown(){

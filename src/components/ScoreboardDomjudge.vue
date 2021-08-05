@@ -85,7 +85,8 @@ export default {
             }
         },
         retrieveTeams(){
-            this.axios.get("/scoreboard_data/domjudge_api_teams_example.json")
+            // this.axios.get("/scoreboard_data/domjudge_api_teams_example.json")
+            this.axios.get("http://192.168.233.131/domjudge/api/contests/2/teams")
             .then((response) => {
                 let teams = response.data;
                 let teams_new = {};
@@ -100,7 +101,8 @@ export default {
             });
         },
         retrieveOrganizations(){
-            this.axios.get("/scoreboard_data/domjudge_api_organizations_example.json")
+            // this.axios.get("/scoreboard_data/domjudge_api_organizations_example.json")
+            this.axios.get("http://192.168.233.131/domjudge/api/contests/2/organizations")
             .then((response) => {
                 let organizations = response.data;
                 let organizations_new = {};
