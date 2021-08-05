@@ -84,9 +84,9 @@ export default {
                 this.class_type = 'Junior';
                 if (contest == 'penyisihan'){
                     this.contest_name = 'Penyisihan';
-                    // return "/scoreboard_data/dmoj_api_example.json";
+                    return "/scoreboard_data/dmoj_api_example.json";
                     // return "https://banksoal.zydhan.xyz/api/v2/contest/testscoreboard";
-                    return "http://23.101.31.143/test.php";
+                    // return "http://23.101.31.143/test.php";
                 }
             } else if (classs == 'senior'){
                 this.class_type = 'Senior';
