@@ -60,6 +60,8 @@ export default {
     methods : {
         initialization(){
             this.populateTable();
+
+            document.title = this.$parent.contest_name + " " + this.$parent.class_type + " - Schematics NPC 2021";
         },
         populateTable(){
             console.log("PopulateTableAsDMOJ");

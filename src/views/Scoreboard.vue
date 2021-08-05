@@ -53,6 +53,8 @@ export default {
         this.countdown_timer = setInterval(() => {
             this.refreshCountdown();
         }, 1000);
+
+        document.title = this.contest_name + " " + this.class_type + " - Schematics NPC 2021";
     },
     destroyed(){
         clearInterval(this.countdown_timer);
