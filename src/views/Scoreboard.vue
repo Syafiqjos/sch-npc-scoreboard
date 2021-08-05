@@ -1,8 +1,9 @@
 <template>
     <v-container fill-height fluid>
-        <v-app-bar app color="primary" dark>
-            <v-app-bar-nav-icon @click.stop="drawer = true"></v-app-bar-nav-icon>
-            <v-toolbar-title>Schematics NPC - {{ contest_name }} {{ class_type }}</v-toolbar-title>
+        <v-app-bar app color="primary" height="80px" dark>
+            <img style="height:50px;padding-left:10px;" src="https://schematics.its.ac.id/image/white-logo.svg" />
+            <!-- <v-app-bar-nav-icon @click.stop="drawer = true"></v-app-bar-nav-icon> -->
+            <!-- <v-toolbar-title>Schematics NPC - {{ contest_name }} {{ class_type }}</v-toolbar-title> -->
             <v-spacer></v-spacer>
             <v-btn :to="juniorLink" @click="refreshScoreboard()" class="mr-2">
                 Junior

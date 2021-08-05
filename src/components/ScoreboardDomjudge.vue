@@ -19,7 +19,7 @@
                     <td style="width:250px;">
                         <v-layout>
                              <img class="institute-logo" :src="organizations_images[organizations[teams[rank.team_id].organization_id].id] == null 
-                             ? '' : organizations_images[organizations[teams[rank.team_id].organization_id].id].image" /> 
+                                ? '' : organizations_images[organizations[teams[rank.team_id].organization_id].id].image" /> 
                              <p style="margin:auto;"> {{ teams[rank.team_id].name }} </p>
                         </v-layout>
                     </td>
