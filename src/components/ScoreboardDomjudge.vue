@@ -16,7 +16,13 @@
             <tbody>
                 <tr v-for="(rank, index) in rankings" :key="'ranking-' + index">
                     <td>{{ index + 1 }}</td>
-                    <td style="width:250px;">{{ teams[rank.team_id].name }}</td>
+                    <td style="width:250px;">
+                        <v-layout>
+                             <img class="institute-logo" :src="organizations_images[organizations[teams[rank.team_id].organization_id].id] == null 
+                             ? '' : organizations_images[organizations[teams[rank.team_id].organization_id].id].image" /> 
+                             <p style="margin:auto;"> {{ teams[rank.team_id].name }} </p>
+                        </v-layout>
+                    </td>
                     <td>{{ rank.score.num_solved * 100 }}</td>
                     <!-- Problems -->
                     <td v-for="(problem, index) in rank.problems" :key="'problem-header-' + index"
@@ -57,7 +63,32 @@ export default {
             problems : null,
             rankings : null,
             teams : null,
-            organizations : null
+            organizations : null,
+            organizations_images : {
+                'its' : { 'name' : 'Institut Teknologi Sepuluh Nopember', 'image' : '/institute_images/its.png' } ,
+                'unair' : { 'name' : 'Universitas Airlangga', 'image' : 'unair.png' } ,
+                'itb' : { 'name' : 'Institut Teknologi Bandung', 'image' : 'itb.png' } ,
+                'ui' : { 'name' : 'Universitars Indonesia', 'image' : 'ui.png' } ,
+                'unsyiah' : { 'name' : 'Universitas Syiah Kuala', 'image' : 'unsyiah.png' } ,
+                'unimal' : { 'name' : 'Universitas Malikussaleh', 'image' : 'unimal.png' } ,
+                'unsam' : { 'name' : 'Universitas Samudra', 'image' : 'unsam.png' } ,
+                'utu' : { 'name' : 'Universitas Teuku Umar', 'image' : 'utu.png' } ,
+                'uinar' : { 'name' : 'UIN Ar-Raniry', 'image' : 'uinar.png' } ,
+                'iain_langsa' : { 'name' : 'IAIN Langsa', 'image' : 'iain_langsa.png' } ,
+                'poltekkes_aceh' : { 'name' : 'Politeknik Kesehatan Banda Aceh', 'image' : 'poltekkes_aceh.png' } ,
+                'usm' : { 'name' : 'Universitas Serambi Mekkah', 'image' : 'usm.png' } ,
+                'usu' : { 'name' : 'Universitas Sumatera Utara', 'image' : 'usu.png' } ,
+                'unimed' : { 'name' : 'Universitas Negeri Medan', 'image' : 'unimed.png' } ,
+                'polmed' : { 'name' : 'Politeknik Negeri Medan', 'image' : 'polmed.png' } ,
+                'polimedia' : { 'name' : 'Politeknik Negeri Media Kreatif', 'image' : 'polimedia.png' } ,
+                'uinsu' : { 'name' : 'UIN Sumatera Utara', 'image' : 'uinsu.png' } ,
+                'iain_padangsidimpuan' : { 'name' : 'IAIN Padang Sidempuan', 'image' : 'iain_padangsidimpuan.png' } ,
+                'unand' : { 'name' : 'Universitas Andalas', 'image' : 'unand.png' } ,
+                'unp' : { 'name' : 'Universitas Negeri Padang', 'image' : 'unp.png' } ,
+                'pnp' : { 'name' : 'Politeknik Negeri Padang', 'image' : 'pnp.png' } ,
+                'unri' : { 'name' : 'Universitas Riau', 'image' : 'UNRI.png' } ,
+                'UGM' : { 'name' : 'Universitas Gadjah Mada', 'image' : 'UGM.png' }
+            }
         }
     },
     props : [

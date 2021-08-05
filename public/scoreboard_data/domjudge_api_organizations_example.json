@@ -1,4 +1,12 @@
 [
+	{
+      "icpc_id": "12",
+      "shortname": "Cambridge",
+      "id": "its",
+      "name": "Cambridge",
+      "formal_name": "University of Cambridge",
+      "country": "GBR"
+    },
     {
       "icpc_id": "33",
       "shortname": "Aalto U",
