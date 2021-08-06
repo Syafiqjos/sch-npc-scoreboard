@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import ContestNameList from '../views/ContestNameList.vue'
 import ClassTypeList from '../views/ClassTypeList.vue'
 import Scoreboard from '../views/Scoreboard.vue'
+import PageNotFound from '../views/PageNotFound.vue'
 
 Vue.use(VueRouter)
 
@@ -39,6 +40,11 @@ const routes = [
     path: '/scoreboard/:contest/:class',
     name: 'Scoreboard',
     component: Scoreboard
+  },
+  {
+    path: '*',
+    name: 'PageNotFound',
+    component: PageNotFound
   }
 ]
 
