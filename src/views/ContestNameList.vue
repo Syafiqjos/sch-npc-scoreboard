@@ -1,8 +1,12 @@
 <template>
     <HomeComponent>
       <template v-slot:content>
-        <v-btn style="width:100%;" class="center-block" to="/scoreboard/warmup">Warm-Up</v-btn>
-        <v-btn style="width:100%;" class="center-block" to="/scoreboard/penyisihan">Penyisihan</v-btn>
+        <div>
+          <v-btn class="button-list" to="/scoreboard/warmup">Warm-Up</v-btn>
+          <v-btn class="button-list" to="/scoreboard/penyisihan">Penyisihan</v-btn>
+          
+          <v-btn class="button-list" to="/">&lt; Kembali</v-btn>
+        </div>
       </template>
     </HomeComponent>
 </template>

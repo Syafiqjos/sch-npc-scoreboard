@@ -122,3 +122,21 @@ h3 {
 .institute-logo {
     height : 40px;
 }
+
+.center-absolute {
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+}
+
+.center-block {
+    margin: auto;
+    display:block;
+}
+
+.button-list {
+    width:100%;
+    margin:2px auto;
+    padding:4px;
+}

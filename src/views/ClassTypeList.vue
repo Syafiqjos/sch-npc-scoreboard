@@ -2,9 +2,14 @@
     <HomeComponent>
       <template v-slot:content>
         <template v-if="contestName != null">
-        <v-btn style="width:100%;" class="center-block" :to="'/scoreboard/' + contestName + '/junior'">Junior</v-btn>
-        <v-btn style="width:100%;" class="center-block" :to="'/scoreboard/' + contestName + '/senior'">Senior</v-btn>
+          <v-btn class="button-list" :to="'/scoreboard/' + contestName + '/junior'">Junior</v-btn>
+          <v-btn class="button-list" :to="'/scoreboard/' + contestName + '/senior'">Senior</v-btn>
         </template>
+        <template v-else>
+          <p class="button-list" style="text-align:center;">Contest tidak ada atau belum dimulai!</p>
+        </template>
+
+        <v-btn class="button-list" :to="'/scoreboard/'">&lt; Kembali</v-btn>
       </template>
     </HomeComponent>
 </template>

@@ -11,19 +11,3 @@ export default {
   name: 'HomeComponent'
 }
 </script>
-
-<style>
-.center-absolute {
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform: translate(-50%, -50%);
-}
-.center-block {
-  margin: auto;
-  display:block;
-}
-.center-block {
-  margin: auto;
-}
-</style>

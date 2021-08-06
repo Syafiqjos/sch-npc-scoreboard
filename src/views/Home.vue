@@ -1,7 +1,9 @@
 <template>
     <HomeComponent>
       <template v-slot:content>
-        <v-btn style="width:100%;" class="center-block" to="/scoreboard">Scoreboard</v-btn>
+        <v-btn class="button-list" to="/scoreboard">Portal Junior</v-btn>
+        <v-btn class="button-list" to="/scoreboard">Portal Senior</v-btn>
+        <v-btn class="button-list" to="/scoreboard">Scoreboard</v-btn>
       </template>
     </HomeComponent>
 </template>
