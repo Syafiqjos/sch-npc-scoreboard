@@ -126,7 +126,7 @@
             "tiebreaker": 0.0,
             "old_rating": 2122,
             "new_rating": 2323,
-            "is_disqualified": false,
+            "is_disqualified": true,
             "solutions": [
               { "points": 100.0, "time": 140.0 },
               { "points": 100.0, "time": 979.0 },

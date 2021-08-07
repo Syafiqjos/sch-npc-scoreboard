@@ -95,6 +95,10 @@
     background-color : transparent;
 }
 
+.verdict-disqualified {
+    background-color : rgb(100, 61, 69, 0.8);
+}
+
 .solution {
     padding : 4px;
     padding-top : 8px;

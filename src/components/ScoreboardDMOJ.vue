@@ -15,27 +15,36 @@
             </thead>
             <tbody>
                 <tr v-for="(rank, index) in rankings" :key="'ranking-' + index">
-                    <td>{{ index + 1 }}</td>
-                    <td style="width:250px;">{{ rank.user }}</td>
-                    <td>{{ rank.score }}</td>
+                    <td :class="rank.is_disqualified ? 'verdict-disqualified' : ''">{{ index + 1 }}</td>
+                    <td :class="rank.is_disqualified ? 'verdict-disqualified' : ''">{{ rank.user }}</td>
+                    <td :class="rank.is_disqualified ? 'verdict-disqualified' : ''">{{ rank.score }}</td>
                     <!-- Problems -->
-                    <td v-for="(solution, index) in rank.solutions" :key="'problem-header-' + index"
-                        :class="solution ? (solution.points >= 100 ? 'verdict-ac-vivid' : 'verdict-wa-vivid') : 'verdict-neutral'"
-                    >
-                        <template v-if="solution">
-                            <p class="solution solution-time">
-                                {{ solution.time }}
-                            </p>
-                            <p :class="(solution ? (solution.points >= 100 ? ['solution', 'solution-points','verdict-ac'] : ['solution', 'solution-points','verdict-wa']) : ['solution', 'solution-points','verdict-neutral'])">
-                                {{ solution.points + ".0" }}
-                            </p>
+                    <template v-for="(solution, index) in rank.solutions">
+                        <template v-if="!rank.is_disqualified">
+                            <td :key="'problem-header-' + index"
+                            :class="solution ? (solution.points >= 100 ? 'verdict-ac-vivid' : 'verdict-wa-vivid') : 'verdict-neutral'">
+                                <template v-if="solution">
+                                    <p class="solution solution-time">
+                                        {{ solution.time }}
+                                    </p>
+                                    <p :class="(solution ? (solution.points >= 100 ? ['solution', 'solution-points','verdict-ac'] : ['solution', 'solution-points','verdict-wa']) : ['solution', 'solution-points','verdict-neutral'])">
+                                        {{ solution.points + ".0" }}
+                                    </p>
+                                </template>
+                                <template v-else>
+                                    <p class="solution">
+                                        -
+                                    </p>
+                                </template>
+                            </td>
                         </template>
                         <template v-else>
-                            <p class="solution">
-                                -
-                            </p>
+                            <td :key="'problem-header-' + index"
+                            class="verdict-disqualified">
+                                DISQUALIFIED
+                            </td>
                         </template>
-                    </td>
+                    </template>
                 </tr>
             </tbody>
         </template>
