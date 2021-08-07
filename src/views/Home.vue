@@ -16,6 +16,9 @@ export default {
   name: 'Home',
   components : {
     HomeComponent
+  },
+  mounted(){
+    this.retrieveContestsData();
   }
 }
 </script>

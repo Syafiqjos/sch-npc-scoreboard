@@ -2,8 +2,19 @@
     <HomeComponent>
       <template v-slot:content>
         <div>
-          <v-btn class="button-list" to="/scoreboard/warmup">Warm-Up</v-btn>
-          <v-btn class="button-list" to="/scoreboard/penyisihan">Penyisihan</v-btn>
+          <template v-if="contests_data">
+            <template v-for="(contest, index) in contests_data" >
+              <v-btn 
+                v-if="contest.active" 
+                :key="'contest_button-' + index" 
+                class="button-list" 
+                :to="'/scoreboard/' + contest.id">
+                  
+                  {{contest.name}}
+              
+              </v-btn>
+            </template>
+          </template>
           
           <v-btn class="button-list" to="/">&lt; Kembali</v-btn>
         </div>
@@ -19,6 +30,9 @@ export default {
   name: 'ContestNameList',
   components : {
     HomeComponent
+  },
+  mounted(){
+    this.retrieveContestsData();
   }
 }
 </script>

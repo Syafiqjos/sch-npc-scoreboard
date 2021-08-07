@@ -1,0 +1,17 @@
+[
+	{
+		"active" : false,
+		"id" : "warmup",
+		"name" : "Warm-Up"
+	},
+	{
+		"active" : true,
+		"id" : "penyisihan",
+		"name" : "Penyisihan"
+	},
+	{
+		"active" : false,
+		"id" : "final",
+		"name" : "Final"
+	}
+]

@@ -1,26 +1,35 @@
 <template>
     <v-container fill-height fluid>
-        <v-app-bar app color="primary" height="80px" dark>
-            <img style="height:50px;padding-left:10px;" src="https://schematics.its.ac.id/image/white-logo.svg" />
-            <!-- <v-app-bar-nav-icon @click.stop="drawer = true"></v-app-bar-nav-icon> -->
-            <!-- <v-toolbar-title>Schematics NPC - {{ contest_name }} {{ class_type }}</v-toolbar-title> -->
-            <v-spacer></v-spacer>
-            <v-btn :to="juniorLink" @click="refreshScoreboard()" class="mr-2">
-                Junior
-            </v-btn>
-            <v-btn :to="seniorLink" @click="refreshScoreboard()">
-                Senior
-            </v-btn>
-        </v-app-bar>
-        <template v-if="show_scoreboard">
-            <h1 class="title wide">Schematics NPC</h1>
-            <h2 class="subtitle wide">{{ contest_name }} {{ class_type }}</h2>
-            <ScoreboardDomjudge ref="scoreboardDomjudge" :data="scoreboard_data" v-if="judge_type == 'domjudge'"></ScoreboardDomjudge>
-            <ScoreboardDMOJ ref="scoreboardDMOJ" :data="scoreboard_data" v-else-if="judge_type == 'dmoj'"></ScoreboardDMOJ>
-            <div class="countdown">
-                <h2>{{ countdown }}</h2>
-            </div>
-            <h3 class="subtitle text-center wide">Contest {{ contest_name }} berakhir pada {{ endTimeFull }}</h3>
+        <template v-if="contests_data && contest_name">
+            <v-app-bar app color="primary" height="80px" dark>
+                <img style="height:50px;padding-left:10px;" src="https://schematics.its.ac.id/image/white-logo.svg" />
+                <!-- <v-app-bar-nav-icon @click.stop="drawer = true"></v-app-bar-nav-icon> -->
+                <!-- <v-toolbar-title>Schematics NPC - {{ contest_name }} {{ class_type }}</v-toolbar-title> -->
+                <v-spacer></v-spacer>
+                <v-btn :to="juniorLink" @click="refreshScoreboard()" class="mr-2">
+                    Junior
+                </v-btn>
+                <v-btn :to="seniorLink" @click="refreshScoreboard()">
+                    Senior
+                </v-btn>
+            </v-app-bar>
+            <template v-if="show_scoreboard">
+                <h1 class="title wide">Schematics NPC</h1>
+                <h2 class="subtitle wide">{{ contest_name }} {{ class_type }}</h2>
+                <ScoreboardDomjudge ref="scoreboardDomjudge" :data="scoreboard_data" v-if="judge_type == 'domjudge'"></ScoreboardDomjudge>
+                <ScoreboardDMOJ ref="scoreboardDMOJ" :data="scoreboard_data" v-else-if="judge_type == 'dmoj'"></ScoreboardDMOJ>
+                <div class="countdown">
+                    <h2>{{ countdown }}</h2>
+                </div>
+                <h3 class="subtitle text-center wide">Contest {{ contest_name }} berakhir pada {{ endTimeFull }}</h3>
+            </template>
+        </template>
+        <template v-else>
+            <HomeComponent>
+                <template v-slot:content>
+                    <p class="button-list" style="text-align:center;">Contest tidak ada atau belum dimulai!</p>
+                </template>
+            </HomeComponent>
         </template>
     </v-container>
 </template>
@@ -28,6 +37,7 @@
 <script>
 import ScoreboardDomjudge from '@/components/ScoreboardDomjudge.vue'
 import ScoreboardDMOJ from '@/components/ScoreboardDMOJ.vue'
+import HomeComponent from '@/components/HomeComponent.vue'
 
 export default {
     data(){
@@ -45,16 +55,31 @@ export default {
     },
     components : {
         ScoreboardDomjudge,
-        ScoreboardDMOJ
+        ScoreboardDMOJ,
+        HomeComponent
     },
     mounted(){
-        this.retrieveScoreboard();
+        let param = this.$route.params.contest;
 
-        this.countdown_timer = setInterval(() => {
-            this.refreshCountdown();
-        }, 1000);
+        this.retrieveContestsData(() => {
+            let exist = false;
 
-        document.title = this.contest_name + " " + this.class_type + " - Schematics NPC 2021";
+            this.contests_data.forEach(element => {
+            if (element.active && element.id == param){
+                exist = true;
+            }
+            });
+
+            if (exist){
+                this.retrieveScoreboard();
+
+                this.countdown_timer = setInterval(() => {
+                    this.refreshCountdown();
+                }, 1000);
+
+                document.title = this.contest_name + " " + this.class_type + " - Schematics NPC 2021";
+            }
+        });
     },
     destroyed(){
         clearInterval(this.countdown_timer);
