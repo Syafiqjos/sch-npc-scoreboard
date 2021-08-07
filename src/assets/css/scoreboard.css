@@ -61,7 +61,7 @@
     /* background-color : rgb(24, 114, 106, 0.4); */
     background-color : rgb(24, 164, 136, 0.8);
     
-    border : 5px solid rgb(24, 164, 136, 1.0);
+    border : 3px solid rgb(24, 164, 136, 1.0);
 }
 
 .verdict-ac-vivid {
@@ -80,7 +80,8 @@
 .verdict-ac-first {
     /* background-color : rgb(24, 114, 106, 0.8); */
     background-color : rgb(24, 164, 136, 0.8);
-    border : 2px solid #186458;
+    
+    border : 2px solid rgb(24, 164, 136, 1.0);
 }
 
 .verdict-ac {
