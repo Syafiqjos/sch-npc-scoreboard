@@ -47,6 +47,7 @@ export default {
             judge_type : null,
             class_type : null,
             contest_name : null,
+            contest_details : null,
             start_time : new Date(),
             end_time : new Date(),
             countdown_timer : null,
@@ -62,15 +63,15 @@ export default {
         let param = this.$route.params.contest;
 
         this.retrieveContestsData(() => {
-            let exist = false;
+            let contest_details = this.getContestData(param);
 
-            this.contests_data.forEach(element => {
-            if (element.active && element.id == param){
-                exist = true;
-            }
-            });
+            console.log(this.contests_data);
+            console.log(param);
+            console.log(contest_details);
 
-            if (exist){
+            if (contest_details && contest_details.active){
+                this.contest_details = contest_details;
+
                 this.retrieveScoreboard();
 
                 this.countdown_timer = setInterval(() => {
@@ -108,6 +109,20 @@ export default {
 
             console.log(classs);
             console.log(contest);
+
+            if (classs == 'junior'){
+                this.class_type = 'Junior';
+
+                this.contest_name = this.contest_details.name;
+                return this.contest_details.scoreboard_dmoj_api;
+            } else if (classs == 'senior'){
+                this.class_type = 'Senior';
+
+                this.contest_name = this.contest_details.name;
+                return this.contest_details.scoreboard_domjudge_api;
+            }
+
+            /*
             if (classs == 'junior'){
                 this.class_type = 'Junior';
                 if (contest == 'penyisihan'){
@@ -124,6 +139,7 @@ export default {
                     // return "http://192.168.233.131/domjudge/api/contests/2/scoreboard";
                 }
             }
+            */
             return null;
         },
         checkJudgeType(data){

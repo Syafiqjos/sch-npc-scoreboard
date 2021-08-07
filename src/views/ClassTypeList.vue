@@ -38,24 +38,12 @@ export default {
 
     this.retrieveContestsData(
       () => {
-        let exist = false;
-
-        this.contests_data.forEach(element => {
-          if (element.active && element.id == param){
-            exist = true;
-          }
-        });
+        let contest_details = this.getContestData(param);
 
         this.contestName = null;
 
-        if (exist){
-          if (param == 'warmup'){
-            this.contestName = 'warmup';
-          } else if (param == 'penyisihan'){
-            this.contestName = 'penyisihan';
-          } else if (param == 'final'){
-            this.contestName = 'final';
-          }
+        if (contest_details && contest_details.active){
+          this.contestName = contest_details.id;
         }
       }
     );

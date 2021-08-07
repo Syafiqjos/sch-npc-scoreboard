@@ -35,6 +35,19 @@ var contestsDataMixin = {
               console.log("Fetch contests data failed, retrying..");
           });
       }
+    },
+    getContestData(id){
+      if (this.contests_data){
+        for (let index in this.contests_data){
+          let element = this.contests_data[index];
+
+          if (element.id == id){
+            return element;
+          }
+        }
+      }
+
+      return null;
     }
   }
 }
