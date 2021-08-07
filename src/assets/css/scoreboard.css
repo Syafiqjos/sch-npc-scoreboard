@@ -54,13 +54,14 @@
 }
 
 .verdict-pending-vivid {
-    background-color : rgb(24, 114, 186, 0.4);
+    background-color : rgb(54, 134, 236, 0.4);
 }
 
 .verdict-ac-first-vivid {
-    background-color : rgb(24, 114, 106, 0.4);
+    /* background-color : rgb(24, 114, 106, 0.4); */
+    background-color : rgb(24, 164, 136, 0.8);
     
-    border : 2px solid #186458;
+    border : 5px solid rgb(24, 164, 136, 1.0);
 }
 
 .verdict-ac-vivid {
@@ -72,12 +73,13 @@
 }
 
 .verdict-pending {
-    background-color : rgb(24, 114, 186, 0.8);
+    background-color : rgb(54, 134, 236, 0.8);
     border : 2px solid #186488;
 }
 
 .verdict-ac-first {
-    background-color : rgb(24, 114, 106, 0.8);
+    /* background-color : rgb(24, 114, 106, 0.8); */
+    background-color : rgb(24, 164, 136, 0.8);
     border : 2px solid #186458;
 }
 

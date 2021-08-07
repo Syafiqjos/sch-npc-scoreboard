@@ -23,10 +23,17 @@
                              <p style="margin:auto;"> {{ teams[rank.team_id].name }} </p>
                         </v-layout>
                     </td>
-                    <td>{{ rank.score.num_solved }}</td>
+                    <td>
+                        <p style="text-align:center;">
+                            {{ rank.score.total_time }}
+                        </p>
+                        <p style="text-align:center;" class="solution solution-points verdict-ac">
+                            {{ rank.score.num_solved }}
+                        </p>
+                    </td>
                     <!-- Problems -->
                     <td v-for="(problem, index) in rank.problems" :key="'problem-header-' + index"
-                        :class="problem.num_pending > 0 ? 'verdict-pending' : (problem.num_judged != 0 ? (problem.solved ? (problem.first_to_solve ? 'verdict-ac-first-vivid' : 'verdict-ac-vivid') : 'verdict-wa-vivid') : 'verdict-neutral')"
+                        :class="problem.num_pending > 0 ? 'verdict-pending-vivid' : (problem.num_judged != 0 ? (problem.solved ? (problem.first_to_solve ? 'verdict-ac-first-vivid' : 'verdict-ac-vivid') : 'verdict-wa-vivid') : 'verdict-neutral')"
                     >
                         <template v-if="problem.num_judged != 0 || problem.num_pending != 0">
                             <p class="solution solution-time">

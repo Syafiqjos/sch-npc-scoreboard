@@ -17,7 +17,15 @@
                 <tr v-for="(rank, index) in rankings" :key="'ranking-' + index">
                     <td :class="rank.is_disqualified ? 'verdict-disqualified' : ''">{{ index + 1 }}</td>
                     <td :class="rank.is_disqualified ? 'verdict-disqualified' : ''">{{ rank.user }}</td>
-                    <td :class="rank.is_disqualified ? 'verdict-disqualified' : ''">{{ rank.score }}</td>
+                    <td :class="rank.is_disqualified ? 'verdict-disqualified' : ''">
+                        <p style="text-align:center;">
+                            {{ rank.cumulative_time }}
+                        </p>
+                        <p style="text-align:center;" class="solution solution-points verdict-ac">
+                            {{ rank.score }}
+                        </p>
+                    </td>
+                    
                     <!-- Problems -->
                     <template v-for="(solution, index) in rank.solutions">
                         <template v-if="!rank.is_disqualified">
