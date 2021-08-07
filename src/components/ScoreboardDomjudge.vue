@@ -15,7 +15,7 @@
             </thead>
             <tbody>
                 <tr v-for="(rank, index) in rankings" :key="'ranking-' + index">
-                    <td>{{ index + 1 }}</td>
+                    <td>{{ rank.rank }}</td>
                     <td style="width:250px;">
                         <v-layout>
                              <img class="institute-logo" :src="organizations_images[organizations[teams[rank.team_id].organization_id].id] == null 
