@@ -23,25 +23,30 @@
                              <p style="margin:auto;"> {{ teams[rank.team_id].name }} </p>
                         </v-layout>
                     </td>
-                    <td>{{ rank.score.num_solved * 100 }}</td>
+                    <td>{{ rank.score.num_solved }}</td>
                     <!-- Problems -->
                     <td v-for="(problem, index) in rank.problems" :key="'problem-header-' + index"
-                        :class="problem.num_judged != 0 ? (problem.solved ? (problem.first_to_solve ? 'verdict-ac-first-vivid' : 'verdict-ac-vivid') : 'verdict-wa-vivid') : 'verdict-neutral'"
+                        :class="problem.num_pending > 0 ? 'verdict-pending' : (problem.num_judged != 0 ? (problem.solved ? (problem.first_to_solve ? 'verdict-ac-first-vivid' : 'verdict-ac-vivid') : 'verdict-wa-vivid') : 'verdict-neutral')"
                     >
-                        <template v-if="problem.num_judged != 0">
+                        <template v-if="problem.num_judged != 0 || problem.num_pending != 0">
                             <p class="solution solution-time">
                                 {{ problem.solved ? problem.time : '-' }}
                             </p>
-                            <!-- // Default, bagian nilai 0 atau 100 kalo AC
-                            <p  :class="(problem.num_judged != 0 ? (problem.solved ? ['solution', 'solution-points','verdict-ac'] : ['solution', 'solution-points','verdict-wa']) : ['solution', 'solution-points','verdict-neutral'])">
-                                {{ problem.solved ? 100 : 0 }}
-                            </p>
-                            -->
-
-                                <p  :class="(problem.num_judged != 0 ? (problem.solved ? (problem.first_to_solve ? ['solution', 'solution-points','verdict-ac-first'] : ['solution', 'solution-points','verdict-ac']) : ['solution', 'solution-points','verdict-wa']) : ['solution', 'solution-points','verdict-neutral'])">
+                                
+                            <p  :class="
+                                problem.num_pending != 0 
+                                ? ['solution', 'solution-points','verdict-pending'] 
+                                : (problem.num_judged != 0 
+                                    ? (problem.solved 
+                                        ? (problem.first_to_solve 
+                                            ? ['solution', 'solution-points','verdict-ac-first'] 
+                                            : ['solution', 'solution-points','verdict-ac']) 
+                                        : ['solution', 'solution-points','verdict-wa']) 
+                                    : ['solution', 'solution-points','verdict-neutral'])"
+                            >
+                            
                                 {{ problem.num_judged + (problem.num_judged == 1 ? " try" : " tries") }}
                             </p>
-
                         </template>
                         <template v-else>
                             <p class="solution">

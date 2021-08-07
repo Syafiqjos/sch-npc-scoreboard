@@ -159,7 +159,7 @@
             "label": "D",
             "problem_id": "datepickup",
             "num_judged": 1,
-            "num_pending": 0,
+            "num_pending": 2,
             "solved": false,
             "first_to_solve": false
           },
@@ -392,7 +392,7 @@
             "label": "F",
             "problem_id": "fastestspeedrun",
             "num_judged": 6,
-            "num_pending": 0,
+            "num_pending": 2,
             "solved": false,
             "first_to_solve": false
           },
