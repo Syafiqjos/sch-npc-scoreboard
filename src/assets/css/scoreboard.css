@@ -54,8 +54,10 @@
 }
 
 .verdict-ac-first-vivid {
-    background-color : #188488;
-    background-color : rgb(24, 124, 136, 0.4);
+    background-color : #186458;
+    background-color : rgb(24, 114, 106, 0.4);
+    
+    border : 2px solid #186458;
 }
 
 .verdict-ac-vivid {
@@ -69,8 +71,8 @@
 }
 
 .verdict-ac-first {
-    background-color : rgba(24, 124, 136, 0.8);
-    border : 2px solid #188488;
+    background-color : rgb(24, 114, 106, 0.8);
+    border : 2px solid #186458;
 }
 
 .verdict-ac {
