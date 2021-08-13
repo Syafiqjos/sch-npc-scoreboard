@@ -4,20 +4,26 @@
 		"id" : "warmup",
 		"name" : "Warm-Up",
 		"scoreboard_dmoj_api" : "/scoreboard_data/dmoj_api_example.json",
-		"scoreboard_domjudge_api" : "/scoreboard_data/domjudge_api_example.json"
+		"scoreboard_domjudge_api" : "/scoreboard_data/domjudge_api_example.json",
+		"scoreboard_domjudge_api_teams" : "/scoreboard_data/domjudge_api_teams_example.json",
+		"scoreboard_domjudge_api_organizations" : "/scoreboard_data/domjudge_api_organizations_example.json"
 	},
 	{
 		"active" : true,
 		"id" : "penyisihan",
 		"name" : "Penyisihan",
 		"scoreboard_dmoj_api" : "/scoreboard_data/dmoj_api_example.json",
-		"scoreboard_domjudge_api" : "/scoreboard_data/domjudge_api_example.json"
+		"scoreboard_domjudge_api" : "/scoreboard_data/domjudge_api_example.json",
+		"scoreboard_domjudge_api_teams" : "/scoreboard_data/domjudge_api_teams_example.json",
+		"scoreboard_domjudge_api_organizations" : "/scoreboard_data/domjudge_api_organizations_example.json"
 	},
 	{
 		"active" : false,
 		"id" : "final",
 		"name" : "Final",
 		"scoreboard_dmoj_api" : "/scoreboard_data/dmoj_api_example.json",
-		"scoreboard_domjudge_api" : "/scoreboard_data/domjudge_api_example.json"
+		"scoreboard_domjudge_api" : "/scoreboard_data/domjudge_api_example.json",
+		"scoreboard_domjudge_api_teams" : "/scoreboard_data/domjudge_api_teams_example.json",
+		"scoreboard_domjudge_api_organizations" : "/scoreboard_data/domjudge_api_organizations_example.json"
 	}
 ]

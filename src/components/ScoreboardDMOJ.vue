@@ -1,5 +1,5 @@
 <template>
-    <v-simple-table v-if="scoreboard_data && contest_details && problems && rankings" class="scoreboard" fixed-header>
+    <v-simple-table v-if="scoreboard_data && contest_details && problems && rankings && organizations_images" class="scoreboard" fixed-header>
         <template v-slot:default>
             <thead>
                 <tr>
@@ -17,6 +17,19 @@
                 <tr v-for="(rank, index) in rankings" :key="'ranking-' + index">
                     <td :class="rank.is_disqualified ? 'verdict-disqualified' : ''">{{ index + 1 }}</td>
                     <td :class="rank.is_disqualified ? 'verdict-disqualified' : ''">{{ rank.user }}</td>
+
+                    <!-- 
+                    <td v-if="rank.is_disqualified" class="verdict-disqualified">{{ rank.user }}</td>
+                    <td v-else style="width:250px;">
+                        <v-layout>
+                            <!- Iki img sek salah lho --
+                            <img class="institute-logo" :src="organizations_images[organizations[teams[rank.team_id].organization_id].id] == null 
+                            ? '' : organizations_images[organizations[teams[rank.team_id].organization_id].id].image" /> 
+                            <p style="margin:auto;">{{ rank.user }}</p>
+                        </v-layout>
+                    </td>
+                    -->
+
                     <td :class="rank.is_disqualified ? 'verdict-disqualified' : ''">
                         <p style="text-align:center;">
                             {{ rank.cumulative_time }}
@@ -66,6 +79,7 @@ export default {
             scoreboard_data : null,
             problems : null,
             rankings : null,
+            organizations_images : null
         }
     },
     props : [
@@ -77,6 +91,7 @@ export default {
     methods : {
         initialization(){
             this.populateTable();
+            this.retrieveOrganizationImages();
 
             document.title = this.$parent.contest_name + " " + this.$parent.class_type + " - Schematics NPC 2021";
         },
@@ -90,6 +105,21 @@ export default {
 
             this.$parent.start_time = new Date(this.scoreboard_data.start_time);
             this.$parent.end_time = new Date(this.scoreboard_data.end_time);
+        },
+        retrieveOrganizationImages(){
+            this.axios.get("/scoreboard_data/school_images.json")
+            .then((response) => {
+                this.organizations_images = response.data;
+
+                if (process.env.DEBUG_MODE == true) {
+                    console.log(this.organizations_images);
+                }
+            })
+            .catch((errors) => {
+                if (process.env.DEBUG_MODE == true) {
+                    console.log(errors);
+                }
+            });
         }
     }
 }
