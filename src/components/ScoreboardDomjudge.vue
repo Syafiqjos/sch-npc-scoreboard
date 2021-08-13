@@ -125,6 +125,10 @@ export default {
             // this.axios.get("http://192.168.233.131/domjudge/api/contests/2/teams")
             .then((response) => {
                 let teams = response.data;
+
+                // After Update JSON from Back-End
+                teams = teams.data;
+
                 let teams_new = {};
                 
                 teams.forEach((item) => { teams_new[item.id] = item; });
@@ -148,8 +152,12 @@ export default {
             // this.axios.get("http://192.168.233.131/domjudge/api/contests/2/organizations")
             .then((response) => {
                 let organizations = response.data;
+
+                // After Update JSON from Back-End
+                organizations = organizations.data;
+
                 let organizations_new = {};
-                
+
                 organizations.forEach((item) => { organizations_new[item.id] = item; });
 
                 this.organizations = organizations_new;

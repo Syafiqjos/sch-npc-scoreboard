@@ -3,7 +3,10 @@
 		"active" : true,
 		"id" : "tutorial1",
 		"name" : "Tutorial 1",
-		"scoreboard_dmoj_api" : "/scoreboard_data/dmoj_api_example.json"
+		"scoreboard_dmoj_api" : "http://137.135.52.100/junior/tutorial",
+		"scoreboard_domjudge_api" : "http://137.135.52.100/senior/test1/scoreboard",
+		"scoreboard_domjudge_api_teams" : "http://137.135.52.100/senior/test1/teams",
+		"scoreboard_domjudge_api_organizations" : "http://137.135.52.100/senior/test1/organizations"
 	},
 	{
 		"active" : false,

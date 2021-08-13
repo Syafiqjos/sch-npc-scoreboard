@@ -175,6 +175,10 @@ export default {
             this.axios.get(fetch_link)
             .then((response) => {
                 this.scoreboard_data = response.data;
+                
+                // After Update JSON from Back-End
+                this.scoreboard_data = this.scoreboard_data.data;
+
                 this.judge_type = this.checkJudgeType(this.scoreboard_data);
                 this.show_scoreboard = true;
                 if (process.env.DEBUG_MODE == true) {
@@ -202,7 +206,7 @@ export default {
             }
 
             let day = (Math.floor(time / (24 * 60 * 60))).toString().padStart(2, '0');
-            let hour = (Math.floor(time / (60 * 60)) % 60).toString().padStart(2, '0');
+            let hour = (Math.floor(time / (60 * 60)) % 24).toString().padStart(2, '0');
             let minute = (Math.floor(time / (60)) % 60).toString().padStart(2, '0');
             let second = Math.floor(time % 60).toString().padStart(2, '0');
 
