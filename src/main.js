@@ -18,7 +18,9 @@ var contestsDataMixin = {
     retrieveContestsData(onSuccess){
       const url = "/scoreboard_data/contests_data.json";
 
-      console.log("retrieveContestsData");
+      if (process.env.DEBUG_MODE == true) {
+        console.log("retrieveContestsData");
+      }
 
       if (this.contests_data){
         if (onSuccess) onSuccess();
@@ -26,13 +28,17 @@ var contestsDataMixin = {
         this.axios.get(url)
           .then((response) => {
               this.contests_data = response.data;
-              console.log(response.data);
+              if (process.env.DEBUG_MODE == true) {
+                console.log(response.data);
+              }
 
               if (onSuccess) onSuccess();
           })
           .catch((errors) => {
+            if (process.env.DEBUG_MODE == true) {
               console.log(errors);
               console.log("Fetch contests data failed, retrying..");
+            }
           });
       }
     },

@@ -1,5 +1,5 @@
 <template>
-    <v-simple-table v-if="scoreboard_data && problems && rankings && teams && organizations && organizations_images" class="scoreboard" fixed-header>
+    <v-simple-table v-if="scoreboard_data && contest_details && problems && rankings && teams && organizations && organizations_images" class="scoreboard" fixed-header>
         <template v-slot:default>
             <thead>
                 <tr>
@@ -80,7 +80,7 @@ export default {
         }
     },
     props : [
-        'data'
+        'data', 'contest_details'
     ],
     mounted(){
         this.initialization();
@@ -95,7 +95,9 @@ export default {
             document.title = this.$parent.contest_name + " " + this.$parent.class_type + " - Schematics NPC 2021";
         },
         populateTable(){
-            console.log("PopulateTableAsDomjudge");
+            if (process.env.DEBUG_MODE == true) {
+                console.log("PopulateTableAsDomjudge");
+            }
             this.scoreboard_data = this.data;
             let row = this.scoreboard_data.rows[0];
             if (row){
@@ -110,11 +112,16 @@ export default {
                 this.$parent.start_time = new Date(this.scoreboard_data.state.started);
                 this.$parent.end_time = new Date(this.scoreboard_data.state.ended);
 
-                console.log(this.problems);
+                if (process.env.DEBUG_MODE == true) {
+                    console.log(this.problems);
+                }
             }
         },
         retrieveTeams(){
-            this.axios.get("/scoreboard_data/domjudge_api_teams_example.json")
+            let url = this.contest_details.scoreboard_domjudge_api_teams;
+
+            this.axios.get(url)
+            // this.axios.get("/scoreboard_data/domjudge_api_teams_example.json")
             // this.axios.get("http://192.168.233.131/domjudge/api/contests/2/teams")
             .then((response) => {
                 let teams = response.data;
@@ -123,14 +130,21 @@ export default {
                 teams.forEach((item) => { teams_new[item.id] = item; });
 
                 this.teams = teams_new;
-                console.log(this.teams);
+                if (process.env.DEBUG_MODE == true) {
+                    console.log(this.teams);
+                }
             })
             .catch((errors) => {
-                console.log(errors);
+                if (process.env.DEBUG_MODE == true) {
+                    console.log(errors);
+                }
             });
         },
         retrieveOrganizations(){
-            this.axios.get("/scoreboard_data/domjudge_api_organizations_example.json")
+            let url = this.contest_details.scoreboard_domjudge_api_organizations;
+
+            this.axios.get(url)
+            // this.axios.get("/scoreboard_data/domjudge_api_organizations_example.json")
             // this.axios.get("http://192.168.233.131/domjudge/api/contests/2/organizations")
             .then((response) => {
                 let organizations = response.data;
@@ -139,10 +153,14 @@ export default {
                 organizations.forEach((item) => { organizations_new[item.id] = item; });
 
                 this.organizations = organizations_new;
-                console.log(this.organizations);
+                if (process.env.DEBUG_MODE == true) {
+                    console.log(this.organizations);
+                }
             })
             .catch((errors) => {
-                console.log(errors);
+                if (process.env.DEBUG_MODE == true) {
+                    console.log(errors);
+                }
             });
         },
         retrieveOrganizationImages(){
@@ -150,10 +168,14 @@ export default {
             .then((response) => {
                 this.organizations_images = response.data;
 
-                console.log(this.organizations_images);
+                if (process.env.DEBUG_MODE == true) {
+                    console.log(this.organizations_images);
+                }
             })
             .catch((errors) => {
-                console.log(errors);
+                if (process.env.DEBUG_MODE == true) {
+                    console.log(errors);
+                }
             });
         }
     }

@@ -13,11 +13,11 @@
                     Senior
                 </v-btn>
             </v-app-bar>
-            <template v-if="show_scoreboard">
+            <template v-if="show_scoreboard && contest_details">
                 <h1 class="title wide">Schematics NPC</h1>
                 <h2 class="subtitle wide">{{ contest_name }} {{ class_type }}</h2>
-                <ScoreboardDomjudge ref="scoreboardDomjudge" :data="scoreboard_data" v-if="judge_type == 'domjudge'"></ScoreboardDomjudge>
-                <ScoreboardDMOJ ref="scoreboardDMOJ" :data="scoreboard_data" v-else-if="judge_type == 'dmoj'"></ScoreboardDMOJ>
+                <ScoreboardDomjudge ref="scoreboardDomjudge" :data="scoreboard_data" :contest_details="contest_details" v-if="judge_type == 'domjudge'"></ScoreboardDomjudge>
+                <ScoreboardDMOJ ref="scoreboardDMOJ" :data="scoreboard_data" :contest_details="contest_details" v-else-if="judge_type == 'dmoj'"></ScoreboardDMOJ>
                 <div class="countdown">
                     <h2>{{ countdown }}</h2>
                 </div>
@@ -65,9 +65,11 @@ export default {
         this.retrieveContestsData(() => {
             let contest_details = this.getContestData(param);
 
-            console.log(this.contests_data);
-            console.log(param);
-            console.log(contest_details);
+            if (process.env.DEBUG_MODE == true) {
+                console.log(this.contests_data);
+                console.log(param);
+                console.log(contest_details);
+            }
 
             if (contest_details && contest_details.active){
                 this.contest_details = contest_details;
@@ -107,8 +109,10 @@ export default {
             let classs = this.$route.params.class;
             let contest = this.$route.params.contest;
 
-            console.log(classs);
-            console.log(contest);
+            if (process.env.DEBUG_MODE == true) {
+                console.log(classs);
+                console.log(contest);
+            }
 
             if (classs == 'junior'){
                 this.class_type = 'Junior';
@@ -166,11 +170,15 @@ export default {
                 this.scoreboard_data = response.data;
                 this.judge_type = this.checkJudgeType(this.scoreboard_data);
                 this.show_scoreboard = true;
-                console.log(response.data);
+                if (process.env.DEBUG_MODE == true) {
+                    console.log(response.data);
+                }
             })
             .catch((errors) => {
-                console.log(errors);
-                console.log("Fetch scoreboard failed, retrying..");
+                if (process.env.DEBUG_MODE == true) {
+                    console.log(errors);
+                    console.log("Fetch scoreboard failed, retrying..");
+                }
 
                 this.fetchScoreboard(fetch_link);
             });

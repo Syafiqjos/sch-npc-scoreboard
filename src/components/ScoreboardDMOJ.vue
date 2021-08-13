@@ -1,5 +1,5 @@
 <template>
-    <v-simple-table v-if="scoreboard_data && problems && rankings" class="scoreboard" fixed-header>
+    <v-simple-table v-if="scoreboard_data && contest_details && problems && rankings" class="scoreboard" fixed-header>
         <template v-slot:default>
             <thead>
                 <tr>
@@ -69,7 +69,7 @@ export default {
         }
     },
     props : [
-        'data'
+        'data', 'contest_details'
     ],
     mounted(){
         this.initialization();
@@ -81,7 +81,9 @@ export default {
             document.title = this.$parent.contest_name + " " + this.$parent.class_type + " - Schematics NPC 2021";
         },
         populateTable(){
-            console.log("PopulateTableAsDMOJ");
+            if (process.env.DEBUG_MODE == true) {
+                console.log("PopulateTableAsDMOJ");
+            }
             this.scoreboard_data = this.data.data.object;
             this.problems = this.scoreboard_data.problems;
             this.rankings = this.scoreboard_data.rankings;
