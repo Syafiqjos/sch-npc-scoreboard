@@ -1,5 +1,11 @@
 [
 	{
+		"active" : true,
+		"id" : "tutorial1",
+		"name" : "Tutorial 1",
+		"scoreboard_dmoj_api" : "/scoreboard_data/dmoj_api_example.json"
+	},
+	{
 		"active" : false,
 		"id" : "warmup",
 		"name" : "Warm-Up",

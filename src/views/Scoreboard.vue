@@ -1,15 +1,28 @@
 <template>
     <v-container fill-height fluid>
-        <template v-if="contests_data && contest_name">
+        <template v-if="contests_data 
+                        && contest_name 
+                        && contest_details 
+                        && (judge_type == 'dmoj' && contest_details.scoreboard_dmoj_api 
+                            || judge_type == 'domjudge' 
+                                && contest_details.scoreboard_domjudge_api
+                                && contest_details.scoreboard_domjudge_api_teams
+                                && contest_details.scoreboard_domjudge_api_organizations)">
             <v-app-bar app color="primary" height="80px" dark>
                 <img style="height:50px;padding-left:10px;" src="https://schematics.its.ac.id/image/white-logo.svg" />
                 <!-- <v-app-bar-nav-icon @click.stop="drawer = true"></v-app-bar-nav-icon> -->
                 <!-- <v-toolbar-title>Schematics NPC - {{ contest_name }} {{ class_type }}</v-toolbar-title> -->
                 <v-spacer></v-spacer>
-                <v-btn :to="juniorLink" @click="refreshScoreboard()" class="mr-2">
+                <v-btn v-if="contest_details 
+                            && (contest_details.scoreboard_dmoj_api)" 
+                        :to="juniorLink" @click="refreshScoreboard()" class="mr-2">
                     Junior
                 </v-btn>
-                <v-btn :to="seniorLink" @click="refreshScoreboard()">
+                <v-btn v-if="contest_details 
+                            && (contest_details.scoreboard_domjudge_api
+                                && contest_details.scoreboard_domjudge_api_teams
+                                && contest_details.scoreboard_domjudge_api_organizations)"
+                        :to="seniorLink" @click="refreshScoreboard()">
                     Senior
                 </v-btn>
             </v-app-bar>
@@ -74,13 +87,19 @@ export default {
             if (contest_details && contest_details.active){
                 this.contest_details = contest_details;
 
-                this.retrieveScoreboard();
+                let isRetrieveSuccess = this.retrieveScoreboard();
 
-                this.countdown_timer = setInterval(() => {
-                    this.refreshCountdown();
-                }, 1000);
+                if (isRetrieveSuccess){
+                    this.countdown_timer = setInterval(() => {
+                        this.refreshCountdown();
+                    }, 1000);
 
-                document.title = this.contest_name + " " + this.class_type + " - Schematics NPC 2021";
+                    document.title = this.contest_name + " " + this.class_type + " - Schematics NPC 2021";
+                }
+                else {
+                    this.contest_name = null;
+                    this.contest_details = null;
+                }
             }
         });
     },
@@ -125,25 +144,6 @@ export default {
                 this.contest_name = this.contest_details.name;
                 return this.contest_details.scoreboard_domjudge_api;
             }
-
-            /*
-            if (classs == 'junior'){
-                this.class_type = 'Junior';
-                if (contest == 'penyisihan'){
-                    this.contest_name = 'Penyisihan';
-                    return "/scoreboard_data/dmoj_api_example.json";
-                    // return "https://banksoal.zydhan.xyz/api/v2/contest/testscoreboard";
-                    // return "http://23.101.31.143/test.php";
-                }
-            } else if (classs == 'senior'){
-                this.class_type = 'Senior';
-                 if (contest == 'penyisihan'){
-                    this.contest_name = 'Penyisihan';
-                    return "/scoreboard_data/domjudge_api_example.json";
-                    // return "http://192.168.233.131/domjudge/api/contests/2/scoreboard";
-                }
-            }
-            */
             return null;
         },
         checkJudgeType(data){
@@ -162,7 +162,14 @@ export default {
         retrieveScoreboard(){
             let fetch_link = this.getFetchLinkFromParams();
             // this.axios.get(fetch_link, { headers: { 'Content-Type': 'application/json'} })
-            this.fetchScoreboard(fetch_link);
+
+            if (fetch_link) {
+                this.fetchScoreboard(fetch_link);
+
+                return true;
+            }
+
+            return false;
         },
         fetchScoreboard(fetch_link){
             this.axios.get(fetch_link)

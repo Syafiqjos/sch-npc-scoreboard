@@ -3,8 +3,11 @@
       <template v-slot:content>
         <template v-if="contests_data">
           <template v-if="contestName != null">
-            <v-btn class="button-list" :to="'/scoreboard/' + contestName + '/junior'">Junior</v-btn>
-            <v-btn class="button-list" :to="'/scoreboard/' + contestName + '/senior'">Senior</v-btn>
+            <v-btn v-if="contestDetails && contestDetails.scoreboard_dmoj_api" class="button-list" :to="'/scoreboard/' + contestName + '/junior'">Junior</v-btn>
+            <v-btn v-if="contestDetails 
+                        && contestDetails.scoreboard_domjudge_api 
+                        && contestDetails.scoreboard_domjudge_api_teams
+                        && contestDetails.scoreboard_domjudge_api_organizations" class="button-list" :to="'/scoreboard/' + contestName + '/senior'">Senior</v-btn>
           </template>
           <template v-else>
             <p class="button-list" style="text-align:center;">Contest tidak ada atau belum dimulai!</p>
@@ -27,7 +30,8 @@ export default {
   name: 'ClassTypeList',
   data() {
     return {
-      contestName : null
+      contestName : null,
+      contestDetails : null
     }
   },
   components : {
@@ -44,6 +48,7 @@ export default {
 
         if (contest_details && contest_details.active){
           this.contestName = contest_details.id;
+          this.contestDetails = contest_details;
         }
       }
     );
