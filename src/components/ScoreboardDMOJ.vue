@@ -32,7 +32,7 @@
 
                     <td :class="rank.is_disqualified ? 'verdict-disqualified' : ''">
                         <p style="text-align:center;">
-                            {{ rank.cumulative_time }}
+                            {{ rank.cumulative_time | normalizeTime }}
                         </p>
                         <p style="text-align:center;" class="solution solution-points verdict-ac">
                             {{ rank.score }}
@@ -46,7 +46,7 @@
                             :class="solution ? (solution.points >= 100 ? 'verdict-ac-vivid' : 'verdict-wa-vivid') : 'verdict-neutral'">
                                 <template v-if="solution">
                                     <p class="solution solution-time">
-                                        {{ solution.time }}
+                                        {{ solution.time | normalizeTime }}
                                     </p>
                                     <p :class="(solution ? (solution.points >= 100 ? ['solution', 'solution-points','verdict-ac'] : ['solution', 'solution-points','verdict-wa']) : ['solution', 'solution-points','verdict-neutral'])">
                                         {{ solution.points + ".0" }}
@@ -120,6 +120,11 @@ export default {
                     console.log(errors);
                 }
             });
+        }
+    },
+    filters : {
+        normalizeTime(time){
+            return Number.parseInt(time / 60)
         }
     }
 }

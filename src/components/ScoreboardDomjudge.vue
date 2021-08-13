@@ -138,10 +138,16 @@ export default {
                     console.log(this.teams);
                 }
             })
-            .catch((errors) => {
+            .catch(async (errors) => {
                 if (process.env.DEBUG_MODE == true) {
                     console.log(errors);
                 }
+
+                console.log("bobok");
+
+                // Sleep then, Call Recursive if fail
+                await this.sleep(1000);
+                this.retrieveTeams();
             });
         },
         retrieveOrganizations(){
@@ -165,10 +171,14 @@ export default {
                     console.log(this.organizations);
                 }
             })
-            .catch((errors) => {
+            .catch(async (errors) => {
                 if (process.env.DEBUG_MODE == true) {
                     console.log(errors);
                 }
+
+                // Sleep then, Call Recursive if fail
+                await this.sleep(1000);
+                this.retrieveOrganizations();
             });
         },
         retrieveOrganizationImages(){

@@ -185,12 +185,14 @@ export default {
                     console.log(response.data);
                 }
             })
-            .catch((errors) => {
+            .catch(async(errors) => {
                 if (process.env.DEBUG_MODE == true) {
                     console.log(errors);
                     console.log("Fetch scoreboard failed, retrying..");
                 }
 
+                // Sleep then, Call Recursive if fail
+                await this.sleep(1000);
                 this.fetchScoreboard(fetch_link);
             });
         },
