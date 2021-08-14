@@ -3,6 +3,7 @@
       <template v-slot:content>
         <div>
           <template v-if="contests_data">
+            <span></span>
             <template v-for="(contest, index) in contests_data" >
               <v-btn 
                 v-if="contest.active" 

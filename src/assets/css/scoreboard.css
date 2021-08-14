@@ -136,6 +136,15 @@ h3 {
 
 .institute-logo {
     height : 40px;
+
+    margin: 10px;
+}
+
+.institute-logo-box {
+    height : 40px;
+    width : 40px;
+
+    margin: 10px;
 }
 
 .center-absolute {

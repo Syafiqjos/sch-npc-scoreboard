@@ -18,8 +18,8 @@
                     <td>{{ rank.rank }}</td>
                     <td style="width:250px;">
                         <v-layout>
-                             <img class="institute-logo" :src="organizations_images[organizations[teams[rank.team_id].organization_id].id] == null 
-                                ? '' : organizations_images[organizations[teams[rank.team_id].organization_id].id].image" /> 
+                             <span class="institute-logo-box" v-if="organizations[teams[rank.team_id].organization_id] == null || organizations_images[organizations[teams[rank.team_id].organization_id].id] == null"></span>
+                             <img v-else class="institute-logo" :src="organizations_images[organizations[teams[rank.team_id].organization_id].id].image" /> 
                              <p style="margin:auto;"> {{ teams[rank.team_id].name }} </p>
                         </v-layout>
                     </td>
@@ -190,10 +190,14 @@ export default {
                     console.log(this.organizations_images);
                 }
             })
-            .catch((errors) => {
+            .catch(async (errors) => {
                 if (process.env.DEBUG_MODE == true) {
                     console.log(errors);
                 }
+
+                // Sleep then, Call Recursive if fail
+                await this.sleep(1000);
+                this.retrieveOrganizations();
             });
         }
     }

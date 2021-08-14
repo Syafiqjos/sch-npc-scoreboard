@@ -3,7 +3,9 @@
         <template v-if="contests_data 
                         && contest_name 
                         && contest_details 
-                        && (judge_type == 'dmoj' && contest_details.scoreboard_dmoj_api 
+                        && (    judge_type == 'dmoj' 
+                                && contest_details.scoreboard_dmoj_api 
+                                && contest_details.scoreboard_dmoj_api_users
                             || judge_type == 'domjudge' 
                                 && contest_details.scoreboard_domjudge_api
                                 && contest_details.scoreboard_domjudge_api_teams
@@ -14,7 +16,8 @@
                 <!-- <v-toolbar-title>Schematics NPC - {{ contest_name }} {{ class_type }}</v-toolbar-title> -->
                 <v-spacer></v-spacer>
                 <v-btn v-if="contest_details 
-                            && (contest_details.scoreboard_dmoj_api)" 
+                            && (contest_details.scoreboard_dmoj_api
+                                && contest_details.scoreboard_dmoj_api_users)" 
                         :to="juniorLink" @click="refreshScoreboard()" class="mr-2">
                     Junior
                 </v-btn>

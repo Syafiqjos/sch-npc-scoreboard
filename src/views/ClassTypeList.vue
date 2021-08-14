@@ -2,8 +2,12 @@
     <HomeComponent>
       <template v-slot:content>
         <template v-if="contests_data">
+          <span></span>
           <template v-if="contestName != null">
-            <v-btn v-if="contestDetails && contestDetails.scoreboard_dmoj_api" class="button-list" :to="'/scoreboard/' + contestName + '/junior'">Junior</v-btn>
+            <span></span>
+            <v-btn v-if="contestDetails 
+                        && contestDetails.scoreboard_dmoj_api 
+                        && contestDetails.scoreboard_dmoj_api_users" class="button-list" :to="'/scoreboard/' + contestName + '/junior'">Junior</v-btn>
             <v-btn v-if="contestDetails 
                         && contestDetails.scoreboard_domjudge_api 
                         && contestDetails.scoreboard_domjudge_api_teams
@@ -46,9 +50,13 @@ export default {
 
         this.contestName = null;
 
+        console.log(contest_details);
+
         if (contest_details && contest_details.active){
           this.contestName = contest_details.id;
           this.contestDetails = contest_details;
+
+          console.log("success");
         }
       }
     );

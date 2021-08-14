@@ -277,7 +277,7 @@
 		{
 		  "icpc_id": "50",
 		  "shortname": "TUM",
-		  "id": "U-1833",
+		  "id": "unair",
 		  "name": "TUM",
 		  "formal_name": "Technische Universitaet Muenchen",
 		  "country": "DEU"
@@ -469,7 +469,7 @@
 		{
 		  "icpc_id": "24",
 		  "shortname": "Oxford",
-		  "id": "U-3264",
+		  "id": "UGM",
 		  "name": "Oxford",
 		  "formal_name": "University of Oxford",
 		  "country": "GBR"

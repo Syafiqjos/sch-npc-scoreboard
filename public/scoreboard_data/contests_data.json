@@ -3,7 +3,8 @@
 		"active" : true,
 		"id" : "tutorial1",
 		"name" : "Tutorial 1",
-		"scoreboard_dmoj_api" : "http://137.135.52.100/junior/tutorial",
+		"scoreboard_dmoj_api" : "http://137.135.52.100/junior/tutorial/scoreboard",
+		"scoreboard_dmoj_api_users" : "http://137.135.52.100/junior/tutorial/users",
 		"scoreboard_domjudge_api" : "http://137.135.52.100/senior/test1/scoreboard",
 		"scoreboard_domjudge_api_teams" : "http://137.135.52.100/senior/test1/teams",
 		"scoreboard_domjudge_api_organizations" : "http://137.135.52.100/senior/test1/organizations"
@@ -13,6 +14,7 @@
 		"id" : "warmup",
 		"name" : "Warm-Up",
 		"scoreboard_dmoj_api" : "/scoreboard_data/dmoj_api_example.json",
+		"scoreboard_dmoj_api_users" : "/scoreboard_data/dmoj_api_users_example.json",
 		"scoreboard_domjudge_api" : "/scoreboard_data/domjudge_api_example.json",
 		"scoreboard_domjudge_api_teams" : "/scoreboard_data/domjudge_api_teams_example.json",
 		"scoreboard_domjudge_api_organizations" : "/scoreboard_data/domjudge_api_organizations_example.json"
@@ -22,6 +24,7 @@
 		"id" : "penyisihan",
 		"name" : "Penyisihan",
 		"scoreboard_dmoj_api" : "/scoreboard_data/dmoj_api_example.json",
+		"scoreboard_dmoj_api_users" : "/scoreboard_data/dmoj_api_users_example.json",
 		"scoreboard_domjudge_api" : "/scoreboard_data/domjudge_api_example.json",
 		"scoreboard_domjudge_api_teams" : "/scoreboard_data/domjudge_api_teams_example.json",
 		"scoreboard_domjudge_api_organizations" : "/scoreboard_data/domjudge_api_organizations_example.json"
@@ -31,6 +34,7 @@
 		"id" : "final",
 		"name" : "Final",
 		"scoreboard_dmoj_api" : "/scoreboard_data/dmoj_api_example.json",
+		"scoreboard_dmoj_api_users" : "/scoreboard_data/dmoj_api_users_example.json",
 		"scoreboard_domjudge_api" : "/scoreboard_data/domjudge_api_example.json",
 		"scoreboard_domjudge_api_teams" : "/scoreboard_data/domjudge_api_teams_example.json",
 		"scoreboard_domjudge_api_organizations" : "/scoreboard_data/domjudge_api_organizations_example.json"
