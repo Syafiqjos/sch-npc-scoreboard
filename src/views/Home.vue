@@ -1,9 +1,14 @@
 <template>
     <HomeComponent>
       <template v-slot:content>
-        <v-btn class="button-list" href="https://schematics.its.ac.id/sch-npc/portal/junior">Portal Junior</v-btn>
-        <v-btn class="button-list" to="/scoreboard/warmup/senior">Portal Senior</v-btn>
-        <v-btn class="button-list" to="/scoreboard">Scoreboard</v-btn>
+        <span></span>
+        <template v-if="contests_portal">
+          <span></span>
+          <template v-for="(portal, index) in contests_portal">
+            <v-btn :key="'portal-' + index" v-if="portal && portal.active" class="button-list" :href="portal.url">{{ portal.text }}</v-btn>
+          </template>
+          <v-btn class="button-list" to="/scoreboard">Scoreboard</v-btn>
+        </template>
       </template>
     </HomeComponent>
 </template>
@@ -18,6 +23,7 @@ export default {
     HomeComponent
   },
   mounted(){
+    this.retrieveContestsPortal();
     this.retrieveContestsData();
   }
 }

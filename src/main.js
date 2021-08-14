@@ -11,10 +11,38 @@ Vue.config.productionTip = false
 var contestsDataMixin = {
   data (){
     return {
+      contests_portal : null,
       contests_data : null
     }
   },
   methods : {
+    retrieveContestsPortal(){
+      const url = "/scoreboard_data/contests_portal.json";
+
+      if (process.env.DEBUG_MODE == true) {
+        console.log("retrieveContestsPortal");
+      }
+
+      if (!this.contests_portal){
+        this.axios.get(url)
+          .then((response) => {
+              this.contests_portal = response.data;
+              if (process.env.DEBUG_MODE == true) {
+                console.log(response.data);
+              }
+          })
+          .catch(async(errors) => {
+            if (process.env.DEBUG_MODE == true) {
+              console.log(errors);
+              console.log("Fetch contests data failed, retrying..");
+            }
+
+            // Sleep then, Call Recursive if fail
+            await this.sleep(1000);
+            this.retrieveContestsPortal();
+          });
+      }
+    },
     retrieveContestsData(onSuccess){
       const url = "/scoreboard_data/contests_data.json";
 
@@ -34,11 +62,15 @@ var contestsDataMixin = {
 
               if (onSuccess) onSuccess();
           })
-          .catch((errors) => {
+          .catch(async(errors) => {
             if (process.env.DEBUG_MODE == true) {
               console.log(errors);
               console.log("Fetch contests data failed, retrying..");
             }
+
+            // Sleep then, Call Recursive if fail
+            await this.sleep(1000);
+            this.retrieveContestsData(onSuccess);
           });
       }
     },
