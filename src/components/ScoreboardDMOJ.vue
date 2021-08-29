@@ -25,8 +25,8 @@
                             <img class="institute-logo" v-if="users[rank.user] == null || organizations_images[users[rank.user].school_id] == null" src="/null.png" />
                             <img v-else class="institute-logo" :src="organizations_images[users[rank.user].school_id].image" /> 
 
-                            <p v-if="rank.is_disqualified" class="verdict-disqualified" style="margin:auto;">{{ rank.user }}</p>
-                            <p v-else style="margin:auto;">{{ rank.user }}</p>
+                            <p v-if="rank.is_disqualified" class="verdict-disqualified" style="margin:auto; margin-left: 10px;">{{ rank.user }}</p>
+                            <p v-else style="margin:auto; margin-left: 10px;">{{ users[rank.user].fullname }}</p>
                         </v-layout>
                     </td>
                    
@@ -132,8 +132,6 @@ export default {
                 if (process.env.DEBUG_MODE == true) {
                     console.log(errors);
                 }
-
-                console.log(errors);
 
                 // Sleep then, Call Recursive if fail
                 await this.sleep(1000);
