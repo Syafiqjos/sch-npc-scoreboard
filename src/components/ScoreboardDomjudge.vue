@@ -18,7 +18,8 @@
                     <td>{{ rank.rank }}</td>
                     <td style="width:250px;">
                         <v-layout>
-                             <span class="institute-logo-box" v-if="organizations[teams[rank.team_id].organization_id] == null || organizations_images[organizations[teams[rank.team_id].organization_id].id] == null"></span>
+                             <!-- <span class="institute-logo-box" v-if="organizations[teams[rank.team_id].organization_id] == null || organizations_images[organizations[teams[rank.team_id].organization_id].id] == null"></span> -->
+                             <img class="institute-logo" v-if="organizations[teams[rank.team_id].organization_id] == null || organizations_images[organizations[teams[rank.team_id].organization_id].id] == null" src="/null.png" />
                              <img v-else class="institute-logo" :src="organizations_images[organizations[teams[rank.team_id].organization_id].id].image" /> 
                              <p style="margin:auto;"> {{ teams[rank.team_id].name }} </p>
                         </v-layout>
