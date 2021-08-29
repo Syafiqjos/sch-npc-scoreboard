@@ -4,7 +4,7 @@
             <thead>
                 <tr>
                     <th style="width: 20px;">Rank</th>
-                    <th style="text-align: center;">Team</th>
+                    <th>Team</th>
                     <th>Score</th>
                     <!-- Problems -->
                     <th v-for="(problem, index) in problems" :key="'problem-header-' + index" class="text-center tooltip">
@@ -16,12 +16,14 @@
             <tbody>
                 <tr v-for="(rank, index) in rankings" :key="'ranking-' + index">
                     <td>{{ rank.rank }}</td>
-                    <td style="width:250px;">
+                    <td style="width:250px;" class="tooltip">
                         <v-layout>
                              <!-- <span class="institute-logo-box" v-if="organizations[teams[rank.team_id].organization_id] == null || organizations_images[organizations[teams[rank.team_id].organization_id].id] == null"></span> -->
                              <img class="institute-logo" v-if="organizations[teams[rank.team_id].organization_id] == null || organizations_images[organizations[teams[rank.team_id].organization_id].id] == null" src="/null.png" />
                              <img v-else class="institute-logo" :src="organizations_images[organizations[teams[rank.team_id].organization_id].id].image" /> 
                              <p style="margin:auto; margin-left: 10px;"> {{ teams[rank.team_id].name }} </p>
+
+                             <span class="tooltip-text" style="display:block;margin:0px;margin-left:200px;">{{ teams[rank.team_id].member || 'Member not specified' }}</span>
                         </v-layout>
                     </td>
                     <td>
@@ -143,8 +145,6 @@ export default {
                 if (process.env.DEBUG_MODE == true) {
                     console.log(errors);
                 }
-
-                console.log("bobok");
 
                 // Sleep then, Call Recursive if fail
                 await this.sleep(1000);

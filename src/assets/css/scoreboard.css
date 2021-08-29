@@ -1,3 +1,7 @@
+th {
+    text-align: center !important;
+}
+
 .countdown {
     position : sticky;
     bottom : 10px;

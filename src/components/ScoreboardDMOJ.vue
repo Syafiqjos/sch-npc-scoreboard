@@ -4,7 +4,7 @@
             <thead>
                 <tr>
                     <th style="width: 20px;">Rank</th>
-                    <th style="text-align: center;">Team</th>
+                    <th>Team</th>
                     <th>Score</th>
                     <!-- Problems -->
                     <th v-for="(problem, index) in problems" :key="'problem-header-' + index" class="text-center tooltip">
@@ -52,7 +52,7 @@
                                         {{ solution.time | normalizeTime }}
                                     </p>
                                     <p :class="(solution ? (solution.points >= 100 ? ['solution', 'solution-points','verdict-ac'] : ['solution', 'solution-points','verdict-wa']) : ['solution', 'solution-points','verdict-neutral'])">
-                                        {{ solution.points + ".0" }}
+                                        {{ solution.points + "" }}
                                     </p>
                                 </template>
                                 <template v-else>
