@@ -3,8 +3,8 @@
         <template v-slot:default>
             <thead>
                 <tr>
-                    <th>Rank</th>
-                    <th>Team</th>
+                    <th style="width: 20px;">Rank</th>
+                    <th style="text-align: center;">Team</th>
                     <th>Score</th>
                     <!-- Problems -->
                     <th v-for="(problem, index) in problems" :key="'problem-header-' + index" class="text-center tooltip">
@@ -18,7 +18,7 @@
                     <td :class="rank.is_disqualified ? 'verdict-disqualified' : ''">{{ index + 1 }}</td>
                     <!-- <td :class="rank.is_disqualified ? 'verdict-disqualified' : ''">{{ rank.user }}</td> -->
 
-                    <td style="width:250px;" :class="rank.is_disqualified ? 'verdict-disqualified' : ''">
+                    <td style="width:250px;" :class="rank.is_disqualified ? 'verdict-disqualified' : '' + ' tooltip'">
                         <v-layout>
                             <!-- Iki img sek salah lho -->
                             <!-- <span class="institute-logo-box" v-if="users[rank.user] == null || organizations_images[users[rank.user].school_id] == null"></span> -->
@@ -26,7 +26,9 @@
                             <img v-else class="institute-logo" :src="organizations_images[users[rank.user].school_id].image" /> 
 
                             <p v-if="rank.is_disqualified" class="verdict-disqualified" style="margin:auto; margin-left: 10px;">{{ rank.user }}</p>
-                            <p v-else style="margin:auto; margin-left: 10px;">{{ users[rank.user].fullname }}</p>
+                            <p v-else style="margin:auto; margin-left: 10px;">{{ rank.user }}</p>
+
+                            <span class="tooltip-text" style="display:block;margin:0px;margin-left:200px;">{{ users[rank.user].fullname }}</span>
                         </v-layout>
                     </td>
                    

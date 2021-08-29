@@ -3,8 +3,8 @@
         <template v-slot:default>
             <thead>
                 <tr>
-                    <th>Rank</th>
-                    <th>Team</th>
+                    <th style="width: 20px;">Rank</th>
+                    <th style="text-align: center;">Team</th>
                     <th>Score</th>
                     <!-- Problems -->
                     <th v-for="(problem, index) in problems" :key="'problem-header-' + index" class="text-center tooltip">
