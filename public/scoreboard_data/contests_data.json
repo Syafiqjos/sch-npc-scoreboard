@@ -31,11 +31,11 @@
 		"active" : true,
 		"id" : "warmup",
 		"name" : "Warm-Up",
-		"scoreboard_dmoj_api" : "http://137.135.52.100/junior/warmup/scoreboard",
-		"scoreboard_dmoj_api_users" : "http://137.135.52.100/junior/warmup/users",
-		"scoreboard_domjudge_api" : "http://137.135.52.100/senior/warmup/scoreboard",
-		"scoreboard_domjudge_api_teams" : "http://137.135.52.100/senior/warmup/teams",
-		"scoreboard_domjudge_api_organizations" : "http://137.135.52.100/senior/warmup/organizations"
+		"scoreboard_dmoj_api" : "http://137.135.52.100/junior/tutorial/scoreboard",
+		"scoreboard_dmoj_api_users" : "http://137.135.52.100/junior/tutorial/users",
+		"scoreboard_domjudge_api" : "http://137.135.52.100/senior/test1/scoreboard",
+		"scoreboard_domjudge_api_teams" : "http://137.135.52.100/senior/test1/teams",
+		"scoreboard_domjudge_api_organizations" : "http://137.135.52.100/senior/test1/organizations"
 	},
 	{
 		"active" : true,

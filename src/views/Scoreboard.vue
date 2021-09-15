@@ -67,6 +67,7 @@ export default {
             start_time : new Date(),
             end_time : new Date(),
             countdown_timer : null,
+            countdown_refresher : null,
             countdown : null
         }
     },
@@ -93,9 +94,17 @@ export default {
                 let isRetrieveSuccess = this.retrieveScoreboard();
 
                 if (isRetrieveSuccess){
+                    // Refresh Scoreboard Countdown
                     this.countdown_timer = setInterval(() => {
                         this.refreshCountdown();
                     }, 1000);
+
+                    // Refresh Scoreboard every minute
+                    this.countdown_refresher = setInterval(() => {
+                        this.refreshScoreboard();
+                        // console.log("Refresh Me");
+                        // console.log(this.scoreboard_data);
+                    }, 60 * 1000);
 
                     document.title = this.contest_name + " " + this.class_type + " - Schematics NPC 2021";
                 }
@@ -108,6 +117,7 @@ export default {
     },
     destroyed(){
         clearInterval(this.countdown_timer);
+        clearInterval(this.countdown_refresher);
     },
     computed : {
         juniorLink(){
