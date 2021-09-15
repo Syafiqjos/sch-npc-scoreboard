@@ -1,14 +1,16 @@
 <template>
     <HomeComponent>
       <template v-slot:content>
-        <span></span>
-        <template v-if="contests_portal">
+        <div>
           <span></span>
-          <template v-for="(portal, index) in contests_portal">
-            <v-btn :key="'portal-' + index" v-if="portal && portal.active" class="button-list" :href="portal.url">{{ portal.text }}</v-btn>
+          <template v-if="contests_portal">
+            <span></span>
+            <template v-for="(portal, index) in contests_portal">
+              <v-btn :key="'portal-' + index" v-if="portal && portal.active" class="button-list" :href="portal.url">{{ portal.text }}</v-btn>
+            </template>
+            <v-btn class="button-list" to="/scoreboard">Scoreboard</v-btn>
           </template>
-          <v-btn class="button-list" to="/scoreboard">Scoreboard</v-btn>
-        </template>
+        </div>
       </template>
     </HomeComponent>
 </template>

@@ -2,11 +2,11 @@
     {
         "active" : true,
         "text" : "Portal Junior",
-        "url" : "https://schematics.its.ac.id/sch-npc/portal/junior"
+        "url" : "https://junior.schematics-npc.com"
     },
     {
-        "active" : false,
+        "active" : true,
         "text" : "Portal Senior",
-        "url" : "https://schematics.its.ac.id/sch-npc/portal/senior"
+        "url" : "https://senior.schematics-npc.com"
     }
 ]

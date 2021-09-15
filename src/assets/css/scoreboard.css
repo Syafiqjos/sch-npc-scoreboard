@@ -171,3 +171,12 @@ h3 {
     margin:2px auto;
     padding:4px;
 }
+
+.home-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 350px;
+    width: min(90%, 350px);
+}

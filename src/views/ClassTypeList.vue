@@ -1,27 +1,29 @@
 <template>
     <HomeComponent>
       <template v-slot:content>
-        <template v-if="contests_data">
-          <span></span>
-          <template v-if="contestName != null">
+        <div>
+          <template v-if="contests_data">
             <span></span>
-            <v-btn v-if="contestDetails 
-                        && contestDetails.scoreboard_dmoj_api 
-                        && contestDetails.scoreboard_dmoj_api_users" class="button-list" :to="'/scoreboard/' + contestName + '/junior'">Junior</v-btn>
-            <v-btn v-if="contestDetails 
-                        && contestDetails.scoreboard_domjudge_api 
-                        && contestDetails.scoreboard_domjudge_api_teams
-                        && contestDetails.scoreboard_domjudge_api_organizations" class="button-list" :to="'/scoreboard/' + contestName + '/senior'">Senior</v-btn>
+            <template v-if="contestName != null">
+              <span></span>
+              <v-btn v-if="contestDetails 
+                          && contestDetails.scoreboard_dmoj_api 
+                          && contestDetails.scoreboard_dmoj_api_users" class="button-list" :to="'/scoreboard/' + contestName + '/junior'">Junior</v-btn>
+              <v-btn v-if="contestDetails 
+                          && contestDetails.scoreboard_domjudge_api 
+                          && contestDetails.scoreboard_domjudge_api_teams
+                          && contestDetails.scoreboard_domjudge_api_organizations" class="button-list" :to="'/scoreboard/' + contestName + '/senior'">Senior</v-btn>
+            </template>
+            <template v-else>
+              <p class="button-list" style="text-align:center;">Contest tidak ada atau belum dimulai!</p>
+            </template>
+
+            <v-btn class="button-list" :to="'/scoreboard/'">&lt; Kembali</v-btn>
           </template>
           <template v-else>
             <p class="button-list" style="text-align:center;">Contest tidak ada atau belum dimulai!</p>
           </template>
-
-          <v-btn class="button-list" :to="'/scoreboard/'">&lt; Kembali</v-btn>
-        </template>
-        <template v-else>
-          <p class="button-list" style="text-align:center;">Contest tidak ada atau belum dimulai!</p>
-        </template>
+        </div>
       </template>
     </HomeComponent>
 </template>
