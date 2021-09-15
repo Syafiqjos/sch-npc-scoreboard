@@ -1,27 +1,27 @@
 [
 	{
-		"active" : true,
+		"active" : false,
 		"id" : "tutorial1",
 		"name" : "Tutorial 1",
 		"scoreboard_dmoj_api" : "http://137.135.52.100/junior/tutorial1/scoreboard",
 		"scoreboard_dmoj_api_users" : "http://137.135.52.100/junior/tutorial1/users"
 	},
 	{
-		"active" : true,
+		"active" : false,
 		"id" : "tutorial2",
 		"name" : "Tutorial 2",
 		"scoreboard_dmoj_api" : "http://137.135.52.100/junior/tutorial2/scoreboard",
 		"scoreboard_dmoj_api_users" : "http://137.135.52.100/junior/tutorial2/users"
 	},
 	{
-		"active" : true,
+		"active" : false,
 		"id" : "tutorial3",
 		"name" : "Tutorial 3",
 		"scoreboard_dmoj_api" : "http://137.135.52.100/junior/tutorial3/scoreboard",
 		"scoreboard_dmoj_api_users" : "http://137.135.52.100/junior/tutorial3/users"
 	},
 	{
-		"active" : true,
+		"active" : false,
 		"id" : "tutorial4",
 		"name" : "Tutorial 4",
 		"scoreboard_dmoj_api" : "http://137.135.52.100/junior/tutorial4/scoreboard",
