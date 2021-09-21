@@ -187,7 +187,7 @@ export default {
 
             return false;
         },
-        fetchScoreboard(fetch_link){
+        fetchScoreboard(fetch_link, config = { limit: 5 }){
             this.axios.get(fetch_link)
             .then((response) => {
                 this.scoreboard_data = response.data;
@@ -209,7 +209,9 @@ export default {
 
                 // Sleep then, Call Recursive if fail
                 await this.sleep(1000);
-                this.fetchScoreboard(fetch_link);
+                if (config.limit > 0) {
+                    this.fetchScoreboard(fetch_link, { limit: config.limit - 1 });
+                }
             });
         },
         refreshCountdown(){

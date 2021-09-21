@@ -16,7 +16,7 @@ var contestsDataMixin = {
     }
   },
   methods : {
-    retrieveContestsPortal(){
+    retrieveContestsPortal(config = { limit: 5 }){
       const url = "/scoreboard_data/contests_portal.json";
 
       if (process.env.DEBUG_MODE == true) {
@@ -39,11 +39,13 @@ var contestsDataMixin = {
 
             // Sleep then, Call Recursive if fail
             await this.sleep(1000);
-            this.retrieveContestsPortal();
+            if (config.limit > 0){
+              this.retrieveContestsPortal({ limit: config.limit - 1 });
+            }
           });
       }
     },
-    retrieveContestsData(onSuccess){
+    retrieveContestsData(onSuccess, config = { limit: 5 }){
       const url = "/scoreboard_data/contests_data.json";
 
       if (process.env.DEBUG_MODE == true) {
@@ -70,7 +72,9 @@ var contestsDataMixin = {
 
             // Sleep then, Call Recursive if fail
             await this.sleep(1000);
-            this.retrieveContestsData(onSuccess);
+            if (config.limit > 0){
+              this.retrieveContestsData(onSuccess, { limit: config.limit - 1 });
+            }
           });
       }
     },
