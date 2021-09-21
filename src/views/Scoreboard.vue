@@ -11,7 +11,7 @@
                                 && contest_details.scoreboard_domjudge_api_teams
                                 && contest_details.scoreboard_domjudge_api_organizations)">
             <v-app-bar app color="primary" height="80px" dark>
-                <img style="height:50px;padding-left:10px;" src="https://schematics.its.ac.id/image/white-logo.svg" />
+                <a style="display: inline-block;" href="/"><img style="height:50px;padding-left:10px;" src="https://schematics.its.ac.id/image/white-logo.svg" /></a>
                 <!-- <v-app-bar-nav-icon @click.stop="drawer = true"></v-app-bar-nav-icon> -->
                 <!-- <v-toolbar-title>Schematics NPC - {{ contest_name }} {{ class_type }}</v-toolbar-title> -->
                 <v-spacer></v-spacer>
@@ -44,6 +44,9 @@
             <HomeComponent>
                 <template v-slot:content>
                     <p class="button-list" style="text-align:center;">Contest tidak ada atau belum dimulai!</p>
+                    <v-btn to=".">
+                        Kembali
+                    </v-btn>
                 </template>
             </HomeComponent>
         </template>

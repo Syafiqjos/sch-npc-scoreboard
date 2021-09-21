@@ -1,7 +1,7 @@
 <script>
 export default {
     mounted (){
-        window.location.href = "/event/npc/";
+        window.location.href = "/";
     }
 }
 </script>
