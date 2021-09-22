@@ -47,6 +47,7 @@ var contestsDataMixin = {
               //   console.log(response.data);
               // }
               console.log(this.app_config);
+              document.title = this.app_config.event_title;
               if (onSuccess){
                 onSuccess();
               }
@@ -64,6 +65,7 @@ var contestsDataMixin = {
             }
           });
       } else {
+        document.title = this.app_config.event_title;
         if (onSuccess){
           onSuccess();
         }
