@@ -19,8 +19,10 @@
                     <td style="width:250px;" class="tooltip">
                         <v-layout>
                              <!-- <span class="institute-logo-box" v-if="organizations[teams[rank.team_id].organization_id] == null || organizations_images[organizations[teams[rank.team_id].organization_id].id] == null"></span> -->
-                             <img class="institute-logo" v-if="organizations[teams[rank.team_id].organization_id] == null || organizations_images[organizations[teams[rank.team_id].organization_id].id] == null" src="/null.png" />
-                             <img v-else class="institute-logo" :src="organizations_images[organizations[teams[rank.team_id].organization_id].id].image" /> 
+                             <!-- <img class="institute-logo" v-if="organizations[teams[rank.team_id].organization_id] == null || organizations_images[organizations[teams[rank.team_id].organization_id].id] == null" src="/null.png" /> -->
+                             <!-- <img v-else class="institute-logo" :src="organizations_images[organizations[teams[rank.team_id].organization_id].id].image" />  -->
+                             <img v-image-fall-back class="institute-logo" :src="`https://senior.schematics-npc.com/images/affiliations/${teams[rank.team_id].organization_id}.png`" /> 
+                             
                              <p style="margin:auto; margin-left: 10px;"> {{ teams[rank.team_id].name }} </p>
 
                              <span class="tooltip-text" style="display:block;margin:0px;margin-left:200px;">{{ teams[rank.team_id].member || 'Member not specified' }}</span>

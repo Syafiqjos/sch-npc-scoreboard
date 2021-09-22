@@ -3,6 +3,7 @@ import './plugins/axios'
 import App from './App.vue'
 import vuetify from './plugins/vuetify'
 import router from './router'
+import ImageFallBack from "./functions/ImageFallBack";
 
 require('@/assets/css/scoreboard.css');
 
@@ -98,6 +99,8 @@ var contestsDataMixin = {
 }
 
 Vue.mixin(contestsDataMixin);
+
+Vue.directive("image-fall-back", ImageFallBack);
 
 new Vue({
   vuetify,

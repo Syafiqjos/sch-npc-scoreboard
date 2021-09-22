@@ -22,8 +22,9 @@
                         <v-layout>
                             <!-- Iki img sek salah lho -->
                             <!-- <span class="institute-logo-box" v-if="users[rank.user] == null || organizations_images[users[rank.user].school_id] == null"></span> -->
-                            <img class="institute-logo" v-if="users[rank.user] == null || organizations_images[users[rank.user].school_id] == null" src="/null.png" />
-                            <img v-else class="institute-logo" :src="organizations_images[users[rank.user].school_id].image" /> 
+                            <!-- <img class="institute-logo" v-if="users[rank.user] == null || organizations_images[users[rank.user].school_id] == null" src="/null.png" /> -->
+                            <!-- <img v-else class="institute-logo" :src="organizations_images[users[rank.user].school_id].image" />  -->
+                            <img v-image-fall-back class="institute-logo" :src="`https://raw.githubusercontent.com/zydhanlinnar11/schematics-npc-online-judge/main/logo-junior/${users[rank.user].school_id}.webp`" /> 
 
                             <p v-if="rank.is_disqualified" class="verdict-disqualified" style="margin:auto; margin-left: 10px;">{{ rank.user }}</p>
                             <p v-else style="margin:auto; margin-left: 10px;">{{ rank.user }}</p>
