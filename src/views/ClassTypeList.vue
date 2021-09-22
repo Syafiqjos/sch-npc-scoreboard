@@ -22,6 +22,7 @@
           </template>
           <template v-else>
             <p class="button-list" style="text-align:center;">{{ app_config.homepage_fallback_contest_text }}</p>
+            <v-btn class="button-list" :to="'/scoreboard/'">{{ app_config.homepage_back_text }}</v-btn>
           </template>
         </div>
       </template>

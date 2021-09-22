@@ -98,7 +98,7 @@ export default {
             this.retrieveOrganizations();
             this.retrieveOrganizationImages();
 
-            document.title = this.$parent.contest_name + " " + this.$parent.class_type + " - Schematics NPC 2021";
+            document.title = this.$parent.contest_name + " " + this.$parent.class_type + " - " + this.$parent.app_config.event_title;
         },
         populateTable(){
             if (process.env.DEBUG_MODE == true) {

@@ -100,7 +100,7 @@ export default {
             this.retrieveUsers();
             this.retrieveOrganizationImages();
 
-            document.title = this.$parent.contest_name + " " + this.$parent.class_type + " - Schematics NPC 2021";
+            document.title = this.$parent.contest_name + " " + this.$parent.class_type + " - " + this.$parent.app_config.event_title;
         },
         populateTable(){
             if (process.env.DEBUG_MODE == true) {
@@ -158,7 +158,7 @@ export default {
 
                 // Sleep then, Call Recursive if fail
                 await this.sleep(1000);
-                this.retrieveOrganizations();
+                this.retrieveOrganizationImages();
             });
         }
     },

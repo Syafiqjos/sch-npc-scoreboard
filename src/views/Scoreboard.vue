@@ -45,7 +45,7 @@
                 <template v-slot:content>
                     <p class="button-list" style="text-align:center;">{{ app_config.homepage_fallback_contest_text }}</p>
                     <v-btn to=".">
-                        &lt; Kembali
+                        {{ app_config.homepage_back_text }}
                     </v-btn>
                 </template>
             </HomeComponent>

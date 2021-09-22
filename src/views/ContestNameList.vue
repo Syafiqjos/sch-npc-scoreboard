@@ -17,7 +17,7 @@
             </template>
           </template>
           
-          <v-btn class="button-list" to="/">&lt; Kembali</v-btn>
+          <v-btn class="button-list" to="/">{{ app_config.homepage_back_text }}</v-btn>
         </div>
       </template>
     </HomeComponent>
