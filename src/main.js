@@ -1,8 +1,8 @@
-import Vue from 'vue'
-import './plugins/axios'
-import App from './App.vue'
-import vuetify from './plugins/vuetify'
-import router from './router'
+import Vue from 'vue';
+import './plugins/axios';
+import App from './App.vue';
+import vuetify from './plugins/vuetify';
+import router from './router';
 import ImageFallBack from "./functions/ImageFallBack";
 
 require('@/assets/css/scoreboard.css');
@@ -36,6 +36,21 @@ var contestsDataMixin = {
 
       const run = this.app_config.active == null;
       
+      const changeEventTitle = () => {
+        document.title = this.app_config.event_title;
+      }
+
+      const checkSnow = () => {
+        if (this.app_config.snow_active) {
+            document.snow.initSnow();
+        }
+      }
+
+      const onConfigLoaded = () => {
+        changeEventTitle();
+        checkSnow();
+      }
+
       if (run) {
         this.axios.get(url)
           .then((response) => {
@@ -43,7 +58,7 @@ var contestsDataMixin = {
               if (this.app_config.debug_mode) {
                 console.log(response.data);
               }
-              document.title = this.app_config.event_title;
+              onConfigLoaded();
               if (onSuccess){
                 onSuccess();
               }
@@ -61,7 +76,7 @@ var contestsDataMixin = {
             }
           });
       } else {
-        document.title = this.app_config.event_title;
+        onConfigLoaded();
         if (onSuccess){
           onSuccess();
         }

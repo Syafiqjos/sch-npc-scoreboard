@@ -8,7 +8,7 @@
     
     "active": true,
     "debug_mode" : false,
-    "snow_active" : false,
+    "snow_active" : true,
     "custom_backend_api" : true,
 
     "scoreboard_logo_url" : "https://schematics.its.ac.id/image/white-logo.svg",
