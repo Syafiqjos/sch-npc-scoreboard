@@ -29,24 +29,20 @@ var contestsDataMixin = {
     retrieveAppConfig(onSuccess = null, config = { limit: 5 }){
       const url = "/scoreboard_data/config.json";
 
-      const debug = true;
+      const debug = false;
       if (debug) {
         console.log("retrieveAppConfig");
       }
 
       const run = this.app_config.active == null;
-      // const run = true;
-
-      // if (!this.app_config){
+      
       if (run) {
         this.axios.get(url)
           .then((response) => {
-            console.log(this.app_config);
               this.app_config = response.data;
-              // if (this.app_config.debug_mode) {
-              //   console.log(response.data);
-              // }
-              console.log(this.app_config);
+              if (this.app_config.debug_mode) {
+                console.log(response.data);
+              }
               document.title = this.app_config.event_title;
               if (onSuccess){
                 onSuccess();

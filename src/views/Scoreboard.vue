@@ -220,7 +220,9 @@ export default {
                 this.scoreboard_data = response.data;
                 
                 // After Update JSON from Back-End
-                this.scoreboard_data = this.scoreboard_data.data;
+                if (this.app_config.custom_backend_api){
+                    this.scoreboard_data = this.scoreboard_data.data;
+                }
 
                 this.judge_type = this.checkJudgeType(this.scoreboard_data);
                 this.show_scoreboard = true;

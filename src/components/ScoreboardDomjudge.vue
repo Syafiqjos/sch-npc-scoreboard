@@ -133,7 +133,9 @@ export default {
                 let teams = response.data;
 
                 // After Update JSON from Back-End
-                teams = teams.data;
+                if (this.$parent.app_config.custom_backend_api){
+                    teams = teams.data;
+                }
 
                 let teams_new = {};
                 
@@ -164,7 +166,9 @@ export default {
                 let organizations = response.data;
 
                 // After Update JSON from Back-End
-                organizations = organizations.data;
+                if (this.$parent.app_config.custom_backend_api){
+                    organizations = organizations.data;
+                }
 
                 let organizations_new = {};
 

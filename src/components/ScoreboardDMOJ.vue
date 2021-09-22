@@ -121,7 +121,11 @@ export default {
                 let users = response.data;
 
                 // After Update JSON from Back-End
-                users = users.data.data.objects;
+                if (this.$parent.app_config.custom_backend_api){
+                    users = users.data.data.objects;
+                } else {
+                    users = users.data.objects;
+                }
 
                 let users_new = {};
 
