@@ -7,12 +7,20 @@ import ImageFallBack from "./functions/ImageFallBack";
 
 require('@/assets/css/scoreboard.css');
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+
+Vue.prototype.app_config = {
+  event_title : "Schematics NPC 2021",
+  event_display_name : "Schematics NPC 2021",
+  
+  homepage_logo_url : "https://schematics.its.ac.id/favicon/apple-icon-180x180.png",
+  homepage_back_text : "< Kembali",
+  homepage_fallback_contest_text : "Contest tidak ada atau belum dimulai!"
+};
 
 var contestsDataMixin = {
   data (){
     return {
-      app_config : null,
       contests_portal : null,
       contests_data : null
     }
@@ -26,15 +34,21 @@ var contestsDataMixin = {
         console.log("retrieveAppConfig");
       }
 
-      if (!this.app_config){
+      const run = this.app_config.active == null;
+      // const run = true;
+
+      // if (!this.app_config){
+      if (run) {
         this.axios.get(url)
           .then((response) => {
+            console.log(this.app_config);
               this.app_config = response.data;
-              if (this.app_config.debug_mode) {
-                console.log(response.data);
-                if (onSuccess){
-                  onSuccess();
-                }
+              // if (this.app_config.debug_mode) {
+              //   console.log(response.data);
+              // }
+              console.log(this.app_config);
+              if (onSuccess){
+                onSuccess();
               }
           })
           .catch(async(errors) => {
@@ -46,9 +60,13 @@ var contestsDataMixin = {
             // Sleep then, Call Recursive if fail
             await this.sleep(1000);
             if (config.limit > 0){
-              this.retrieveAppConfig({ limit: config.limit - 1 });
+              this.retrieveAppConfig(null, { limit: config.limit - 1 });
             }
           });
+      } else {
+        if (onSuccess){
+          onSuccess();
+        }
       }
     },
     retrieveContestsPortal(config = { limit: 5 }){

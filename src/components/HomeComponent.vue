@@ -1,7 +1,7 @@
-<template>
-    <div class="center-absolute home-component">
-      <img class="center-block" alt="Schematics logo" src="https://schematics.its.ac.id/favicon/apple-icon-180x180.png" />
-      <h1 class="center-block" align="center" >Schematics NPC 2021</h1>
+<template v-if="$parent.app_config">
+    <div v-if="$parent.app_config" class="center-absolute home-component">
+      <img class="center-block" alt="Schematics logo" :src="$parent.app_config.homepage_logo_url" />
+      <h1 class="center-block" align="center" >{{ $parent.app_config.event_display_name }}</h1>
       <slot name="content"></slot>
     </div>
 </template>

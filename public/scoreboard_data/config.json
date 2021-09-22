@@ -6,6 +6,7 @@
     "homepage_back_text" : "< Kembali",
     "homepage_fallback_contest_text" : "Contest tidak ada atau belum dimulai!",
     
+    "active": true,
     "debug_mode" : true,
     "snow_active" : false,
     "custom_backend_api" : true,
