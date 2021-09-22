@@ -1,4 +1,4 @@
-<template>
+<template v-if="app_config.active">
     <v-container fill-height fluid>
         <template v-if="contests_data 
                         && contest_name 
@@ -11,7 +11,7 @@
                                 && contest_details.scoreboard_domjudge_api_teams
                                 && contest_details.scoreboard_domjudge_api_organizations)">
             <v-app-bar app color="primary" height="80px" dark>
-                <router-link style="display: inline-block;" to="."><img style="height:50px;padding-left:10px;" src="https://schematics.its.ac.id/image/white-logo.svg" /></router-link>
+                <router-link style="display: inline-block;" to="."><img style="height:50px;padding-left:10px;" :src="app_config.scoreboard_logo_url" /></router-link>
                 <!-- <v-app-bar-nav-icon @click.stop="drawer = true"></v-app-bar-nav-icon> -->
                 <!-- <v-toolbar-title>Schematics NPC - {{ contest_name }} {{ class_type }}</v-toolbar-title> -->
                 <v-spacer></v-spacer>
@@ -30,20 +30,20 @@
                 </v-btn>
             </v-app-bar>
             <template v-if="show_scoreboard && contest_details">
-                <h1 class="title wide">Schematics NPC</h1>
+                <h1 class="title wide">{{ app_config.scoreboard_title_text }}</h1>
                 <h2 class="subtitle wide">{{ contest_name }} {{ class_type }}</h2>
                 <ScoreboardDomjudge ref="scoreboardDomjudge" :data="scoreboard_data" :contest_details="contest_details" v-if="judge_type == 'domjudge'"></ScoreboardDomjudge>
                 <ScoreboardDMOJ ref="scoreboardDMOJ" :data="scoreboard_data" :contest_details="contest_details" v-else-if="judge_type == 'dmoj'"></ScoreboardDMOJ>
                 <div class="countdown">
                     <h2>{{ countdown }}</h2>
                 </div>
-                <h3 class="subtitle text-center wide">Contest {{ contest_name }} berakhir pada {{ endTimeFull }}</h3>
+                <h3 class="subtitle text-center wide">{{ endTimeFull }}</h3>
             </template>
         </template>
         <template v-else>
             <HomeComponent>
                 <template v-slot:content>
-                    <p class="button-list" style="text-align:center;">Contest tidak ada atau belum dimulai!</p>
+                    <p class="button-list" style="text-align:center;">{{ app_config.homepage_fallback_contest_text }}</p>
                     <v-btn to=".">
                         &lt; Kembali
                     </v-btn>
@@ -138,7 +138,30 @@ export default {
             const monthName = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
             if (this.end_time){
                 let targetDate = this.end_time;
-                return dayName[targetDate.getDay()] + ", " + targetDate.getDate() + " " + monthName[targetDate.getMonth()] + " " + (1900 + targetDate.getYear()) + " pukul " + targetDate.getHours().toString().padStart(2, "0") + ":" + targetDate.getMinutes().toString().padStart(2, "0") + ":" + targetDate.getSeconds().toString().padStart(2, "0") + " WIB";
+                let day = dayName[targetDate.getDay()];
+                let date = targetDate.getDate();
+                let month = monthName[targetDate.getMonth()];
+                let year = (1900 + targetDate.getYear());
+                let hour = targetDate.getHours().toString().padStart(2, "0");
+                let minute = targetDate.getMinutes().toString().padStart(2, "0");
+                let second = targetDate.getSeconds().toString().padStart(2, "0");
+
+                let format = day + ", " + date + " " + month + " " + year + " pukul " + hour + ":" + minute + ":" + second + " WIB";
+
+                if (this.app_config){
+                    format = this.app_config.scoreboard_contest_time_format
+                        .replace('{contest}', this.contest_name)
+                        .replace('{day}', day)
+                        .replace('{date}', date)
+                        .replace('{month}', month)
+                        .replace('{year}', year)
+                        .replace('{hour}', hour)
+                        .replace('{minute}', minute)
+                        .replace('{second}', second)
+                        ;
+                }
+
+                return format;
             }
             return "-";
         }
@@ -225,7 +248,8 @@ export default {
 
             if (time < 0){
                 time = 0;
-                this.countdown = "- Contest Over -";
+                // this.countdown = "- Contest Over -";
+                this.countdown = this.app_config.scoreboard_contest_over_text;
                 return;
             }
 

@@ -7,7 +7,7 @@
     "homepage_fallback_contest_text" : "Contest tidak ada atau belum dimulai!",
     
     "active": true,
-    "debug_mode" : true,
+    "debug_mode" : false,
     "snow_active" : false,
     "custom_backend_api" : true,
 

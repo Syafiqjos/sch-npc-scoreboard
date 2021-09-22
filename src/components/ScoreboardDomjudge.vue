@@ -1,4 +1,4 @@
-<template>
+<template v-if="$parent.app_config">
     <v-simple-table v-if="scoreboard_data && contest_details && problems && rankings && teams && organizations && organizations_images" class="scoreboard" fixed-header>
         <template v-slot:default>
             <thead>
@@ -21,7 +21,8 @@
                              <!-- <span class="institute-logo-box" v-if="organizations[teams[rank.team_id].organization_id] == null || organizations_images[organizations[teams[rank.team_id].organization_id].id] == null"></span> -->
                              <!-- <img class="institute-logo" v-if="organizations[teams[rank.team_id].organization_id] == null || organizations_images[organizations[teams[rank.team_id].organization_id].id] == null" src="/null.png" /> -->
                              <!-- <img v-else class="institute-logo" :src="organizations_images[organizations[teams[rank.team_id].organization_id].id].image" />  -->
-                             <img v-image-fall-back class="institute-logo" :src="`https://senior.schematics-npc.com/images/affiliations/${teams[rank.team_id].organization_id}.png`" /> 
+                             <!-- <img v-image-fall-back class="institute-logo" :src="`https://senior.schematics-npc.com/images/affiliations/${teams[rank.team_id].organization_id}.png`" />  -->
+                             <img v-image-fall-back class="institute-logo" :src="`${$parent.app_config.judge.domjudge.scoreboard_images_url}/${teams[rank.team_id].organization_id}${$parent.app_config.judge.domjudge.scoreboard_images_ext}`" /> 
                              
                              <p style="margin:auto; margin-left: 10px;"> {{ teams[rank.team_id].name }} </p>
 

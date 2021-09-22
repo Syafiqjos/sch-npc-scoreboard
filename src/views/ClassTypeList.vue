@@ -1,4 +1,4 @@
-<template v-if="app_config">
+<template v-if="app_config.active">
     <HomeComponent>
       <template v-slot:content>
         <div>
@@ -8,20 +8,20 @@
               <span></span>
               <v-btn v-if="contestDetails 
                           && contestDetails.scoreboard_dmoj_api 
-                          && contestDetails.scoreboard_dmoj_api_users" class="button-list" :to="'/scoreboard/' + contestName + '/junior'">Junior</v-btn>
+                          && contestDetails.scoreboard_dmoj_api_users" class="button-list" :to="'/scoreboard/' + contestName + '/junior'">{{ app_config.judge.dmoj.contest_type }}</v-btn>
               <v-btn v-if="contestDetails 
                           && contestDetails.scoreboard_domjudge_api 
                           && contestDetails.scoreboard_domjudge_api_teams
-                          && contestDetails.scoreboard_domjudge_api_organizations" class="button-list" :to="'/scoreboard/' + contestName + '/senior'">Senior</v-btn>
+                          && contestDetails.scoreboard_domjudge_api_organizations" class="button-list" :to="'/scoreboard/' + contestName + '/senior'">{{ app_config.judge.domjudge.contest_type }}</v-btn>
             </template>
             <template v-else>
-              <p class="button-list" style="text-align:center;">Contest tidak ada atau belum dimulai!</p>
+              <p class="button-list" style="text-align:center;">{{ app_config.homepage_fallback_contest_text }}</p>
             </template>
 
-            <v-btn class="button-list" :to="'/scoreboard/'">&lt; Kembali</v-btn>
+            <v-btn class="button-list" :to="'/scoreboard/'">{{ app_config.homepage_back_text }}</v-btn>
           </template>
           <template v-else>
-            <p class="button-list" style="text-align:center;">Contest tidak ada atau belum dimulai!</p>
+            <p class="button-list" style="text-align:center;">{{ app_config.homepage_fallback_contest_text }}</p>
           </template>
         </div>
       </template>
