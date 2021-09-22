@@ -11,7 +11,7 @@
                                 && contest_details.scoreboard_domjudge_api_teams
                                 && contest_details.scoreboard_domjudge_api_organizations)">
             <v-app-bar app color="primary" height="80px" dark>
-                <a style="display: inline-block;" href="/"><img style="height:50px;padding-left:10px;" src="https://schematics.its.ac.id/image/white-logo.svg" /></a>
+                <router-link style="display: inline-block;" to="."><img style="height:50px;padding-left:10px;" src="https://schematics.its.ac.id/image/white-logo.svg" /></router-link>
                 <!-- <v-app-bar-nav-icon @click.stop="drawer = true"></v-app-bar-nav-icon> -->
                 <!-- <v-toolbar-title>Schematics NPC - {{ contest_name }} {{ class_type }}</v-toolbar-title> -->
                 <v-spacer></v-spacer>
@@ -82,41 +82,45 @@ export default {
     mounted(){
         let param = this.$route.params.contest;
 
-        this.retrieveContestsData(() => {
-            let contest_details = this.getContestData(param);
+        this.retrieveAppConfig(
+            () => { 
+                this.retrieveContestsData(() => {
+                    let contest_details = this.getContestData(param);
 
-            if (process.env.DEBUG_MODE == true) {
-                console.log(this.contests_data);
-                console.log(param);
-                console.log(contest_details);
+                    if (process.env.DEBUG_MODE == true) {
+                        console.log(this.contests_data);
+                        console.log(param);
+                        console.log(contest_details);
+                    }
+
+                    if (contest_details && contest_details.active){
+                        this.contest_details = contest_details;
+
+                        let isRetrieveSuccess = this.retrieveScoreboard();
+
+                        if (isRetrieveSuccess){
+                            // Refresh Scoreboard Countdown
+                            this.countdown_timer = setInterval(() => {
+                                this.refreshCountdown();
+                            }, 1000);
+
+                            // Refresh Scoreboard every minute
+                            this.countdown_refresher = setInterval(() => {
+                                this.refreshScoreboard();
+                                // console.log("Refresh Me");
+                                // console.log(this.scoreboard_data);
+                            }, 60 * 1000);
+
+                            document.title = this.contest_name + " " + this.class_type + " - Schematics NPC 2021";
+                        }
+                        else {
+                            this.contest_name = null;
+                            this.contest_details = null;
+                        }
+                    }
+                });
             }
-
-            if (contest_details && contest_details.active){
-                this.contest_details = contest_details;
-
-                let isRetrieveSuccess = this.retrieveScoreboard();
-
-                if (isRetrieveSuccess){
-                    // Refresh Scoreboard Countdown
-                    this.countdown_timer = setInterval(() => {
-                        this.refreshCountdown();
-                    }, 1000);
-
-                    // Refresh Scoreboard every minute
-                    this.countdown_refresher = setInterval(() => {
-                        this.refreshScoreboard();
-                        // console.log("Refresh Me");
-                        // console.log(this.scoreboard_data);
-                    }, 60 * 1000);
-
-                    document.title = this.contest_name + " " + this.class_type + " - Schematics NPC 2021";
-                }
-                else {
-                    this.contest_name = null;
-                    this.contest_details = null;
-                }
-            }
-        });
+        );
     },
     destroyed(){
         clearInterval(this.countdown_timer);

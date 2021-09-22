@@ -33,7 +33,11 @@ export default {
     HomeComponent
   },
   mounted(){
-    this.retrieveContestsData();
+    this.retrieveAppConfig(
+      () => { 
+        this.retrieveContestsData();
+      }
+    );
   }
 }
 </script>

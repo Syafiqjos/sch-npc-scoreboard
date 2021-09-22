@@ -46,20 +46,24 @@ export default {
   mounted(){
     let param = this.$route.params.contest;
 
-    this.retrieveContestsData(
-      () => {
-        let contest_details = this.getContestData(param);
+    this.retrieveAppConfig(
+      () => { 
+        this.retrieveContestsData(
+          () => {
+            let contest_details = this.getContestData(param);
 
-        this.contestName = null;
+            this.contestName = null;
 
-        console.log(contest_details);
+            console.log(contest_details);
 
-        if (contest_details && contest_details.active){
-          this.contestName = contest_details.id;
-          this.contestDetails = contest_details;
+            if (contest_details && contest_details.active){
+              this.contestName = contest_details.id;
+              this.contestDetails = contest_details;
 
-          console.log("success");
-        }
+              console.log("success");
+            }
+          }
+        );
       }
     );
   }

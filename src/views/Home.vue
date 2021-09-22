@@ -25,8 +25,12 @@ export default {
     HomeComponent
   },
   mounted(){
-    this.retrieveContestsPortal();
-    this.retrieveContestsData();
+    this.retrieveAppConfig(
+      () => { 
+        this.retrieveContestsPortal();
+        this.retrieveContestsData();
+      }
+    );
   }
 }
 </script>

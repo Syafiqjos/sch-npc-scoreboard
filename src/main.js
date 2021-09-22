@@ -12,28 +12,33 @@ Vue.config.productionTip = false
 var contestsDataMixin = {
   data (){
     return {
+      app_config : null,
       contests_portal : null,
       contests_data : null
     }
   },
   methods : {
-    retrieveContestsPortal(config = { limit: 5 }){
-      const url = "/scoreboard_data/contests_portal.json";
+    retrieveAppConfig(onSuccess = null, config = { limit: 5 }){
+      const url = "/scoreboard_data/config.json";
 
-      if (process.env.DEBUG_MODE == true) {
-        console.log("retrieveContestsPortal");
+      const debug = true;
+      if (debug) {
+        console.log("retrieveAppConfig");
       }
 
-      if (!this.contests_portal){
+      if (!this.app_config){
         this.axios.get(url)
           .then((response) => {
-              this.contests_portal = response.data;
-              if (process.env.DEBUG_MODE == true) {
+              this.app_config = response.data;
+              if (this.app_config.debug_mode) {
                 console.log(response.data);
+                if (onSuccess){
+                  onSuccess();
+                }
               }
           })
           .catch(async(errors) => {
-            if (process.env.DEBUG_MODE == true) {
+            if (debug) {
               console.log(errors);
               console.log("Fetch contests data failed, retrying..");
             }
@@ -41,42 +46,75 @@ var contestsDataMixin = {
             // Sleep then, Call Recursive if fail
             await this.sleep(1000);
             if (config.limit > 0){
-              this.retrieveContestsPortal({ limit: config.limit - 1 });
+              this.retrieveAppConfig({ limit: config.limit - 1 });
             }
           });
       }
     },
-    retrieveContestsData(onSuccess, config = { limit: 5 }){
-      const url = "/scoreboard_data/contests_data.json";
+    retrieveContestsPortal(config = { limit: 5 }){
+      if (this.app_config){
+        const url = "/scoreboard_data/contests_portal.json";
 
-      if (process.env.DEBUG_MODE == true) {
-        console.log("retrieveContestsData");
-      }
+        if (this.app_config.debug_mode == true) {
+          console.log("retrieveContestsPortal");
+        }
 
-      if (this.contests_data){
-        if (onSuccess) onSuccess();
-      } else {
-        this.axios.get(url)
-          .then((response) => {
-              this.contests_data = response.data;
-              if (process.env.DEBUG_MODE == true) {
-                console.log(response.data);
+        if (!this.contests_portal){
+          this.axios.get(url)
+            .then((response) => {
+                this.contests_portal = response.data;
+                if (this.app_config.debug_mode == true) {
+                  console.log(response.data);
+                }
+            })
+            .catch(async(errors) => {
+              if (this.app_config.debug_mode == true) {
+                console.log(errors);
+                console.log("Fetch contests data failed, retrying..");
               }
 
-              if (onSuccess) onSuccess();
-          })
-          .catch(async(errors) => {
-            if (process.env.DEBUG_MODE == true) {
-              console.log(errors);
-              console.log("Fetch contests data failed, retrying..");
-            }
+              // Sleep then, Call Recursive if fail
+              await this.sleep(1000);
+              if (config.limit > 0){
+                this.retrieveContestsPortal({ limit: config.limit - 1 });
+              }
+            });
+        }
+      }
+    },
+    retrieveContestsData(onSuccess, config = { limit: 5 }){
+      if (this.app_config){
+        const url = "/scoreboard_data/contests_data.json";
 
-            // Sleep then, Call Recursive if fail
-            await this.sleep(1000);
-            if (config.limit > 0){
-              this.retrieveContestsData(onSuccess, { limit: config.limit - 1 });
-            }
-          });
+        if (this.app_config.debug_mode == true) {
+          console.log("retrieveContestsData");
+        }
+
+        if (this.contests_data){
+          if (onSuccess) onSuccess();
+        } else {
+          this.axios.get(url)
+            .then((response) => {
+                this.contests_data = response.data;
+                if (this.app_config.debug_mode == true) {
+                  console.log(response.data);
+                }
+
+                if (onSuccess) onSuccess();
+            })
+            .catch(async(errors) => {
+              if (this.app_config.debug_mode == true) {
+                console.log(errors);
+                console.log("Fetch contests data failed, retrying..");
+              }
+
+              // Sleep then, Call Recursive if fail
+              await this.sleep(1000);
+              if (config.limit > 0){
+                this.retrieveContestsData(onSuccess, { limit: config.limit - 1 });
+              }
+            });
+        }
       }
     },
     getContestData(id){
