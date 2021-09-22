@@ -45,7 +45,7 @@
                 <template v-slot:content>
                     <p class="button-list" style="text-align:center;">Contest tidak ada atau belum dimulai!</p>
                     <v-btn to=".">
-                        Kembali
+                        &lt; Kembali
                     </v-btn>
                 </template>
             </HomeComponent>

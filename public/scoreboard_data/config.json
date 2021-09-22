@@ -1,0 +1,33 @@
+{
+    "event_title" : "Schematics NPC 2021",
+    "event_display_name" : "Schematics NPC 2021",
+    
+    "homepage_logo_url" : "https://schematics.its.ac.id/favicon/apple-icon-180x180.png",
+    "homepage_back_text" : "< Kembali",
+    "homepage_fallback_contest_text" : "Contest tidak ada atau belum dimulai!",
+    
+    "debug_mode" : true,
+    "snow_active" : false,
+    "custom_backend_api" : true,
+
+    "scoreboard_logo_url" : "https://schematics.its.ac.id/image/white-logo.svg",
+    "scoreboard_title_text" : "Schematics NPC",
+    "scoreboard_fallback_image" : "/null.png",
+    "scoreboard_contest_over_text" : "- Contest Over -",
+    "scoreboard_contest_time_format" : "Contest {contest} berakhir pada {day}, {date} {month} {year} pukul {hour}:{minute}:{second} WIB",
+
+    "judge" : {
+        "dmoj" : {
+            "base_url" : "https://junior.schematics-npc.com",
+            "contest_type" : "Junior",
+            "scoreboard_images_url" : "https://raw.githubusercontent.com/zydhanlinnar11/schematics-npc-online-judge/main/logo-junior",
+            "scoreboard_images_ext" : ".webp"
+        },
+        "domjudge" : {
+            "base_url" : "https://senior.schematics-npc.com",
+            "contest_type" : "Senior",
+            "scoreboard_images_url" : "https://senior.schematics-npc.com/images/affiliations",
+            "scoreboard_images_ext" : ".png"
+        }
+    }
+}
