@@ -101,7 +101,7 @@ function stopSnow(){
 }
 
 for (i = 0; i <= snowMax; i++) {
-	document.write("<span id='flake" + i + "' style='" + snowStyles + "position:absolute;top:-" + snowMaxSize + "'>" + snowEntity + "</span>");
+	document.write("<span id='flake" + i + "' style='" + snowStyles + "position:fixed;top:-" + snowMaxSize + "'>" + snowEntity + "</span>");
 }
 
 window.addEventListener('resize', resize);

@@ -161,9 +161,24 @@ h3 {
     transform: translate(-50%, -50%);
 }
 
+.center-relative {
+    position:relative;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+}
+
 .center-block {
     margin: auto;
     display:block;
+}
+
+.container-absolute {
+    position:absolute;
+}
+
+.container-relative {
+    position:relative;
 }
 
 .button-list {
@@ -179,4 +194,33 @@ h3 {
 
     width: 350px;
     width: min(90%, 350px);
+}
+
+.sponsor-container {
+    padding: 1.5rem;
+    margin: auto;
+    margin-bottom: 2rem;
+    margin-top: 50px;
+
+    min-width: 640px;
+
+    border-radius: 5px;
+
+    background-color: rgba(255,255,255,0.1);
+}
+
+.sponsor-title {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.sponsor-banner {
+    display: block;
+    margin: 20px auto;
+}
+
+.sponsor-img
+{
+    height: 50px;
+    margin: 0 10px;
 }

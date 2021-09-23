@@ -30,5 +30,33 @@
             "scoreboard_images_url" : "https://senior.schematics-npc.com/images/affiliations",
             "scoreboard_images_ext" : ".png"
         }
+    },
+
+    "sponsor" : {
+        "active" : true,
+        "sponsor_text" : "Sponsor and Media Partner",
+        "sponsor_banner_image_url" : "/scoreboard_data/sponsors/sponsor-banner.png",
+        "sponsors" : [
+            {
+                "image_url" : "/scoreboard_data/sponsors/pcs-sponsorship.png",
+                "image_alt" : "",
+                "height" : "60px"
+            },
+            {
+                "image_url" : "/scoreboard_data/sponsors/rumahweb-sponsorship.png",
+                "image_alt" : "",
+                "height" : "50px"
+            },
+            {
+                "image_url" : "/scoreboard_data/sponsors/petrokimia-sponsorship.png",
+                "image_alt" : "",
+                "height" : "60px"
+            },
+            {
+                "image_url" : "/scoreboard_data/sponsors/dewaweb-sponsorship.png",
+                "image_alt" : "",
+                "height" : "80px"
+            }
+        ]
     }
 }

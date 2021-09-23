@@ -1,4 +1,4 @@
-<template v-if="app_config">
+<template v-if="app_config.active">
     <HomeComponent>
       <template v-slot:content>
         <div>

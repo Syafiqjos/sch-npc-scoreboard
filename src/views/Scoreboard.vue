@@ -39,6 +39,7 @@
                 </div>
                 <h3 class="subtitle text-center wide">{{ endTimeFull }}</h3>
             </template>
+            <SponsorComponent v-if="app_config.sponsor && app_config.sponsor.active" :app_config="app_config"></SponsorComponent>
         </template>
         <template v-else>
             <HomeComponent>
@@ -57,6 +58,7 @@
 import ScoreboardDomjudge from '@/components/ScoreboardDomjudge.vue'
 import ScoreboardDMOJ from '@/components/ScoreboardDMOJ.vue'
 import HomeComponent from '@/components/HomeComponent.vue'
+import SponsorComponent from '@/components/SponsorComponent.vue'
 
 export default {
     data(){
@@ -77,7 +79,8 @@ export default {
     components : {
         ScoreboardDomjudge,
         ScoreboardDMOJ,
-        HomeComponent
+        HomeComponent,
+        SponsorComponent
     },
     mounted(){
         let param = this.$route.params.contest;
