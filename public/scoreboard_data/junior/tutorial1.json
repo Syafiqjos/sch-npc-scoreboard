@@ -1,0 +1,511 @@
+{
+  "success": true,
+  "data": {
+    "api_version": "2.0",
+    "method": "get",
+    "fetched": "2021-09-23T19:59:34.082328+00:00",
+    "data": {
+      "object": {
+        "key": "tutorial1",
+        "name": "Tutorial Minggu ke-1",
+        "start_time": "2021-08-13T02:00:00+00:00",
+        "end_time": "2021-08-20T02:00:00+00:00",
+        "time_limit": null,
+        "is_rated": false,
+        "rate_all": false,
+        "has_rating": false,
+        "rating_floor": null,
+        "rating_ceiling": null,
+        "hidden_scoreboard": true,
+        "is_organization_private": false,
+        "organizations": [],
+        "is_private": false,
+        "tags": [],
+        "format": { "name": "ioi", "config": { "cumtime": true } },
+        "problems": [
+          {
+            "points": 100,
+            "partial": true,
+            "is_pretested": false,
+            "max_submissions": null,
+            "label": "1",
+            "name": "Tutor 1-Soal #1",
+            "code": "tutor11"
+          },
+          {
+            "points": 100,
+            "partial": true,
+            "is_pretested": false,
+            "max_submissions": null,
+            "label": "2",
+            "name": "Tutor 1-Soal #2",
+            "code": "tutor12"
+          },
+          {
+            "points": 100,
+            "partial": true,
+            "is_pretested": false,
+            "max_submissions": null,
+            "label": "3",
+            "name": "Tutor 1-Soal #3",
+            "code": "tutor13"
+          },
+          {
+            "points": 100,
+            "partial": true,
+            "is_pretested": false,
+            "max_submissions": null,
+            "label": "4",
+            "name": "Tutor 1-Soal #4",
+            "code": "tutor14"
+          },
+          {
+            "points": 100,
+            "partial": true,
+            "is_pretested": false,
+            "max_submissions": null,
+            "label": "5",
+            "name": "Tutor 1-Soal #5",
+            "code": "tutor15"
+          }
+        ],
+        "rankings": [
+          {
+            "user": "ajarin_dong_kak",
+            "score": 500,
+            "cumulative_time": 15027,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              { "points": 100.0, "time": 1424.935212 },
+              { "points": 100.0, "time": 1984.696526 },
+              { "points": 100.0, "time": 3275.270775 },
+              { "points": 100.0, "time": 980.176193 },
+              { "points": 100.0, "time": 7362.139629 }
+            ]
+          },
+          {
+            "user": "Hoshiyomi",
+            "score": 500,
+            "cumulative_time": 30904,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              { "points": 100.0, "time": 3661.613307 },
+              { "points": 100.0, "time": 3800.378562 },
+              { "points": 100.0, "time": 4168.155163 },
+              { "points": 100.0, "time": 11668.949729 },
+              { "points": 100.0, "time": 7605.793342 }
+            ]
+          },
+          {
+            "user": "Kwok",
+            "score": 500,
+            "cumulative_time": 187328,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              { "points": 100.0, "time": 36376.259648 },
+              { "points": 100.0, "time": 36617.880876 },
+              { "points": 100.0, "time": 37658.961274 },
+              { "points": 100.0, "time": 37775.390393 },
+              { "points": 100.0, "time": 38900.009453 }
+            ]
+          },
+          {
+            "user": "Hexagon",
+            "score": 500,
+            "cumulative_time": 253265,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              { "points": 100.0, "time": 49517.717793 },
+              { "points": 100.0, "time": 52850.678812 },
+              { "points": 100.0, "time": 49842.622089 },
+              { "points": 100.0, "time": 50071.479737 },
+              { "points": 100.0, "time": 50982.771258 }
+            ]
+          },
+          {
+            "user": "Murid_Aushaaf",
+            "score": 500,
+            "cumulative_time": 1271293,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              { "points": 100.0, "time": 253136.389192 },
+              { "points": 100.0, "time": 253803.982797 },
+              { "points": 100.0, "time": 254011.397058 },
+              { "points": 100.0, "time": 254543.708079 },
+              { "points": 100.0, "time": 255797.878368 }
+            ]
+          },
+          {
+            "user": "shwibzka",
+            "score": 500,
+            "cumulative_time": 1546491,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              { "points": 100.0, "time": 300054.261391 },
+              { "points": 100.0, "time": 298794.929758 },
+              { "points": 100.0, "time": 299677.808609 },
+              { "points": 100.0, "time": 301089.397576 },
+              { "points": 100.0, "time": 346875.416086 }
+            ]
+          },
+          {
+            "user": "SMANDELPKU",
+            "score": 500,
+            "cumulative_time": 1900209,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              { "points": 100.0, "time": 377935.107578 },
+              { "points": 100.0, "time": 380143.48241 },
+              { "points": 100.0, "time": 380366.506096 },
+              { "points": 100.0, "time": 380639.701888 },
+              { "points": 100.0, "time": 381124.942536 }
+            ]
+          },
+          {
+            "user": "KN",
+            "score": 500,
+            "cumulative_time": 2800545,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              { "points": 100.0, "time": 558600.615757 },
+              { "points": 100.0, "time": 562620.120582 },
+              { "points": 100.0, "time": 559157.722727 },
+              { "points": 100.0, "time": 559599.181194 },
+              { "points": 100.0, "time": 560567.790093 }
+            ]
+          },
+          {
+            "user": "RSMN",
+            "score": 420,
+            "cumulative_time": 72148,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              { "points": 50.0, "time": 37449.787259 },
+              { "points": 100.0, "time": 1398.880548 },
+              { "points": 100.0, "time": 2794.692748 },
+              { "points": 100.0, "time": 19086.4671 },
+              { "points": 70.0, "time": 11418.624723 }
+            ]
+          },
+          {
+            "user": "Grande",
+            "score": 420,
+            "cumulative_time": 245644,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              { "points": 50.0, "time": 83101.139316 },
+              { "points": 100.0, "time": 39864.365067 },
+              { "points": 100.0, "time": 40072.488603 },
+              { "points": 100.0, "time": 40820.660796 },
+              { "points": 70.0, "time": 41785.620386 }
+            ]
+          },
+          {
+            "user": "Feline",
+            "score": 400,
+            "cumulative_time": 1172058,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              { "points": 0.0, "time": 569984.351343 },
+              { "points": 100.0, "time": 7931.350078 },
+              { "points": 100.0, "time": 3061.916524 },
+              { "points": 100.0, "time": 562412.507106 },
+              { "points": 100.0, "time": 598653.191307 }
+            ]
+          },
+          {
+            "user": "Calculator",
+            "score": 400,
+            "cumulative_time": 1203758,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              { "points": 100.0, "time": 299497.296976 },
+              { "points": 100.0, "time": 300373.426903 },
+              { "points": 100.0, "time": 300606.598631 },
+              { "points": 0.0, "time": 301198.563568 },
+              { "points": 100.0, "time": 303281.039838 }
+            ]
+          },
+          {
+            "user": "Exanguinate",
+            "score": 400,
+            "cumulative_time": 1698190,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              { "points": 0.0, "time": 422105.956607 },
+              { "points": 100.0, "time": 423157.091582 },
+              { "points": 100.0, "time": 423483.198464 },
+              { "points": 100.0, "time": 424144.099622 },
+              { "points": 100.0, "time": 427406.590244 }
+            ]
+          },
+          {
+            "user": "Magnificent",
+            "score": 400,
+            "cumulative_time": 2105858,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              null,
+              { "points": 100.0, "time": 525582.952247 },
+              { "points": 100.0, "time": 526190.625965 },
+              { "points": 100.0, "time": 526721.213184 },
+              { "points": 100.0, "time": 527363.958467 }
+            ]
+          },
+          {
+            "user": "Ganteng_Nekat",
+            "score": 370,
+            "cumulative_time": 857370,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              null,
+              { "points": 100.0, "time": 212573.222557 },
+              { "points": 100.0, "time": 213607.284214 },
+              { "points": 100.0, "time": 216341.970802 },
+              { "points": 70.0, "time": 214848.423725 }
+            ]
+          },
+          {
+            "user": "Red_Bullish",
+            "score": 350,
+            "cumulative_time": 1576300,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              { "points": 50.0, "time": 559272.147111 },
+              { "points": 100.0, "time": 527238.076505 },
+              { "points": 100.0, "time": 208655.571932 },
+              null,
+              { "points": 100.0, "time": 281135.110538 }
+            ]
+          },
+          {
+            "user": "Masih_Beginner",
+            "score": 300,
+            "cumulative_time": 1421602,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              null,
+              { "points": 100.0, "time": 436028.727593 },
+              { "points": 100.0, "time": 514276.403381 },
+              { "points": 100.0, "time": 471297.750094 },
+              { "points": 0.0, "time": 465738.877024 }
+            ]
+          },
+          {
+            "user": "omniscient",
+            "score": 250,
+            "cumulative_time": 1286676,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              { "points": 50.0, "time": 470285.470326 },
+              { "points": 100.0, "time": 351626.03338 },
+              { "points": 100.0, "time": 464765.083883 },
+              null,
+              null
+            ]
+          },
+          {
+            "user": "MAULANA",
+            "score": 160,
+            "cumulative_time": 919507,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              null,
+              { "points": 60.0, "time": 460685.0456 },
+              { "points": 100.0, "time": 458822.941027 },
+              null,
+              null
+            ]
+          },
+          {
+            "user": "MengCP",
+            "score": 100,
+            "cumulative_time": 42033,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              null,
+              { "points": 100.0, "time": 42033.97817 },
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "user": "Nusa_Warrior",
+            "score": 100,
+            "cumulative_time": 47864,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              { "points": 100.0, "time": 47864.090822 },
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "user": "Gabriella",
+            "score": 0,
+            "cumulative_time": 0,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [null, null, null, null, null]
+          },
+          {
+            "user": "Bexposc_Carox_s",
+            "score": 0,
+            "cumulative_time": 0,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              null,
+              { "points": 0.0, "time": 158248.081119 },
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "user": "ISMAYA",
+            "score": 0,
+            "cumulative_time": 0,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [null, null, null, null, null]
+          },
+          {
+            "user": "Young",
+            "score": 0,
+            "cumulative_time": 0,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [null, null, null, null, null]
+          },
+          {
+            "user": "GoAlexander",
+            "score": 0,
+            "cumulative_time": 0,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              null,
+              { "points": 0.0, "time": 603071.357305 },
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "user": "Gloria",
+            "score": 0,
+            "cumulative_time": 0,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [
+              { "points": 0.0, "time": 556802.792626 },
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "user": "CYBER_MANSAJO",
+            "score": 0,
+            "cumulative_time": 0,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [null, null, null, null, null]
+          },
+          {
+            "user": "Neutrality",
+            "score": 0,
+            "cumulative_time": 0,
+            "tiebreaker": 0.0,
+            "old_rating": null,
+            "new_rating": null,
+            "is_disqualified": false,
+            "solutions": [null, null, null, null, null]
+          }
+        ]
+      }
+    }
+  }
+}
