@@ -32,11 +32,12 @@
                     </td>
                    
 
-                    <td :class="rank.is_disqualified ? 'verdict-disqualified' : (rank.score / problems.length >= 100 ? 'verdict-ac-vivid' :
+                    <td :class="rank.is_disqualified ? 'verdict-disqualified' : (rank.score / problems.length >= 100 ? 'verdict-ac-100' :
                                 (rank.score / problems.length >= 80 ? 'verdict-wa-80' : 
                                 (rank.score / problems.length >= 60 ? 'verdict-wa-60' : 
+                                (rank.score / problems.length >= 50 ? 'verdict-wa-50' : 
                                 (rank.score / problems.length >= 40 ? 'verdict-wa-40' : 
-                                (rank.score / problems.length >= 20 ? 'verdict-wa-20' : 'verdict-wa-vivid')))))">
+                                (rank.score / problems.length >= 20 ? 'verdict-wa-20' : 'verdict-wa-0'))))))">
                         <!-- <p style="text-align:center;">
                             {{ rank.cumulative_time | normalizeTime }}
                         </p> -->
@@ -49,11 +50,12 @@
                     <template v-for="(solution, index) in rank.solutions">
                         <template v-if="!rank.is_disqualified">
                             <td :key="'problem-header-' + index"
-                            :class="solution ? (solution.points >= 100 ? 'verdict-ac-vivid' :
+                            :class="solution ? (solution.points >= 100 ? 'verdict-ac-100' :
                                 (solution.points >= 80 ? 'verdict-wa-80' : 
                                 (solution.points >= 60 ? 'verdict-wa-60' : 
+                                (solution.points >= 50 ? 'verdict-wa-50' : 
                                 (solution.points >= 40 ? 'verdict-wa-40' : 
-                                (solution.points >= 20 ? 'verdict-wa-20' : 'verdict-wa-vivid'))))) : 'verdict-neutral'">
+                                (solution.points >= 20 ? 'verdict-wa-20' : 'verdict-wa-0')))))) : 'verdict-neutral'">
                                 <template v-if="solution">
                                     <p align="center" style="margin: auto">
                                         {{ solution.points + "" }}
