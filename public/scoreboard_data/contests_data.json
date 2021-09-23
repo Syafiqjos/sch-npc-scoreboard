@@ -1,6 +1,6 @@
 [
 	{
-	  "active": true,
+	  "active": false,
 	  "id": "bapacc-cup",
 	  "name": "Bapacc-Cup",
 	  "scoreboard_domjudge_api": "https://scoreboard-api.schematics-npc.com/senior/bapacc-cup/scoreboard",
@@ -8,28 +8,28 @@
 	  "scoreboard_domjudge_api_organizations": "https://scoreboard-api.schematics-npc.com/senior/bapacc-cup/organizations"
 	},
 	{
-	  "active": true,
+	  "active": false,
 	  "id": "tutorial1",
 	  "name": "Tutorial 1",
 	  "scoreboard_dmoj_api": "https://scoreboard-api.schematics-npc.com/junior/tutorial1/scoreboard",
 	  "scoreboard_dmoj_api_users": "https://scoreboard-api.schematics-npc.com/junior/tutorial1/users"
 	},
 	{
-	  "active": true,
+	  "active": false,
 	  "id": "tutorial2",
 	  "name": "Tutorial 2",
 	  "scoreboard_dmoj_api": "https://scoreboard-api.schematics-npc.com/junior/tutorial2/scoreboard",
 	  "scoreboard_dmoj_api_users": "https://scoreboard-api.schematics-npc.com/junior/tutorial2/users"
 	},
 	{
-	  "active": true,
+	  "active": false,
 	  "id": "tutorial3",
 	  "name": "Tutorial 3",
 	  "scoreboard_dmoj_api": "https://scoreboard-api.schematics-npc.com/junior/tutorial3/scoreboard",
 	  "scoreboard_dmoj_api_users": "https://scoreboard-api.schematics-npc.com/junior/tutorial3/users"
 	},
 	{
-	  "active": true,
+	  "active": false,
 	  "id": "tutorial4",
 	  "name": "Tutorial 4",
 	  "scoreboard_dmoj_api": "https://scoreboard-api.schematics-npc.com/junior/tutorial4/scoreboard",

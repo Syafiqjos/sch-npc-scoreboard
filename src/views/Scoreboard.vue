@@ -1,57 +1,62 @@
 <template v-if="app_config.active">
-    <v-container fill-height fluid>
-        <template v-if="contests_data 
-                        && contest_name 
-                        && contest_details 
-                        && (    judge_type == 'dmoj' 
-                                && contest_details.scoreboard_dmoj_api 
-                                && contest_details.scoreboard_dmoj_api_users
-                            || judge_type == 'domjudge' 
-                                && contest_details.scoreboard_domjudge_api
-                                && contest_details.scoreboard_domjudge_api_teams
-                                && contest_details.scoreboard_domjudge_api_organizations)">
-            <v-app-bar app color="primary" height="80px" dark>
-                <router-link style="display: inline-block;" to="."><img style="height:50px;padding-left:10px;" :src="app_config.scoreboard_logo_url" /></router-link>
-                <!-- <v-app-bar-nav-icon @click.stop="drawer = true"></v-app-bar-nav-icon> -->
-                <!-- <v-toolbar-title>Schematics NPC - {{ contest_name }} {{ class_type }}</v-toolbar-title> -->
-                <v-spacer></v-spacer>
-                <v-btn v-if="contest_details 
-                            && (contest_details.scoreboard_dmoj_api
-                                && contest_details.scoreboard_dmoj_api_users)" 
-                        :to="juniorLink" @click="refreshScoreboard()" class="mr-2">
-                    Junior
-                </v-btn>
-                <v-btn v-if="contest_details 
-                            && (contest_details.scoreboard_domjudge_api
-                                && contest_details.scoreboard_domjudge_api_teams
-                                && contest_details.scoreboard_domjudge_api_organizations)"
-                        :to="seniorLink" @click="refreshScoreboard()">
-                    Senior
-                </v-btn>
-            </v-app-bar>
-            <template v-if="show_scoreboard && contest_details">
-                <h1 class="title wide">{{ app_config.scoreboard_title_text }}</h1>
-                <h2 class="subtitle wide">{{ contest_name }} {{ class_type }}</h2>
-                <ScoreboardDomjudge ref="scoreboardDomjudge" :data="scoreboard_data" :contest_details="contest_details" v-if="judge_type == 'domjudge'"></ScoreboardDomjudge>
-                <ScoreboardDMOJ ref="scoreboardDMOJ" :data="scoreboard_data" :contest_details="contest_details" v-else-if="judge_type == 'dmoj'"></ScoreboardDMOJ>
-                <div class="countdown">
-                    <h2>{{ countdown }}</h2>
-                </div>
-                <h3 class="subtitle text-center wide">{{ endTimeFull }}</h3>
-            </template>
-            <SponsorComponent v-if="app_config.sponsor && app_config.sponsor.active" :app_config="app_config"></SponsorComponent>
-        </template>
-        <template v-else>
-            <HomeComponent>
-                <template v-slot:content>
-                    <p class="button-list" style="text-align:center;">{{ app_config.homepage_fallback_contest_text }}</p>
-                    <v-btn to=".">
-                        {{ app_config.homepage_back_text }}
+    <div>
+        <v-container fill-height fluid
+            v-if="contests_data 
+                && contest_name 
+                && contest_details 
+                && (    judge_type == 'dmoj' 
+                        && contest_details.scoreboard_dmoj_api 
+                        && contest_details.scoreboard_dmoj_api_users
+                    || judge_type == 'domjudge' 
+                        && contest_details.scoreboard_domjudge_api
+                        && contest_details.scoreboard_domjudge_api_teams
+                        && contest_details.scoreboard_domjudge_api_organizations)">
+            <template>
+                <v-app-bar app color="primary" height="80px" dark>
+                    <router-link style="display: inline-block;" to="."><img style="height:50px;padding-left:10px;" :src="app_config.scoreboard_logo_url" /></router-link>
+                    <!-- <v-app-bar-nav-icon @click.stop="drawer = true"></v-app-bar-nav-icon> -->
+                    <!-- <v-toolbar-title>Schematics NPC - {{ contest_name }} {{ class_type }}</v-toolbar-title> -->
+                    <v-spacer></v-spacer>
+                    <v-btn v-if="contest_details 
+                                && (contest_details.scoreboard_dmoj_api
+                                    && contest_details.scoreboard_dmoj_api_users)" 
+                            :to="juniorLink" @click="refreshScoreboard()" class="mr-2">
+                        Junior
                     </v-btn>
+                    <v-btn v-if="contest_details 
+                                && (contest_details.scoreboard_domjudge_api
+                                    && contest_details.scoreboard_domjudge_api_teams
+                                    && contest_details.scoreboard_domjudge_api_organizations)"
+                            :to="seniorLink" @click="refreshScoreboard()">
+                        Senior
+                    </v-btn>
+                </v-app-bar>
+                <template v-if="show_scoreboard && contest_details">
+                    <h1 class="title wide">{{ app_config.scoreboard_title_text }}</h1>
+                    <h2 class="subtitle wide">{{ contest_name }} {{ class_type }}</h2>
+                    <ScoreboardDomjudge ref="scoreboardDomjudge" :data="scoreboard_data" :contest_details="contest_details" v-if="judge_type == 'domjudge'"></ScoreboardDomjudge>
+                    <ScoreboardDMOJ ref="scoreboardDMOJ" :data="scoreboard_data" :contest_details="contest_details" v-else-if="judge_type == 'dmoj'"></ScoreboardDMOJ>
+                    <div class="countdown">
+                        <h2>{{ countdown }}</h2>
+                    </div>
+                    <h3 class="subtitle text-center wide">{{ endTimeFull }}</h3>
+                </template>
+                <SponsorComponent v-if="app_config.sponsor && app_config.sponsor.active" :app_config="app_config"></SponsorComponent>
+            </template>
+        </v-container>
+        <template v-else>
+            <HomeComponent absolute="true">
+                <template v-slot:content>
+                    <div>
+                        <p class="button-list" style="text-align:center;">{{ app_config.homepage_fallback_contest_text }}</p>
+                        <v-btn class="button-list" to=".">
+                            {{ app_config.homepage_back_text }}
+                        </v-btn>
+                    </div>
                 </template>
             </HomeComponent>
         </template>
-    </v-container>
+    </div>
 </template>
 
 <script>
