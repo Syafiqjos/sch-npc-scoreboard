@@ -20,17 +20,28 @@
                         <v-layout>
                              <img v-image-fall-back="$parent.app_config.judge.domjudge.scoreboard_fallback_image" class="institute-logo" :src="`${$parent.app_config.judge.domjudge.scoreboard_images_url}/${teams[rank.team_id].organization_id}${$parent.app_config.judge.domjudge.scoreboard_images_ext}`" /> 
                              
-                             <p style="margin:auto; margin-left: 10px;"> {{ teams[rank.team_id].name }} </p>
+                             <div style="margin-top: auto; margin-bottom: auto">
+                                <p style="margin:auto; margin-left: 10px;"> <b>{{ teams[rank.team_id].name }}</b> </p>
+                                <p style="margin:auto; margin-left: 10px; font-size: 0.8em; color: hsla(0, 100%, 100%, 0.75)">{{ organizations[teams[rank.team_id].organization_id].formal_name }}</p>
+                             </div>
 
-                             <span class="tooltip-text" style="display:block;margin:0px;transform:translateX(-100px);position:relative;">{{ teams[rank.team_id].member || 'Member not specified' }}</span>
+                             <span class="tooltip-text" style="margin:0px;position:absolute;transform:translateY(-4em);width: auto;min-width:250px;z-index: 2">
+                                 <span v-if="!teams[rank.team_id].members">Member not specified</span>
+                                 <span v-else>
+                                     <span>Anggota tim:</span>
+                                     <li v-for="member in teams[rank.team_id].members" :key="member" style="list-style-type: none">
+                                        {{ member }}
+                                    </li>
+                                 </span>
+                             </span>
                         </v-layout>
                     </td>
                     <td>
                         <p style="text-align:center;">
-                            {{ rank.score.total_time }}
+                            {{ rank.score.num_solved }}
                         </p>
                         <p style="text-align:center;" class="solution solution-points verdict-ac">
-                            {{ rank.score.num_solved }}
+                            {{ rank.score.total_time }}
                         </p>
                     </td>
                     <!-- Problems -->
@@ -54,7 +65,7 @@
                                     : ['solution', 'solution-points','verdict-neutral'])"
                             >
                             
-                                {{ problem.num_judged + (problem.num_judged == 1 ? " try" : " tries") }}
+                                {{ problem.num_judged + (problem.num_pending > 0 ? ` + ${problem.num_pending}` : '') + ((problem.num_judged + problem.num_pending) == 1 ? " try" : " tries") }}
                             </p>
                         </template>
                         <template v-else>
@@ -131,7 +142,12 @@ export default {
 
                 let teams_new = {};
                 
-                teams.forEach((item) => { teams_new[item.id] = item; });
+                teams.forEach((item) => {
+                    teams_new[item.id] = item;
+                    if(teams_new[item.id].members) {
+                        teams_new[item.id].members = teams_new[item.id].members.split('\n')
+                    }
+                });
 
                 this.teams = teams_new;
                 if (process.env.DEBUG_MODE == true) {
