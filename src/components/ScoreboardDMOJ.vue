@@ -14,26 +14,33 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(rank, index) in rankings" :key="'ranking-' + index">
+                <tr v-for="(rank, index) in rankings" :key="'ranking-' + index" style="height: 5rem">
                     <td :class="rank.is_disqualified ? 'verdict-disqualified' : ''">{{ index + 1 }}</td>
 
-                    <td style="width:250px;" :class="rank.is_disqualified ? 'verdict-disqualified' : '' + ' tooltip'">
+                    <td style="width:400px;" :class="rank.is_disqualified ? 'verdict-disqualified' : '' + ' tooltip'">
                         <v-layout>
                             <img v-image-fall-back="$parent.app_config.judge.domjudge.scoreboard_fallback_image" class="institute-logo" :src="`${$parent.app_config.judge.dmoj.scoreboard_images_url}/${users[rank.user].school_id}${$parent.app_config.judge.dmoj.scoreboard_images_ext}`" /> 
 
-                            <p v-if="rank.is_disqualified" class="verdict-disqualified" style="margin:auto; margin-left: 10px;">{{ rank.user }}</p>
-                            <p v-else style="margin:auto; margin-left: 10px;">{{ rank.user }}</p>
+                            <div>
+                                <p v-if="rank.is_disqualified" class="verdict-disqualified" style="margin:auto; margin-left: 10px;">{{ users[rank.user].fullname }}</p>
+                                <p v-else style="margin:auto; margin-left: 10px;"><b>{{ users[rank.user].fullname }}</b></p>
 
-                            <span class="tooltip-text" style="display:block;margin:0px;transform:translateX(-100px);position:relative;">{{ users[rank.user].fullname }}</span>
+                                <p style="margin:auto; margin-left: 10px; font-size: 0.8em; color: hsla(0, 100%, 100%, 0.75)">{{ users[rank.user].school_name }}</p>
+                            </div>
+                            
                         </v-layout>
                     </td>
                    
 
-                    <td :class="rank.is_disqualified ? 'verdict-disqualified' : ''">
-                        <p style="text-align:center;">
+                    <td :class="rank.is_disqualified ? 'verdict-disqualified' : (rank.score / problems.length >= 100 ? 'verdict-ac-vivid' :
+                                (rank.score / problems.length >= 80 ? 'verdict-wa-80' : 
+                                (rank.score / problems.length >= 60 ? 'verdict-wa-60' : 
+                                (rank.score / problems.length >= 40 ? 'verdict-wa-40' : 
+                                (rank.score / problems.length >= 20 ? 'verdict-wa-20' : 'verdict-wa-vivid')))))">
+                        <!-- <p style="text-align:center;">
                             {{ rank.cumulative_time | normalizeTime }}
-                        </p>
-                        <p style="text-align:center;" class="solution solution-points verdict-ac">
+                        </p> -->
+                        <p style="text-align:center; margin: auto">
                             {{ rank.score }}
                         </p>
                     </td>
@@ -42,17 +49,18 @@
                     <template v-for="(solution, index) in rank.solutions">
                         <template v-if="!rank.is_disqualified">
                             <td :key="'problem-header-' + index"
-                            :class="solution ? (solution.points >= 100 ? 'verdict-ac-vivid' : 'verdict-wa-vivid') : 'verdict-neutral'">
+                            :class="solution ? (solution.points >= 100 ? 'verdict-ac-vivid' :
+                                (solution.points >= 80 ? 'verdict-wa-80' : 
+                                (solution.points >= 60 ? 'verdict-wa-60' : 
+                                (solution.points >= 40 ? 'verdict-wa-40' : 
+                                (solution.points >= 20 ? 'verdict-wa-20' : 'verdict-wa-vivid'))))) : 'verdict-neutral'">
                                 <template v-if="solution">
-                                    <p class="solution solution-time">
-                                        {{ solution.time | normalizeTime }}
-                                    </p>
-                                    <p :class="(solution ? (solution.points >= 100 ? ['solution', 'solution-points','verdict-ac'] : ['solution', 'solution-points','verdict-wa']) : ['solution', 'solution-points','verdict-neutral'])">
+                                    <p align="center" style="margin: auto">
                                         {{ solution.points + "" }}
                                     </p>
                                 </template>
                                 <template v-else>
-                                    <p class="solution">
+                                    <p align="center" style="margin: auto">
                                         -
                                     </p>
                                 </template>
