@@ -55,13 +55,13 @@ export default {
 
             this.contestName = null;
 
-            console.log(contest_details);
+            // console.log(contest_details);
 
             if (contest_details && contest_details.active){
               this.contestName = contest_details.id;
               this.contestDetails = contest_details;
 
-              console.log("success");
+              // console.log("success");
             }
           }
         );

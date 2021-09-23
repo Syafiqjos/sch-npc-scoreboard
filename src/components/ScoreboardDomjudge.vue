@@ -1,5 +1,5 @@
 <template v-if="$parent.app_config">
-    <v-simple-table v-if="scoreboard_data && contest_details && problems && rankings && teams && organizations && organizations_images" class="scoreboard" fixed-header>
+    <v-simple-table v-if="scoreboard_data && contest_details && problems && rankings && teams && organizations" class="scoreboard" fixed-header>
         <template v-slot:default>
             <thead>
                 <tr>
@@ -18,10 +18,6 @@
                     <td>{{ rank.rank }}</td>
                     <td style="width:250px;" class="tooltip">
                         <v-layout>
-                             <!-- <span class="institute-logo-box" v-if="organizations[teams[rank.team_id].organization_id] == null || organizations_images[organizations[teams[rank.team_id].organization_id].id] == null"></span> -->
-                             <!-- <img class="institute-logo" v-if="organizations[teams[rank.team_id].organization_id] == null || organizations_images[organizations[teams[rank.team_id].organization_id].id] == null" src="/null.png" /> -->
-                             <!-- <img v-else class="institute-logo" :src="organizations_images[organizations[teams[rank.team_id].organization_id].id].image" />  -->
-                             <!-- <img v-image-fall-back class="institute-logo" :src="`https://senior.schematics-npc.com/images/affiliations/${teams[rank.team_id].organization_id}.png`" />  -->
                              <img v-image-fall-back="$parent.app_config.judge.domjudge.scoreboard_fallback_image" class="institute-logo" :src="`${$parent.app_config.judge.domjudge.scoreboard_images_url}/${teams[rank.team_id].organization_id}${$parent.app_config.judge.domjudge.scoreboard_images_ext}`" /> 
                              
                              <p style="margin:auto; margin-left: 10px;"> {{ teams[rank.team_id].name }} </p>
@@ -81,8 +77,7 @@ export default {
             problems : null,
             rankings : null,
             teams : null,
-            organizations : null,
-            organizations_images : null
+            organizations : null
         }
     },
     props : [
@@ -96,7 +91,6 @@ export default {
             this.populateTable();
             this.retrieveTeams();
             this.retrieveOrganizations();
-            this.retrieveOrganizationImages();
 
             document.title = this.$parent.contest_name + " " + this.$parent.class_type + " - " + this.$parent.app_config.event_title;
         },
@@ -127,8 +121,6 @@ export default {
             let url = this.contest_details.scoreboard_domjudge_api_teams;
 
             this.axios.get(url)
-            // this.axios.get("/scoreboard_data/domjudge_api_teams_example.json")
-            // this.axios.get("http://192.168.233.131/domjudge/api/contests/2/teams")
             .then((response) => {
                 let teams = response.data;
 
@@ -160,8 +152,6 @@ export default {
             let url = this.contest_details.scoreboard_domjudge_api_organizations;
 
             this.axios.get(url)
-            // this.axios.get("/scoreboard_data/domjudge_api_organizations_example.json")
-            // this.axios.get("http://192.168.233.131/domjudge/api/contests/2/organizations")
             .then((response) => {
                 let organizations = response.data;
 
@@ -177,25 +167,6 @@ export default {
                 this.organizations = organizations_new;
                 if (process.env.DEBUG_MODE == true) {
                     console.log(this.organizations);
-                }
-            })
-            .catch(async (errors) => {
-                if (process.env.DEBUG_MODE == true) {
-                    console.log(errors);
-                }
-
-                // Sleep then, Call Recursive if fail
-                await this.sleep(1000);
-                this.retrieveOrganizations();
-            });
-        },
-        retrieveOrganizationImages(){
-            this.axios.get("/scoreboard_data/institute_images.json")
-            .then((response) => {
-                this.organizations_images = response.data;
-
-                if (process.env.DEBUG_MODE == true) {
-                    console.log(this.organizations_images);
                 }
             })
             .catch(async (errors) => {
