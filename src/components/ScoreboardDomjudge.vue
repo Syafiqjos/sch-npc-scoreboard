@@ -22,7 +22,7 @@
                              
                              <p style="margin:auto; margin-left: 10px;"> {{ teams[rank.team_id].name }} </p>
 
-                             <span class="tooltip-text" style="display:block;margin:0px;margin-left:200px;">{{ teams[rank.team_id].member || 'Member not specified' }}</span>
+                             <span class="tooltip-text" style="display:block;margin:0px;transform:translateX(-100px);position:relative;">{{ teams[rank.team_id].member || 'Member not specified' }}</span>
                         </v-layout>
                     </td>
                     <td>

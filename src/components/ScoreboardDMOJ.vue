@@ -24,7 +24,7 @@
                             <p v-if="rank.is_disqualified" class="verdict-disqualified" style="margin:auto; margin-left: 10px;">{{ rank.user }}</p>
                             <p v-else style="margin:auto; margin-left: 10px;">{{ rank.user }}</p>
 
-                            <span class="tooltip-text" style="display:block;margin:0px;margin-left:200px;">{{ users[rank.user].fullname }}</span>
+                            <span class="tooltip-text" style="display:block;margin:0px;transform:translateX(-100px);position:relative;">{{ users[rank.user].fullname }}</span>
                         </v-layout>
                     </td>
                    

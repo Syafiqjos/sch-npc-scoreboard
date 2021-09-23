@@ -29,7 +29,7 @@
 	  "scoreboard_dmoj_api_users": "https://scoreboard-api.schematics-npc.com/junior/tutorial3/users"
 	},
 	{
-	  "active": true,
+	  "active": false,
 	  "id": "tutorial4",
 	  "name": "Tutorial 4",
 	  "scoreboard_dmoj_api": "https://scoreboard-api.schematics-npc.com/junior/tutorial4/scoreboard",
