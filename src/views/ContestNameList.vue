@@ -1,7 +1,7 @@
 <template v-if="app_config.active">
     <HomeComponent>
       <template v-slot:content>
-        <div>
+        <div style="width:90%;">
           <template v-if="contests_data">
             <span></span>
             <template v-for="(contest, index) in contests_data" >

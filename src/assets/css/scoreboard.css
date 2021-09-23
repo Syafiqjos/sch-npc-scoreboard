@@ -202,8 +202,10 @@ h3 {
     margin-bottom: 1.5rem;
     margin-top: 40px;
 
-    min-width: 720px;
-    min-width: min(720px, 80vw);
+    /* min-width: 720px; */
+    min-width: min(720px, 80%);
+
+    flex-direction: column;
 
     border-radius: 5px;
 
@@ -232,4 +234,14 @@ h3 {
 {
     height: 50px;
     margin: 5px 10px;
+}
+
+@media screen and (min-width: 720px){
+    .sponsor-list {
+        flex-direction: row;
+        flex-wrap: nowrap;
+
+        min-width: 720px;
+        min-width: min(720px, 80%);
+    }
 }

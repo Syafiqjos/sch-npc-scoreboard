@@ -1,7 +1,7 @@
 <template v-if="app_config.active">
     <HomeComponent>
       <template v-slot:content>
-        <div>
+        <div style="width:90%;">
           <span></span>
           <template v-if="contests_portal">
             <span></span>
