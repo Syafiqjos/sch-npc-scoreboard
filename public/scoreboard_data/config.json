@@ -8,7 +8,7 @@
     
     "active": true,
     "debug_mode" : false,
-    "snow_active" : true,
+    "snow_active" : false,
     "custom_backend_api" : true,
 
     "scoreboard_logo_url" : "https://schematics.its.ac.id/image/white-logo.svg",
@@ -39,22 +39,22 @@
         "sponsors" : [
             {
                 "image_url" : "/scoreboard_data/sponsors/pcs-sponsorship.png",
-                "image_alt" : "",
+                "image_alt" : "PCS Sponsor",
                 "height" : "60px"
             },
             {
                 "image_url" : "/scoreboard_data/sponsors/rumahweb-sponsorship.png",
-                "image_alt" : "",
+                "image_alt" : "rumahweb Sponsor",
                 "height" : "50px"
             },
             {
                 "image_url" : "/scoreboard_data/sponsors/petrokimia-sponsorship.png",
-                "image_alt" : "",
+                "image_alt" : "Petrokimia Gresik Sponsor",
                 "height" : "60px"
             },
             {
                 "image_url" : "/scoreboard_data/sponsors/dewaweb-sponsorship.png",
-                "image_alt" : "",
+                "image_alt" : "dewaweb Sponsor",
                 "height" : "80px"
             }
         ]

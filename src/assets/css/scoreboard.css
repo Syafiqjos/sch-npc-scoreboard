@@ -199,8 +199,8 @@ h3 {
 .sponsor-container {
     padding: 1.5rem;
     margin: auto;
-    margin-bottom: 2rem;
-    margin-top: 50px;
+    margin-bottom: 1.5rem;
+    margin-top: 40px;
 
     min-width: 720px;
     min-width: min(720px, 80vw);
