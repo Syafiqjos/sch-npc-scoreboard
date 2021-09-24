@@ -1,4 +1,4 @@
-<template v-if="app_config.active">
+<template v-if="app_config && app_config.active">
     <div>
         <v-container fill-height fluid
             v-if="contests_data 
@@ -78,7 +78,8 @@ export default {
             end_time : new Date(),
             countdown_timer : null,
             countdown_refresher : null,
-            countdown : null
+            countdown : null,
+            app_config: null
         }
     },
     components : {
@@ -90,7 +91,7 @@ export default {
     mounted(){
         let param = this.$route.params.contest;
 
-        this.retrieveAppConfig(
+        this.app_config = this.retrieveAppConfig(
             () => { 
                 this.retrieveContestsData(() => {
                     let contest_details = this.getContestData(param);

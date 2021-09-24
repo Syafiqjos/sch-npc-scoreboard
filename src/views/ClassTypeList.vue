@@ -1,4 +1,4 @@
-<template v-if="app_config.active">
+<template v-if="app_config && app_config.active">
     <HomeComponent>
       <template v-slot:content>
         <div style="width:90%;">
@@ -38,7 +38,8 @@ export default {
   data() {
     return {
       contestName : null,
-      contestDetails : null
+      contestDetails : null,
+      app_config: null
     }
   },
   components : {
@@ -47,7 +48,7 @@ export default {
   mounted(){
     let param = this.$route.params.contest;
 
-    this.retrieveAppConfig(
+    this.app_config = this.retrieveAppConfig(
       () => { 
         this.retrieveContestsData(
           () => {

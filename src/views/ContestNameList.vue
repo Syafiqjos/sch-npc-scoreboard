@@ -1,4 +1,4 @@
-<template v-if="app_config.active">
+<template v-if="app_config && app_config.active">
     <HomeComponent>
       <template v-slot:content>
         <div style="width:90%;">
@@ -29,11 +29,16 @@ import HomeComponent from '@/components/HomeComponent.vue'
 
 export default {
   name: 'ContestNameList',
+  data(){
+    return {
+      app_config: null
+    }
+  },
   components : {
     HomeComponent
   },
   mounted(){
-    this.retrieveAppConfig(
+    this.app_config = this.retrieveAppConfig(
       () => { 
         this.retrieveContestsData();
       }
