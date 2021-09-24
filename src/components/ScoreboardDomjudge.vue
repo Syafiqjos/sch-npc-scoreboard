@@ -9,7 +9,7 @@
                     <!-- Problems -->
                     <th v-for="(problem, index) in problems" :key="'problem-header-' + index" class="text-center tooltip">
                         {{ String.fromCharCode(65 + index) }}
-                        <span class="tooltip-text" style="display:block;">{{ problem.problem_id }}</span>
+                        <span class="tooltip-text" style="display:block;">Problem {{ problem.label }}</span>
                     </th>
                 </tr>
             </thead>
@@ -119,6 +119,14 @@ export default {
 
                 this.problems = lis;
                 this.rankings = this.scoreboard_data.rows;
+
+                if (!this.scoreboard_data.state.started){
+                    this.scoreboard_data.state.started = '2021-09-24T14:00:00';
+                }
+
+                if (!this.scoreboard_data.state.ended){
+                    this.scoreboard_data.state.ended = '2021-09-25T02:00:00';
+                }
 
                 this.$parent.start_time = new Date(this.scoreboard_data.state.started);
                 this.$parent.end_time = new Date(this.scoreboard_data.state.ended);
