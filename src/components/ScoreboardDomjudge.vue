@@ -125,7 +125,7 @@ export default {
                 }
 
                 if (!this.scoreboard_data.state.ended){
-                    this.scoreboard_data.state.ended = '2021-09-25T02:00:00';
+                    this.scoreboard_data.state.ended = '2021-09-25T13:00:00';
                 }
 
                 this.$parent.start_time = new Date(this.scoreboard_data.state.started);

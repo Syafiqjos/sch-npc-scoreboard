@@ -37,6 +37,7 @@
                     <ScoreboardDomjudge ref="scoreboardDomjudge" :data="scoreboard_data" :contest_details="contest_details" v-if="judge_type == 'domjudge'"></ScoreboardDomjudge>
                     <ScoreboardDMOJ ref="scoreboardDMOJ" :data="scoreboard_data" :contest_details="contest_details" v-else-if="judge_type == 'dmoj'"></ScoreboardDMOJ>
                     <div class="countdown">
+                        <h3 v-if="app_config.snow_active">- FREEZE TIME -</h3>
                         <h2>{{ countdown }}</h2>
                     </div>
                     <h3 class="subtitle text-center wide">{{ endTimeFull }}</h3>
