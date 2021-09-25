@@ -1,4 +1,4 @@
-<template v-if="app_config.active">
+<template v-if="app_config && app_config.active">
     <div>
         <v-container fill-height fluid
             v-if="contests_data 
@@ -37,6 +37,7 @@
                     <ScoreboardDomjudge ref="scoreboardDomjudge" :data="scoreboard_data" :contest_details="contest_details" v-if="judge_type == 'domjudge'"></ScoreboardDomjudge>
                     <ScoreboardDMOJ ref="scoreboardDMOJ" :data="scoreboard_data" :contest_details="contest_details" v-else-if="judge_type == 'dmoj'"></ScoreboardDMOJ>
                     <div class="countdown">
+                        <h3 v-if="app_config.snow_active">{{ app_config.scoreboard_contest_freeze_text || '- FREEZE TIME -' }}</h3>
                         <h2>{{ countdown }}</h2>
                     </div>
                     <h3 class="subtitle text-center wide">{{ endTimeFull }}</h3>
@@ -78,7 +79,8 @@ export default {
             end_time : new Date(),
             countdown_timer : null,
             countdown_refresher : null,
-            countdown : null
+            countdown : null,
+            app_config: null
         }
     },
     components : {
@@ -90,7 +92,7 @@ export default {
     mounted(){
         let param = this.$route.params.contest;
 
-        this.retrieveAppConfig(
+        this.app_config = this.retrieveAppConfig(
             () => { 
                 this.retrieveContestsData(() => {
                     let contest_details = this.getContestData(param);

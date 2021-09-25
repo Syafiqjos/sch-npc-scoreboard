@@ -1,4 +1,4 @@
-<template v-if="$parent.app_config">
+<template v-if="$parent.app_config && $parent.app_config.active">
     <v-simple-table v-if="scoreboard_data && contest_details && problems && rankings && users" class="scoreboard" fixed-header>
         <template v-slot:default>
             <thead>

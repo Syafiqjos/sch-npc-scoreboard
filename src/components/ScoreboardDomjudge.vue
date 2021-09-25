@@ -1,4 +1,4 @@
-<template v-if="$parent.app_config">
+<template v-if="$parent.app_config && $parent.app_config.active">
     <v-simple-table v-if="scoreboard_data && contest_details && problems && rankings && teams && organizations" class="scoreboard" fixed-header>
         <template v-slot:default>
             <thead>
@@ -9,7 +9,7 @@
                     <!-- Problems -->
                     <th v-for="(problem, index) in problems" :key="'problem-header-' + index" class="text-center tooltip">
                         {{ String.fromCharCode(65 + index) }}
-                        <span class="tooltip-text" style="display:block;">{{ problem.problem_id }}</span>
+                        <span class="tooltip-text" style="display:block;">Problem {{ problem.label }}</span>
                     </th>
                 </tr>
             </thead>
@@ -119,6 +119,14 @@ export default {
 
                 this.problems = lis;
                 this.rankings = this.scoreboard_data.rows;
+
+                if (!this.scoreboard_data.state.started){
+                    this.scoreboard_data.state.started = '2021-09-24T14:00:00';
+                }
+
+                if (!this.scoreboard_data.state.ended){
+                    this.scoreboard_data.state.ended = '2021-09-25T13:00:00';
+                }
 
                 this.$parent.start_time = new Date(this.scoreboard_data.state.started);
                 this.$parent.end_time = new Date(this.scoreboard_data.state.ended);

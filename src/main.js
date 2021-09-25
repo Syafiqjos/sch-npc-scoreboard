@@ -34,7 +34,8 @@ var contestsDataMixin = {
         console.log("retrieveAppConfig");
       }
 
-      const run = this.app_config.active == null;
+      // const run = this.app_config.active == null;
+      const run = true;
       
       const changeEventTitle = () => {
         document.title = this.app_config.event_title;
@@ -62,6 +63,7 @@ var contestsDataMixin = {
               if (onSuccess){
                 onSuccess();
               }
+              return this.app_config;
           })
           .catch(async(errors) => {
             if (debug) {
@@ -72,7 +74,7 @@ var contestsDataMixin = {
             // Sleep then, Call Recursive if fail
             await this.sleep(1000);
             if (config.limit > 0){
-              this.retrieveAppConfig(null, { limit: config.limit - 1 });
+              return this.retrieveAppConfig(null, { limit: config.limit - 1 });
             }
           });
       } else {
@@ -80,7 +82,10 @@ var contestsDataMixin = {
         if (onSuccess){
           onSuccess();
         }
+        return this.app_config;
       }
+
+      return null;
     },
     retrieveContestsPortal(config = { limit: 5 }){
       if (this.app_config){

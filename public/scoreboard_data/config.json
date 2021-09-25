@@ -15,6 +15,7 @@
     "scoreboard_title_text" : "Schematics NPC",
     "scoreboard_fallback_image" : "/null.png",
     "scoreboard_contest_over_text" : "- Contest Over -",
+    "scoreboard_contest_freeze_text" : "- FREEZE TIME -",
     "scoreboard_contest_time_format" : "Contest {contest} berakhir pada {day}, {date} {month} {year} pukul {hour}:{minute}:{second} WIB",
 
     "judge" : {

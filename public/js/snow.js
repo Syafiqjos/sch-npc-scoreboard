@@ -46,28 +46,32 @@ function randomise(range) {
 }
 
 function initSnow() {
-	var snowSize = snowMaxSize - snowMinSize;
-	marginBottom = document.body.scrollHeight - 5;
-	marginRight = document.body.clientWidth - 15;
+	if (!document.snow.activated){
+		var snowSize = snowMaxSize - snowMinSize;
+		marginBottom = document.body.scrollHeight - 5;
+		marginRight = document.body.clientWidth - 15;
 
-	for (i = 0; i <= snowMax; i++) {
-		coords[i] = 0;
-		lefr[i] = Math.random() * 15;
-		pos[i] = 0.03 + Math.random() / 10;
-		snow[i] = document.getElementById("flake" + i);
-		snow[i].style.fontFamily = "inherit";
-		snow[i].size = randomise(snowSize) + snowMinSize;
-		snow[i].style.fontSize = snow[i].size + "px";
-		snow[i].style.color = snowColor[randomise(snowColor.length)];
-		snow[i].style.zIndex = 1000;
-		snow[i].sink = snowSpeed * snow[i].size / 5;
-		snow[i].posX = randomise(marginRight - snow[i].size);
-		snow[i].posY = randomise(2 * marginBottom - marginBottom - 2 * snow[i].size);
-		snow[i].style.left = snow[i].posX + "px";
-		snow[i].style.top = snow[i].posY + "px";
+		for (i = 0; i <= snowMax; i++) {
+			coords[i] = 0;
+			lefr[i] = Math.random() * 15;
+			pos[i] = 0.03 + Math.random() / 10;
+			snow[i] = document.getElementById("flake" + i);
+			snow[i].style.fontFamily = "inherit";
+			snow[i].size = randomise(snowSize) + snowMinSize;
+			snow[i].style.fontSize = snow[i].size + "px";
+			snow[i].style.color = snowColor[randomise(snowColor.length)];
+			snow[i].style.zIndex = 1000;
+			snow[i].sink = snowSpeed * snow[i].size / 5;
+			snow[i].posX = randomise(marginRight - snow[i].size);
+			snow[i].posY = randomise(2 * marginBottom - marginBottom - 2 * snow[i].size);
+			snow[i].style.left = snow[i].posX + "px";
+			snow[i].style.top = snow[i].posY + "px";
+		}
+
+		document.snow.activated = true;
+
+		moveSnow();
 	}
-
-	moveSnow();
 }
 
 function resize() {
