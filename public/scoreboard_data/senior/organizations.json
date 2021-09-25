@@ -1,0 +1,208 @@
+{
+  "success": true,
+  "data": [
+    {
+      "icpc_id": "46",
+      "shortname": "IKA ITS",
+      "id": "46",
+      "name": "IKA ITS",
+      "formal_name": "Alumni Institut Teknologi Sepuluh Nopember"
+    },
+    {
+      "icpc_id": "52",
+      "shortname": "ISDTS",
+      "id": "52",
+      "name": "ISDTS",
+      "formal_name": "Institut Sains dan Teknologi Terpadu Surabaya"
+    },
+    {
+      "icpc_id": "18",
+      "shortname": "ITB",
+      "id": "18",
+      "name": "ITB",
+      "formal_name": "Institut Teknologi Bandung"
+    },
+    {
+      "icpc_id": "20",
+      "shortname": "STIKOM BALI",
+      "id": "20",
+      "name": "STIKOM BALI",
+      "formal_name": "Institut Teknologi dan Bisnis STIKOM Bali"
+    },
+    {
+      "icpc_id": "41",
+      "shortname": "DEL",
+      "id": "41",
+      "name": "DEL",
+      "formal_name": "Institut Teknologi Del"
+    },
+    {
+      "icpc_id": "2",
+      "shortname": "ITS",
+      "id": "2",
+      "name": "ITS",
+      "formal_name": "Institut Teknologi Sepuluh Nopember"
+    },
+    {
+      "icpc_id": "45",
+      "shortname": "PENS",
+      "id": "45",
+      "name": "PENS",
+      "formal_name": "Politeknik Elektronika Negeri Surabaya"
+    },
+    {
+      "icpc_id": "31",
+      "shortname": "POLIWANGI",
+      "id": "31",
+      "name": "POLIWANGI",
+      "formal_name": "Politeknik Negeri Banyuwangi"
+    },
+    {
+      "icpc_id": "29",
+      "shortname": "POLITAP",
+      "id": "29",
+      "name": "POLITAP",
+      "formal_name": "Politeknik Negeri Ketapang"
+    },
+    {
+      "icpc_id": "30",
+      "shortname": "POLTEK TEDC",
+      "id": "30",
+      "name": "POLTEK TEDC",
+      "formal_name": "Politeknik TEDC Bandung"
+    },
+    {
+      "icpc_id": "19",
+      "shortname": "MIKROSKIL",
+      "id": "19",
+      "name": "MIKROSKIL",
+      "formal_name": "STMIK Mikroskil"
+    },
+    {
+      "icpc_id": "16",
+      "shortname": "UNAIR",
+      "id": "16",
+      "name": "UNAIR",
+      "formal_name": "Universitas Airlangga"
+    },
+    {
+      "icpc_id": "37",
+      "shortname": "BINUS",
+      "id": "37",
+      "name": "BINUS",
+      "formal_name": "Universitas Bina Nusantara"
+    },
+    {
+      "icpc_id": "24",
+      "shortname": "UB",
+      "id": "24",
+      "name": "UB",
+      "formal_name": "Universitas Brawijaya"
+    },
+    {
+      "icpc_id": "33",
+      "shortname": "UNDIP",
+      "id": "33",
+      "name": "UNDIP",
+      "formal_name": "Universitas Diponegoro"
+    },
+    {
+      "icpc_id": "17",
+      "shortname": "UI",
+      "id": "17",
+      "name": "UI",
+      "formal_name": "Universitas Indonesia"
+    },
+    {
+      "icpc_id": "48",
+      "shortname": "UII",
+      "id": "48",
+      "name": "UII",
+      "formal_name": "Universitas Islam Indonesia"
+    },
+    {
+      "icpc_id": "28",
+      "shortname": "UNSOED",
+      "id": "28",
+      "name": "UNSOED",
+      "formal_name": "Universitas Jenderal Soedirman"
+    },
+    {
+      "icpc_id": "38",
+      "shortname": "ULM",
+      "id": "38",
+      "name": "ULM",
+      "formal_name": "Universitas Lambung Mangkurat"
+    },
+    {
+      "icpc_id": "26",
+      "shortname": "MA CHUNG",
+      "id": "26",
+      "name": "MA CHUNG",
+      "formal_name": "Universitas Ma Chung"
+    },
+    {
+      "icpc_id": "25",
+      "shortname": "UMMI",
+      "id": "25",
+      "name": "UMMI",
+      "formal_name": "Universitas Muhammadiyah Sukabumi"
+    },
+    {
+      "icpc_id": "39",
+      "shortname": "UNIMED",
+      "id": "39",
+      "name": "UNIMED",
+      "formal_name": "Universitas Negeri Medan"
+    },
+    {
+      "icpc_id": "23",
+      "shortname": "UPNYK",
+      "id": "23",
+      "name": "UPNYK",
+      "formal_name": "Universitas Pembangunan Nasional Veteran Yogyakarta"
+    },
+    {
+      "icpc_id": "43",
+      "shortname": "PERTAMINA",
+      "id": "43",
+      "name": "PERTAMINA",
+      "formal_name": "Universitas Pertamina"
+    },
+    {
+      "icpc_id": "53",
+      "shortname": "SU",
+      "id": "53",
+      "name": "SU",
+      "formal_name": "Universitas Sampoerna"
+    },
+    {
+      "icpc_id": "32",
+      "shortname": "UNS",
+      "id": "32",
+      "name": "UNS",
+      "formal_name": "Universitas Sebelas Maret"
+    },
+    {
+      "icpc_id": "40",
+      "shortname": "USU",
+      "id": "40",
+      "name": "USU",
+      "formal_name": "Universitas Sumatera Utara"
+    },
+    {
+      "icpc_id": "34",
+      "shortname": "TEL-U",
+      "id": "34",
+      "name": "TEL-U",
+      "formal_name": "Universitas Telkom"
+    },
+    {
+      "icpc_id": "27",
+      "shortname": "TRUNOJOYO",
+      "id": "27",
+      "name": "TRUNOJOYO",
+      "formal_name": "Universitas Trunojoyo Madura"
+    }
+  ]
+}

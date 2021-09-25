@@ -1,0 +1,835 @@
+{
+  "success": true,
+  "data": [
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Sepuluh Nopember",
+      "id": "151",
+      "icpc_id": null,
+      "name": "Xynith",
+      "display_name": null,
+      "organization_id": "2",
+      "members": "Frederick Yonatan Susanto\r\nYoel Mountanus Sitorus\r\nMashita Dewi"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Airlangga",
+      "id": "152",
+      "icpc_id": null,
+      "name": "VekGeo",
+      "display_name": null,
+      "organization_id": "16",
+      "members": "Maliky Syailendra Haqi Sutafa\nSami Fahman\nReza Abid Abhista"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Indonesia",
+      "id": "153",
+      "icpc_id": null,
+      "name": "UNTITLED",
+      "display_name": null,
+      "organization_id": "17",
+      "members": "Daniel Christian Mandolang\nAbdul Rafi\nAushaaf Fadhilah Azzah"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Bandung",
+      "id": "154",
+      "icpc_id": null,
+      "name": "Ryungan Pangsaena",
+      "display_name": null,
+      "organization_id": "18",
+      "members": "Muhammad Hasan\nFarras Mohammad Hibban Faddila\nMuhammad Kamal Shafi"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Indonesia",
+      "id": "155",
+      "icpc_id": null,
+      "name": "2.65",
+      "display_name": null,
+      "organization_id": "17",
+      "members": "Steven Novaryo\nPikatan Arya Bramajati\nHocky Yudhiono"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Bandung",
+      "id": "156",
+      "icpc_id": null,
+      "name": "KRBPTY",
+      "display_name": null,
+      "organization_id": "18",
+      "members": "Made Prisha Wulansari\nAdriel Gustino Parlinggoman Situmorang\nFabianus Harry Setiawan"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Indonesia",
+      "id": "157",
+      "icpc_id": null,
+      "name": "3S: 2 Silver 1 Salman",
+      "display_name": null,
+      "organization_id": "17",
+      "members": "R Fausta Anugrah Dianparama\nAhmad Haulian Yoga Pratama\nMuhammad Salman Al Farisi"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Indonesia",
+      "id": "158",
+      "icpc_id": null,
+      "name": "Di-CARRY Juri OSN",
+      "display_name": null,
+      "organization_id": "17",
+      "members": "Julian Fernando\nInigo Ramli\nBudiman Arbenta"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "STMIK Mikroskil",
+      "id": "159",
+      "icpc_id": null,
+      "name": "Karina",
+      "display_name": null,
+      "organization_id": "19",
+      "members": "Malvino Austin Tanura\nVarrel Marcellius\nHezkya Natanael Ramli"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi dan Bisnis STIKOM Bali",
+      "id": "160",
+      "icpc_id": null,
+      "name": "Panik Gak!?",
+      "display_name": null,
+      "organization_id": "20",
+      "members": "Agung Surya Nugraha S.\nI PUTU GEDE YAHYA\nGusti Ayu Putu Kesari Purnama Yani"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Bandung",
+      "id": "161",
+      "icpc_id": null,
+      "name": "AMD",
+      "display_name": null,
+      "organization_id": "18",
+      "members": "Fatih Darielma Gaizta\nMochammad Ramadhany\nMuhammad Ardi Avicenna"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Sepuluh Nopember",
+      "id": "162",
+      "icpc_id": null,
+      "name": "Skemmers",
+      "display_name": null,
+      "organization_id": "2",
+      "members": "Calvin Janitra\r\nAlfa Fakhrur Rizal Zaini\r\nAndika Laksana Putra"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Sepuluh Nopember",
+      "id": "163",
+      "icpc_id": null,
+      "name": "Pasukan Beginner",
+      "display_name": null,
+      "organization_id": "2",
+      "members": "Darren Prasetya\r\nAryan Shafa Wardana\r\nRichie Seputro"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Sepuluh Nopember",
+      "id": "164",
+      "icpc_id": null,
+      "name": "Squarda Forte",
+      "display_name": null,
+      "organization_id": "2",
+      "members": "M Naufal B\r\nFaraihan Rafi Adityawarman\r\nRafi Aliefian Putra Ramadhani"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Bandung",
+      "id": "165",
+      "icpc_id": null,
+      "name": "xyz?",
+      "display_name": null,
+      "organization_id": "18",
+      "members": "Frederik Imanuel Louis\nAndreana Hartadi Suliman\nVincent Prasetiya Atmadja"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Pembangunan Nasional Veteran Yogyakarta",
+      "id": "166",
+      "icpc_id": null,
+      "name": "Enigma",
+      "display_name": null,
+      "organization_id": "23",
+      "members": "I Made Dwika Putra Riswanda\nVarick Tovandy"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Sepuluh Nopember",
+      "id": "167",
+      "icpc_id": null,
+      "name": "Euler",
+      "display_name": null,
+      "organization_id": "2",
+      "members": "Muhammad Razan Athallah\r\nApta Rasendriya Wijaya\r\nMoh. Rosy Haqqy Aminy"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Brawijaya",
+      "id": "168",
+      "icpc_id": null,
+      "name": "BCC - Bawah saya bau bawang",
+      "display_name": null,
+      "organization_id": "24",
+      "members": "Noverdi Anugrah Ramadhan\nPutu Rama Bena Putra\nNathaniel Audrian"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Muhammadiyah Sukabumi",
+      "id": "169",
+      "icpc_id": null,
+      "name": "Reski Doang",
+      "display_name": null,
+      "organization_id": "25",
+      "members": "Reski Mulud Muchamad"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Ma Chung",
+      "id": "170",
+      "icpc_id": null,
+      "name": "Debugger",
+      "display_name": null,
+      "organization_id": "26",
+      "members": "Daniel Yogatama\nNatasya Liemena\nFikry Catur Farenza"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Brawijaya",
+      "id": "171",
+      "icpc_id": null,
+      "name": "Bukan Introvert",
+      "display_name": null,
+      "organization_id": "24",
+      "members": "Deni Iskandar\nJonathan Wibisono\nMuhammad Reyhan"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Trunojoyo Madura",
+      "id": "172",
+      "icpc_id": null,
+      "name": "Trunojoyo Syntax",
+      "display_name": null,
+      "organization_id": "27",
+      "members": "Egi Putra Ragil\nHeldi Tio Pratama\nMoch. Andyka Saputra"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Sepuluh Nopember",
+      "id": "173",
+      "icpc_id": null,
+      "name": "BismillahLolos",
+      "display_name": null,
+      "organization_id": "2",
+      "members": "Al-Ferro Yudisthira Putra\r\nUrdhanaka Aptanagi\r\nTigo S Yoga"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Sepuluh Nopember",
+      "id": "174",
+      "icpc_id": null,
+      "name": "Integram",
+      "display_name": null,
+      "organization_id": "2",
+      "members": "Muhammad Fariz Ghozi\r\nJIHAD AMAL FARID\r\nVINCENTIUS GUSTI PUTU AGUNG BAGUS MAHENDRA"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Sepuluh Nopember",
+      "id": "175",
+      "icpc_id": null,
+      "name": "AWAN",
+      "display_name": null,
+      "organization_id": "2",
+      "members": "Jawahirul Wildan\r\nNadira Milha Nailul Fath\r\nAli Hasyimi Assegaf"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Sepuluh Nopember",
+      "id": "176",
+      "icpc_id": null,
+      "name": "ADA",
+      "display_name": null,
+      "organization_id": "2",
+      "members": "Ariella Firdaus Imata\r\nAkbar Putra Asenti Priyanto\r\nThomas Juan Mahardika Suryono"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Sepuluh Nopember",
+      "id": "177",
+      "icpc_id": null,
+      "name": "Udah UWOW Aja",
+      "display_name": null,
+      "organization_id": "2",
+      "members": "Dafina Farah Fatima\r\nMuhammad Daffa Harits"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Bandung",
+      "id": "178",
+      "icpc_id": null,
+      "name": "ali_ganteng",
+      "display_name": null,
+      "organization_id": "18",
+      "members": "Imam Rusydi Ibrahim\nSyarifa Dwi Purnamasari\nMuhammad Abdul Aziz Ghazali"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Jenderal Soedirman",
+      "id": "179",
+      "icpc_id": null,
+      "name": "Generasi Soedirman",
+      "display_name": null,
+      "organization_id": "28",
+      "members": "Meilisa Ayu Susantiva\nIntan Solihaturrosyidah\nSiti Nurhidayati"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Politeknik Negeri Ketapang",
+      "id": "180",
+      "icpc_id": null,
+      "name": "HIMIP",
+      "display_name": null,
+      "organization_id": "29",
+      "members": "Rico Pahlefi\nwidi arrohman\nGunawan"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Politeknik TEDC Bandung",
+      "id": "181",
+      "icpc_id": null,
+      "name": "Vice Shelby",
+      "display_name": null,
+      "organization_id": "30",
+      "members": "Abdillah Raihan Azra\nFahri Ris Ramdhani\nRejeffry Maloraja Siahaan"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Politeknik Negeri Banyuwangi",
+      "id": "182",
+      "icpc_id": null,
+      "name": "PASCA TEAM",
+      "display_name": null,
+      "organization_id": "31",
+      "members": "Bunga Nailah Salsabilah\nOctavian Damai Putri\nJovita Yumna Kultum"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Sebelas Maret",
+      "id": "183",
+      "icpc_id": null,
+      "name": "Eleven March",
+      "display_name": null,
+      "organization_id": "32",
+      "members": "Barik Mauluda Wildani\nAdiat Rahman\nBella Ananda Putri"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Sepuluh Nopember",
+      "id": "184",
+      "icpc_id": null,
+      "name": "jus jeruk",
+      "display_name": null,
+      "organization_id": "2",
+      "members": "Mohammad Zhafran Dzaky\r\nFarrela Ranku Mahhisa\r\nTsabita Putri Ramadhany"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Diponegoro",
+      "id": "185",
+      "icpc_id": null,
+      "name": "Dips",
+      "display_name": null,
+      "organization_id": "33",
+      "members": "afrizal eka purnama\nDaniel Suberdo Matanari\nCharisto Marc Gybran"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Telkom",
+      "id": "186",
+      "icpc_id": null,
+      "name": "Nama TIM",
+      "display_name": null,
+      "organization_id": "34",
+      "members": "Gisella Vania Dwipayana\nVincentius Arnold Fridolin\nRahusien Salim"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Sepuluh Nopember",
+      "id": "187",
+      "icpc_id": null,
+      "name": "The Warrior",
+      "display_name": null,
+      "organization_id": "2",
+      "members": "Muhammad Zikri Ramadhan\r\nMelanie Sayyidina Sabrina Refman\r\nSyukra Wahyu Ramadhan"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Bina Nusantara",
+      "id": "188",
+      "icpc_id": null,
+      "name": "LF-01",
+      "display_name": null,
+      "organization_id": "37",
+      "members": "Edgard Jonathan Putra Pranoto\r\nJason Sebastian Kusuma\r\nKevin Halim"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Indonesia",
+      "id": "189",
+      "icpc_id": null,
+      "name": "uji coba",
+      "display_name": null,
+      "organization_id": "17",
+      "members": "richie christiansen senlia\nImmanuel\nDimas Tri Kurniawan"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Bina Nusantara",
+      "id": "190",
+      "icpc_id": null,
+      "name": "bit.ly/BuyaoDianji",
+      "display_name": null,
+      "organization_id": "37",
+      "members": "Vinsen Nawir\r\nGregorius Emmanuel Henry\r\nVincent Gunardi"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Indonesia",
+      "id": "191",
+      "icpc_id": null,
+      "name": "KuMenangisss",
+      "display_name": null,
+      "organization_id": "17",
+      "members": "Fernando Nathaniel Sutanto\nMuflih Naufal Maxi\nValerian Salim"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Bina Nusantara",
+      "id": "192",
+      "icpc_id": null,
+      "name": "2Jomblo&Friend",
+      "display_name": null,
+      "organization_id": "37",
+      "members": "Benedictus Visto Kartika\r\nFukjianto Tanjaya\r\nKresna Kirana Kusjantono"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Bina Nusantara",
+      "id": "193",
+      "icpc_id": null,
+      "name": "Sabeb :v",
+      "display_name": null,
+      "organization_id": "37",
+      "members": "Jonathan Kristanto\r\nJustin Orlean\r\nNicholas Setiono"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Bandung",
+      "id": "194",
+      "icpc_id": null,
+      "name": "OBE (Oh Berat Euy)",
+      "display_name": null,
+      "organization_id": "18",
+      "members": "Yusuf Firdaus Arifi\nFelix Fernando\nKahfi Rizky Kosasih"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Bina Nusantara",
+      "id": "195",
+      "icpc_id": null,
+      "name": "https://bit.ly/nama-tim",
+      "display_name": null,
+      "organization_id": "37",
+      "members": "William Justin\nAlwyn\nFrancis Alexander"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Sepuluh Nopember",
+      "id": "196",
+      "icpc_id": null,
+      "name": "DGR DGR Lolos Sih",
+      "display_name": null,
+      "organization_id": "2",
+      "members": "Adhira Riyanti Amanda\r\nRr. Diajeng Alfisyahrinnisa Anandha\r\nGabriella Natasya Br Ginting"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Lambung Mangkurat",
+      "id": "197",
+      "icpc_id": null,
+      "name": "why always error?",
+      "display_name": null,
+      "organization_id": "38",
+      "members": "Shendy Krisyohanda\nAhmad Rusyadi\nPutri Ridha Amalia"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Brawijaya",
+      "id": "198",
+      "icpc_id": null,
+      "name": "Sendiri",
+      "display_name": null,
+      "organization_id": "24",
+      "members": "Andy Firmansyah"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Lambung Mangkurat",
+      "id": "199",
+      "icpc_id": null,
+      "name": "It Works on my PC",
+      "display_name": null,
+      "organization_id": "38",
+      "members": "Irvan Aulia Luthfi\nMuhammad Ardhy Satrio Jati\nMuhammad Hafizh Yanuardi"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Sepuluh Nopember",
+      "id": "200",
+      "icpc_id": null,
+      "name": "Byte Me",
+      "display_name": null,
+      "organization_id": "2",
+      "members": "Nadif Mustafa\r\nAURELIO KILLIAN LEXI VERRILL\r\nAdam Mahendra"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Bina Nusantara",
+      "id": "201",
+      "icpc_id": null,
+      "name": "Among",
+      "display_name": null,
+      "organization_id": "37",
+      "members": "Kezia Aurelia Cendranata\r\nRichard Alison\r\nRico Filberto"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Bina Nusantara",
+      "id": "202",
+      "icpc_id": null,
+      "name": "Proof by Sus",
+      "display_name": null,
+      "organization_id": "37",
+      "members": "Luis Anthonie Alkins\r\nVio Albert Ferdinand\r\nOwen Djonatan"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Sepuluh Nopember",
+      "id": "203",
+      "icpc_id": null,
+      "name": "We Tried",
+      "display_name": null,
+      "organization_id": "2",
+      "members": "Rayssa Ravelia\r\nWan Sabrina Mayzura\r\nGlenaya"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Negeri Medan",
+      "id": "204",
+      "icpc_id": null,
+      "name": "Yutnas'19",
+      "display_name": null,
+      "organization_id": "39",
+      "members": "Vania Dwisaura Artanti\nAnisa Fitria\nVida Gresiana Dachi"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Bina Nusantara",
+      "id": "205",
+      "icpc_id": null,
+      "name": "OwO UwU OwO",
+      "display_name": null,
+      "organization_id": "37",
+      "members": "Felix Antonius Suharjo\nJames Martin\nTyrone Matthew Phanghegar"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Bandung",
+      "id": "206",
+      "icpc_id": null,
+      "name": "GoodKid",
+      "display_name": null,
+      "organization_id": "18",
+      "members": "I Gede Arya Raditya Parameswara\nAira Thalca Avila Putra\nUbaidillah Ariq Prathama"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Lambung Mangkurat",
+      "id": "207",
+      "icpc_id": null,
+      "name": "No_Idea",
+      "display_name": null,
+      "organization_id": "38",
+      "members": "Ibnu Fadillah\nMa'ruf Anshari\nRezi Rahdianor"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Sumatera Utara",
+      "id": "208",
+      "icpc_id": null,
+      "name": "Fake it till you make it",
+      "display_name": null,
+      "organization_id": "40",
+      "members": "Cynthia Yapiter\nLevina Gunawan\nHerzinanda Putra"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Bandung",
+      "id": "209",
+      "icpc_id": null,
+      "name": "QINGQONGQANGQONG",
+      "display_name": null,
+      "organization_id": "18",
+      "members": "Michel Fang\nJonathan Yudi Gunawan\nMorgen Sudyanto"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Telkom",
+      "id": "210",
+      "icpc_id": null,
+      "name": "PenikmatSenja",
+      "display_name": null,
+      "organization_id": "34",
+      "members": "Muhammad Tsaqif Ammar\nButrahandisya\nJoshua Erlangga Sakti"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Indonesia",
+      "id": "211",
+      "icpc_id": null,
+      "name": "GraySquad",
+      "display_name": null,
+      "organization_id": "17",
+      "members": "Muhammad Kenshin Himura Mahmuddin\nMuhammad Fikri Haryanto\nI Made Indra Mahaarta"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Bandung",
+      "id": "212",
+      "icpc_id": null,
+      "name": "Menggokil",
+      "display_name": null,
+      "organization_id": "18",
+      "members": "Ahmad Romy Zahran\nFirizky Ardiansyah\nMuhammad Fahmi Irfan"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Bina Nusantara",
+      "id": "213",
+      "icpc_id": null,
+      "name": "Sedikit Lagi",
+      "display_name": null,
+      "organization_id": "37",
+      "members": "Welly Jonathan\r\nAlbert Toshiro Heru\r\nIchsan"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Del",
+      "id": "214",
+      "icpc_id": null,
+      "name": "gaBerharapBanyak",
+      "display_name": null,
+      "organization_id": "41",
+      "members": "Matthew Alfredo\nRicky Ananda Pardomuan Sitorus\nDewa Sembiring"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Del",
+      "id": "215",
+      "icpc_id": null,
+      "name": "ModalNEKAT",
+      "display_name": null,
+      "organization_id": "41",
+      "members": "Natanael Jansudin Siregar\nSamuel Immanuel Herlinton Sibuea\nGuntur Augustin Sinaga"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Telkom",
+      "id": "216",
+      "icpc_id": null,
+      "name": "PendatangBaru",
+      "display_name": null,
+      "organization_id": "34",
+      "members": "Muhammad Zahruliff Fadlurrahman Alhafizh\r\nShadifa Auliatama Harjanto\r\nKevin Adrian Manurung"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Pertamina",
+      "id": "217",
+      "icpc_id": null,
+      "name": "Ningen",
+      "display_name": null,
+      "organization_id": "43",
+      "members": "Yusril Albi\nAryanda Rizky Pratama"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Pertamina",
+      "id": "218",
+      "icpc_id": null,
+      "name": "Duo Lawak",
+      "display_name": null,
+      "organization_id": "43",
+      "members": "Muhammad Taqiyyuddin Fadhlurrohman\nMuhammad Jamiul Akbar"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Bina Nusantara",
+      "id": "219",
+      "icpc_id": null,
+      "name": "Memasang",
+      "display_name": null,
+      "organization_id": "37",
+      "members": "Bobby Susanto Ali\nFelix Pherry\nRio Febrian"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Sepuluh Nopember",
+      "id": "220",
+      "icpc_id": null,
+      "name": "Heartbleed",
+      "display_name": null,
+      "organization_id": "2",
+      "members": "Fikri Yudhistira Ajiwijaya"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Telkom",
+      "id": "221",
+      "icpc_id": null,
+      "name": "kotaba",
+      "display_name": null,
+      "organization_id": "34",
+      "members": "Nabil Anwar Fauzi\nRakhmat Rifaldy\nM Afif Raihan"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Bandung",
+      "id": "222",
+      "icpc_id": null,
+      "name": "Ayam Bangkok Putih cs.",
+      "display_name": null,
+      "organization_id": "18",
+      "members": "Jauhar Wibisono\nKinantan Arya Bagaspati\nMarcello Faria"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Sebelas Maret",
+      "id": "223",
+      "icpc_id": null,
+      "name": "KAJABE",
+      "display_name": null,
+      "organization_id": "32",
+      "members": "Ervizal Buana Jatiputra\nMuhammad Hafiz Aditya\nBonang Respati Satmoko"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Politeknik Elektronika Negeri Surabaya",
+      "id": "224",
+      "icpc_id": null,
+      "name": "Jamaah Talim",
+      "display_name": null,
+      "organization_id": "45",
+      "members": "Rayhan Munir Wibowo\nFarhan Izzudin Azzufar"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Bandung",
+      "id": "225",
+      "icpc_id": null,
+      "name": "Konohagakure",
+      "display_name": null,
+      "organization_id": "18",
+      "members": "Rafii Mahardika\nHaikal Asadul Milzam\nStephano Ladislaus Gredito Moeljono"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Indonesia",
+      "id": "226",
+      "icpc_id": null,
+      "name": "Schubert's Legacy",
+      "display_name": null,
+      "organization_id": "17",
+      "members": "Robertus Aditya Sukoco\nAdrian Hakim Utomo\nMuhammad Rifqi Praditya"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Indonesia",
+      "id": "227",
+      "icpc_id": null,
+      "name": "Sheherazade",
+      "display_name": null,
+      "organization_id": "17",
+      "members": "David Alexander\nMuhammad Haddad\nJosh Steven Lasiman"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Bina Nusantara",
+      "id": "229",
+      "icpc_id": null,
+      "name": "Internal Crisis",
+      "display_name": null,
+      "organization_id": "37",
+      "members": "Albertus Ryan Dharmala\r\nSofie Kimberly\r\nKenneth Nicholas Mamahit"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Teknologi Sepuluh Nopember",
+      "id": "230",
+      "icpc_id": null,
+      "name": "Bondo Nekat",
+      "display_name": null,
+      "organization_id": "2",
+      "members": "Hanun Shaka Puspa\r\nHeru Dwi Kurniawan\r\nFarah Dhia Fadhila"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Islam Indonesia",
+      "id": "231",
+      "icpc_id": null,
+      "name": "Alphabet",
+      "display_name": null,
+      "organization_id": "48",
+      "members": "Rizan Qardafil\r\nMuhammad Tatmainnul Quluub\r\nAbdul Hamid Ibrahim"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Sumatera Utara",
+      "id": "233",
+      "icpc_id": null,
+      "name": "proof by action",
+      "display_name": null,
+      "organization_id": "40",
+      "members": "M Amirul Ilmi\nPrisko Banoza"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Institut Sains dan Teknologi Terpadu Surabaya",
+      "id": "234",
+      "icpc_id": null,
+      "name": "Kura - Kura Jomblo :(",
+      "display_name": null,
+      "organization_id": "52",
+      "members": "Christian Budhi Sabdana"
+    },
+    {
+      "group_ids": ["3"],
+      "affiliation": "Universitas Sampoerna",
+      "id": "235",
+      "icpc_id": null,
+      "name": "brrr",
+      "display_name": null,
+      "organization_id": "53",
+      "members": "Bryan R Panjinata"
+    }
+  ]
+}

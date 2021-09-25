@@ -39,21 +39,21 @@
 	  "active": true,
 	  "id": "warmup",
 	  "name": "Babak Pemanasan",
-	  "scoreboard_dmoj_api": "https://scoreboard-api.schematics-npc.com/junior/tutorial/scoreboard",
-	  "scoreboard_dmoj_api_users": "https://scoreboard-api.schematics-npc.com/junior/tutorial/users",
-	  "scoreboard_domjudge_api": "https://scoreboard-api.schematics-npc.com/senior/test1/scoreboard",
-	  "scoreboard_domjudge_api_teams": "https://scoreboard-api.schematics-npc.com/senior/test1/teams",
-	  "scoreboard_domjudge_api_organizations": "https://scoreboard-api.schematics-npc.com/senior/test1/organizations"
+	  "scoreboard_dmoj_api": "/scoreboard_data/junior/warmup.json",
+	  "scoreboard_dmoj_api_users": "/scoreboard_data/junior/users.json",
+	  "scoreboard_domjudge_api": "/scoreboard_data/senior/warmup.json",
+	  "scoreboard_domjudge_api_teams": "/scoreboard_data/senior/teams.json",
+	  "scoreboard_domjudge_api_organizations": "/scoreboard_data/senior/organizations.json"
 	},
 	{
 	  "active": true,
 	  "id": "penyisihan",
 	  "name": "Babak Penyisihan",
-	  "scoreboard_dmoj_api": "https://scoreboard-api.schematics-npc.com/junior/penyisihan/scoreboard",
-	  "scoreboard_dmoj_api_users": "https://scoreboard-api.schematics-npc.com/junior/penyisihan/users",
-	  "scoreboard_domjudge_api": "https://scoreboard-api.schematics-npc.com/senior/penyisihan/scoreboard",
-	  "scoreboard_domjudge_api_teams": "https://scoreboard-api.schematics-npc.com/senior/penyisihan/teams",
-	  "scoreboard_domjudge_api_organizations": "https://scoreboard-api.schematics-npc.com/senior/penyisihan/organizations"
+	  "scoreboard_dmoj_api": "/scoreboard_data/junior/penyisihan.json",
+	  "scoreboard_dmoj_api_users": "/scoreboard_data/junior/users.json",
+	  "scoreboard_domjudge_api": "/scoreboard_data/senior/penyisihan.json",
+	  "scoreboard_domjudge_api_teams": "/scoreboard_data/senior/teams.json",
+	  "scoreboard_domjudge_api_organizations": "/scoreboard_data/senior/organizations.json"
 	},
 	{
 	  "active": true,
