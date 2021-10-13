@@ -104,13 +104,34 @@ export default {
 
             document.title = this.$parent.contest_name + " " + this.$parent.class_type + " - " + this.$parent.app_config.event_title;
         },
+        sortRanks(rankings) {
+            rankings.forEach((ranking) => {
+                ranking.last_ac_time = 0;
+                ranking.solutions.forEach((solution) => {
+                    if (solution?.points > 0.0) {
+                        ranking.last_ac_time = Math.max(solution.time, ranking.last_ac_time);
+                    }
+                });
+            });
+
+            rankings.sort(function (a, b) {
+                if (a.score > b.score) return -1
+                    if (a.score == b.score && a.last_ac_time < b.last_ac_time) 
+                        return -1
+                    return 1
+                });
+            return rankings;
+        },
         populateTable(){
             if (process.env.DEBUG_MODE == true) {
                 console.log("PopulateTableAsDMOJ");
             }
             this.scoreboard_data = this.data.data.object;
+            
             this.problems = this.scoreboard_data.problems;
+            
             this.rankings = this.scoreboard_data.rankings;
+            this.rankings = this.sortRanks(this.rankings);
 
             this.$parent.start_time = new Date(this.scoreboard_data.start_time);
             this.$parent.end_time = new Date(this.scoreboard_data.end_time);
