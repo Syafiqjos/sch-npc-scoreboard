@@ -1,5 +1,5 @@
 <template v-if="$parent.app_config && $parent.app_config.active">
-    <v-simple-table v-if="scoreboard_data && contest_details && problems && rankings && teams && organizations" class="scoreboard" fixed-header>
+    <v-simple-table v-if="scoreboard_data && contest_details && problems && rankings && teams && organizations && details" class="scoreboard" fixed-header>
         <template v-slot:default>
             <thead>
                 <tr>
@@ -87,6 +87,7 @@ export default {
             scoreboard_data : null,
             problems : null,
             rankings : null,
+            details : null,
             teams : null,
             organizations : null
         }
@@ -99,11 +100,16 @@ export default {
     },
     methods : {
         initialization(){
-            this.populateTable();
+            this.retrieveDetails();
             this.retrieveTeams();
             this.retrieveOrganizations();
 
             document.title = this.$parent.contest_name + " " + this.$parent.class_type + " - " + this.$parent.app_config.event_title;
+        },
+        checkPopulateTable(){
+            if (this.details && this.organizations && this.teams) {
+                this.populateTable();
+            }
         },
         populateTable(){
             if (process.env.DEBUG_MODE == true) {
@@ -122,19 +128,54 @@ export default {
 
                 if (!this.scoreboard_data.state.started){
                     this.scoreboard_data.state.started = '2021-09-24T14:00:00';
+
+                    this.$parent.start_time = new Date(this.scoreboard_data.state.started);
+                } else {
+                    this.$parent.start_time = new Date(this.details.start_time);
                 }
 
                 if (!this.scoreboard_data.state.ended){
                     this.scoreboard_data.state.ended = '2021-09-25T13:00:00';
-                }
 
-                this.$parent.start_time = new Date(this.scoreboard_data.state.started);
-                this.$parent.end_time = new Date(this.scoreboard_data.state.ended);
+                    this.$parent.end_time = new Date(this.scoreboard_data.state.ended);
+                } else {
+                    this.$parent.end_time = new Date(this.details.end_time);
+                }
 
                 if (process.env.DEBUG_MODE == true) {
                     console.log(this.problems);
                 }
             }
+        },
+        retrieveDetails(){
+            let url = this.contest_details.scoreboard_domjudge_api_details;
+
+            this.axios.get(url)
+            .then((response) => {
+                let details = response.data;
+
+                // After Update JSON from Back-End
+                if (this.$parent.app_config.custom_backend_api){
+                    details = details.data;
+                }
+
+                this.details = details;
+
+                if (process.env.DEBUG_MODE == true) {
+                    console.log(this.details);
+                }
+
+                this.checkPopulateTable();
+            })
+            .catch(async (errors) => {
+                if (process.env.DEBUG_MODE == true) {
+                    console.log(errors);
+                }
+
+                // Sleep then, Call Recursive if fail
+                await this.sleep(1000);
+                this.retrieveTeams();
+            });
         },
         retrieveTeams(){
             let url = this.contest_details.scoreboard_domjudge_api_teams;
@@ -161,6 +202,8 @@ export default {
                 if (process.env.DEBUG_MODE == true) {
                     console.log(this.teams);
                 }
+
+                this.checkPopulateTable();
             })
             .catch(async (errors) => {
                 if (process.env.DEBUG_MODE == true) {
@@ -192,6 +235,8 @@ export default {
                 if (process.env.DEBUG_MODE == true) {
                     console.log(this.organizations);
                 }
+
+                this.checkPopulateTable();
             })
             .catch(async (errors) => {
                 if (process.env.DEBUG_MODE == true) {
